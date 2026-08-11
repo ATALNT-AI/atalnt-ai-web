@@ -51,7 +51,7 @@ export const PLANS: Plan[] = [
       "Offer delivery and negotiation",
     ],
     cta: "Book a walkthrough",
-    stripeUrl: "https://buy.stripe.com/eVq8wQ4WU8iXgrm3IA2Ji02",
+    stripeUrl: "https://buy.stripe.com/28E9AUcpmczd7UQfri2Ji05",
   },
   {
     id: "growth",
@@ -70,7 +70,7 @@ export const PLANS: Plan[] = [
       "Weekly search reviews with your AM",
     ],
     cta: "Book a walkthrough",
-    stripeUrl: "https://buy.stripe.com/fZu4gAahe9n11wsa6Y2Ji03",
+    stripeUrl: "https://buy.stripe.com/5kQ28sbli2YD8YUdja2Ji06",
     featured: true,
   },
   {

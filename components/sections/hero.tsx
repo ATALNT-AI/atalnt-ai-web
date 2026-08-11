@@ -52,7 +52,7 @@ export function Hero() {
             </div>
 
             <p className="mt-5 animate-at-fade text-[13.5px] text-muted [animation-delay:320ms]">
-              First month free · No implementation fee · First shortlist inside a week
+              No implementation fee · First shortlist inside a week
             </p>
 
             <dl className="mt-12 flex animate-at-fade flex-wrap gap-x-10 gap-y-6 border-t border-line pt-8 [animation-delay:400ms]">

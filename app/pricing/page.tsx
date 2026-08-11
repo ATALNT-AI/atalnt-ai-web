@@ -132,32 +132,26 @@ export default function PricingPage() {
                     </ul>
 
                     <div className="mt-6 flex flex-col gap-2">
-                      {plan.stripeUrl && (
+                      {plan.stripeUrl ? (
                         <Button
                           href={plan.stripeUrl}
-                          variant="primary"
+                          variant={plan.featured ? "primary" : "secondary"}
                           className="w-full justify-center"
                         >
-                          Start your free month
+                          Start now
+                        </Button>
+                      ) : (
+                        <Button
+                          href={CTA_HREF}
+                          variant="secondary"
+                          className="w-full justify-center"
+                        >
+                          {plan.cta}
                         </Button>
                       )}
-                      <Button
-                        href={CTA_HREF}
-                        variant={
-                          plan.stripeUrl
-                            ? "secondary"
-                            : plan.featured
-                              ? "primary"
-                              : "secondary"
-                        }
-                        className="w-full justify-center"
-                      >
-                        {plan.cta}
-                      </Button>
                       {plan.stripeUrl && (
                         <p className="text-center text-[11.5px] text-muted">
-                          First month free · then {formatUsd(plan.monthly ?? 0)}
-                          /mo · card, ACH, or Apple Pay
+                          Billed monthly · card, ACH, or Apple Pay
                         </p>
                       )}
                     </div>

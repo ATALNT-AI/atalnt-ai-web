@@ -39,7 +39,7 @@ export function CtaBand({
             </Button>
           </div>
           <p className="mt-6 text-[13px] text-on-dark-muted">
-            First month free · No implementation fee · First shortlist inside a week
+            No implementation fee · First shortlist inside a week
           </p>
         </Reveal>
       </Container>
