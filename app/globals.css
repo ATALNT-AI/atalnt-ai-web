@@ -107,6 +107,8 @@
   --animate-at-spin: atSpin 0.9s linear infinite;
   --animate-at-pulse: atPulse 1.6s ease-in-out infinite;
   --animate-at-slide-in: atSlideIn 0.34s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+  --animate-at-dash: atDash 1.1s linear infinite;
+  --animate-at-scan: atScan 3.2s ease-in-out infinite;
 
   @keyframes atFade {
     from {
@@ -207,6 +209,23 @@
     }
     to {
       transform: none;
+    }
+  }
+  /* Flowing dashes along an SVG path: the network graphic's lifeblood. */
+  @keyframes atDash {
+    to {
+      stroke-dashoffset: -22;
+    }
+  }
+  /* A scanning highlight that sweeps across a card, sonar-style. */
+  @keyframes atScan {
+    0%,
+    100% {
+      transform: translateX(-110%);
+    }
+    55%,
+    70% {
+      transform: translateX(110%);
     }
   }
 }
@@ -312,6 +331,38 @@
 /* Numerals that should line up in tables and stat tiles */
 @utility tabular {
   font-variant-numeric: tabular-nums;
+}
+
+/* Blueprint dot grids, faded at the edges so they read as texture, not
+   wallpaper. Bone variant for light sections, gold for ink sections. */
+@utility dots-bone {
+  background-image: radial-gradient(
+    circle,
+    rgba(21, 19, 14, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 35%,
+    transparent 75%
+  );
+}
+
+@utility dots-dark {
+  background-image: radial-gradient(
+    circle,
+    rgba(200, 162, 76, 0.16) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 35%,
+    transparent 75%
+  );
 }
 
 /* ============================================================================

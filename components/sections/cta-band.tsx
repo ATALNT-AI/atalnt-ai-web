@@ -17,6 +17,7 @@ export function CtaBand({
         aria-hidden
         className="glow-gold pointer-events-none absolute top-1/2 left-1/2 size-[640px] -translate-x-1/2 -translate-y-1/2 animate-at-float opacity-50"
       />
+      <div aria-hidden className="dots-dark pointer-events-none absolute inset-0" />
       <Container className="relative">
         <Reveal className="mx-auto max-w-[720px] text-center">
           <h2 className="text-[clamp(32px,4.4vw,50px)] text-on-dark text-balance">
@@ -38,8 +39,7 @@ export function CtaBand({
             </Button>
           </div>
           <p className="mt-6 text-[13px] text-on-dark-muted">
-            No implementation fee · No annual contract · First shortlist inside
-            a week
+            First month free · No implementation fee · First shortlist inside a week
           </p>
         </Reveal>
       </Container>

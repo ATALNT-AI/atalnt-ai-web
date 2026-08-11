@@ -22,6 +22,14 @@ export type Plan = {
   features: string[];
   cta: string;
   featured?: boolean;
+  /**
+   * Stripe Payment Link for this plan. When set, the pricing card shows a
+   * direct "Start now" checkout button (card, ACH, Apple Pay, handled by
+   * Stripe's hosted page) above the walkthrough CTA. The link should require
+   * acceptance of /subscription-terms at checkout, so every self-serve client
+   * has a recorded agreement.
+   */
+  stripeUrl?: string;
 };
 
 export const PLANS: Plan[] = [
@@ -43,6 +51,7 @@ export const PLANS: Plan[] = [
       "Offer delivery and negotiation",
     ],
     cta: "Book a walkthrough",
+    stripeUrl: "https://buy.stripe.com/eVq8wQ4WU8iXgrm3IA2Ji02",
   },
   {
     id: "growth",
@@ -61,6 +70,7 @@ export const PLANS: Plan[] = [
       "Weekly search reviews with your AM",
     ],
     cta: "Book a walkthrough",
+    stripeUrl: "https://buy.stripe.com/fZu4gAahe9n11wsa6Y2Ji03",
     featured: true,
   },
   {
@@ -80,6 +90,7 @@ export const PLANS: Plan[] = [
       "Quarterly hiring plan review",
     ],
     cta: "Book a walkthrough",
+    stripeUrl: "https://buy.stripe.com/eVqeVe9daar5grm2Ew2Ji04",
   },
   {
     id: "enterprise",

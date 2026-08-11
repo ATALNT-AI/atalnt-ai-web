@@ -13,10 +13,14 @@ const PROOF = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-bone pt-16 pb-20 sm:pt-24 sm:pb-28">
-      {/* Signature gold glow, behind everything, never interactive. */}
+      {/* Signature gold glow + blueprint grid, behind everything. */}
       <div
         aria-hidden
         className="glow-gold pointer-events-none absolute top-[-160px] right-[-140px] size-[720px] opacity-70 animate-at-float"
+      />
+      <div
+        aria-hidden
+        className="dots-bone pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] lg:block"
       />
 
       <Container className="relative">
@@ -48,8 +52,7 @@ export function Hero() {
             </div>
 
             <p className="mt-5 animate-at-fade text-[13.5px] text-muted [animation-delay:320ms]">
-              No implementation fee · Cancel anytime · Your first shortlist
-              inside a week
+              First month free · No implementation fee · First shortlist inside a week
             </p>
 
             <dl className="mt-12 flex animate-at-fade flex-wrap gap-x-10 gap-y-6 border-t border-line pt-8 [animation-delay:400ms]">

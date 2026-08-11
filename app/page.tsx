@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Hero } from "@/components/sections/hero";
 import { Problem } from "@/components/sections/problem";
 import { Solution } from "@/components/sections/solution";
+import { SourcingNetwork } from "@/components/sections/sourcing-network";
 import { SavingsCalculator } from "@/components/sections/savings-calculator";
 import { Agency } from "@/components/sections/agency";
 import { Wedge } from "@/components/sections/wedge";
@@ -29,6 +30,7 @@ export default function Home() {
         <Hero />
         <Problem />
         <Solution />
+        <SourcingNetwork />
         <SavingsCalculator />
         <Agency />
         <Wedge />

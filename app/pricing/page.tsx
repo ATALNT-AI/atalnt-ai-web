@@ -17,7 +17,7 @@ import { CTA_HREF } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Plans from $2,000 a month, priced by how many roles you run at once. Every plan includes a dedicated account manager. No placement fees, cancel anytime.",
+    "Plans from $2,000 a month, priced by how many roles you run at once. Every plan includes a dedicated account manager. No placement fees.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -35,8 +35,8 @@ const FAQ = [
     a: "No. The monthly price is the whole price, however many people you hire. That's the point.",
   },
   {
-    q: "Is there a contract or a setup fee?",
-    a: "No setup fee and no annual lock-in. Plans are monthly and you can cancel anytime.",
+    q: "Is there a setup fee?",
+    a: "No. There's nothing to implement and nothing to pay up front. Your first shortlist is moving within the week, and billing terms are agreed on your walkthrough.",
   },
   {
     q: "When does this not make sense?",
@@ -53,24 +53,26 @@ export default function PricingPage() {
     <>
       <SiteNav />
       <main className="flex-1">
-        <Section bg="bone" size="md">
+        {/* Compact header: the dollar figures are the content here, so they
+            belong above the fold, not below a hero. */}
+        <Section bg="bone" className="py-10 sm:py-14">
           <Container>
             <Reveal>
               <SectionHeader
                 align="center"
                 eyebrow="Pricing"
                 title="Priced by roles open, not people hired."
-                subtitle="Every plan includes a dedicated account manager, AI sourcing across seven channels, and unlimited resume screening. No placement fees. Cancel anytime."
+                subtitle="Every plan includes a dedicated account manager, AI sourcing across seven channels, and unlimited resume screening. No placement fees."
               />
             </Reveal>
 
-            <div className="mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {PLANS.map((plan, i) => (
                 <Reveal key={plan.id} delay={i * 80}>
                   <article
                     className={
                       plan.featured
-                        ? "relative flex h-full flex-col rounded-hero border border-gold-line bg-surface p-7 shadow-raised"
+                        ? "animate-at-glow relative flex h-full flex-col rounded-hero border border-gold-line bg-surface p-7 shadow-raised"
                         : "relative flex h-full flex-col rounded-hero border border-line bg-surface p-7 shadow-rest transition-shadow duration-200 hover:shadow-lift"
                     }
                   >
@@ -129,13 +131,36 @@ export default function PricingPage() {
                       ))}
                     </ul>
 
-                    <Button
-                      href={CTA_HREF}
-                      variant={plan.featured ? "primary" : "secondary"}
-                      className="mt-6 w-full justify-center"
-                    >
-                      {plan.cta}
-                    </Button>
+                    <div className="mt-6 flex flex-col gap-2">
+                      {plan.stripeUrl && (
+                        <Button
+                          href={plan.stripeUrl}
+                          variant="primary"
+                          className="w-full justify-center"
+                        >
+                          Start your free month
+                        </Button>
+                      )}
+                      <Button
+                        href={CTA_HREF}
+                        variant={
+                          plan.stripeUrl
+                            ? "secondary"
+                            : plan.featured
+                              ? "primary"
+                              : "secondary"
+                        }
+                        className="w-full justify-center"
+                      >
+                        {plan.cta}
+                      </Button>
+                      {plan.stripeUrl && (
+                        <p className="text-center text-[11.5px] text-muted">
+                          First month free · then {formatUsd(plan.monthly ?? 0)}
+                          /mo · card, ACH, or Apple Pay
+                        </p>
+                      )}
+                    </div>
                   </article>
                 </Reveal>
               ))}

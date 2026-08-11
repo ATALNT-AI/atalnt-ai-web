@@ -27,6 +27,7 @@ const COLUMNS = [
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
       { label: "SMS terms", href: "/sms-terms" },
+      { label: "Subscription agreement", href: "/subscription-terms" },
     ],
   },
 ];
