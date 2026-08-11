@@ -5,7 +5,7 @@
  *
  * Prices confirmed by ATALNT (Aug 2026): $2,000 to $7,000 per month.
  * The two middle tiers are an evenly spaced ladder across that range. If the
- * real Growth and Scale numbers differ, change them here and every surface
+ * real Growth number differs, change it here and every surface
  * updates.
  */
 
@@ -74,37 +74,19 @@ export const PLANS: Plan[] = [
     featured: true,
   },
   {
-    id: "scale",
-    name: "Scale",
-    monthly: 5000,
+    id: "enterprise",
+    name: "Custom",
+    monthly: null,
     minRoles: 11,
-    maxRoles: 15,
-    rolesLabel: "Up to 15 active roles",
+    maxRoles: Infinity,
+    rolesLabel: "11+ active roles",
     blurb:
-      "For companies in a real growth year, running a full slate of searches at the same time.",
+      "For companies in a real growth year, hiring at volume across sites or business units. Scoped to how you actually operate.",
     features: [
       "Everything in Growth",
-      "Up to 15 roles open at once",
-      "A second account manager on your book",
-      "Custom intake and scorecards",
-      "Quarterly hiring plan review",
-    ],
-    cta: "Book a walkthrough",
-    stripeUrl: "https://buy.stripe.com/eVqeVe9daar5grm2Ew2Ji04",
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    monthly: null,
-    minRoles: 16,
-    maxRoles: Infinity,
-    rolesLabel: "16+ active roles",
-    blurb:
-      "For high-volume hiring across sites or business units, scoped to how you actually operate.",
-    features: [
-      "Everything in Scale",
-      "Unlimited active roles",
+      "As many active roles as you need",
       "A dedicated account team",
+      "Custom intake and scorecards",
       "ATS and HRIS integration",
       "Custom SLAs and reporting",
     ],

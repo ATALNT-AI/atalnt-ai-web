@@ -66,7 +66,7 @@ export default function PricingPage() {
               />
             </Reveal>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
               {PLANS.map((plan, i) => (
                 <Reveal key={plan.id} delay={i * 80}>
                   <article
