@@ -1,0 +1,93 @@
+/**
+ * Single source of truth for site-wide constants.
+ * Anything that appears in more than one place — nav, footer, metadata,
+ * structured data — reads from here.
+ */
+
+export const SITE = {
+  name: "ATALNT AI",
+  tagline: "AI recruiting with a human on your side",
+  url: "https://atalnt.ai",
+  description:
+    "Replace contingent search fees with a subscription. Submit a role, and your account manager sources, screens, and vets candidates, then hands you a ranked shortlist that's ready to interview.",
+  parent: {
+    name: "ATALNT LLC",
+    url: "https://atalnt.com",
+  },
+  social: {
+    twitter: "@AtalntLLC",
+  },
+} as const;
+
+/** Primary conversion endpoint. Every CTA in the site points here. */
+export const CTA_HREF = "/demo";
+
+/**
+ * Launch nav. Only routes that exist.
+ * Platform, How it works, Pricing, Who it's for, and About are the next build
+ * phase; add them here as they ship rather than linking ahead of the pages.
+ */
+export const NAV_LINKS = [
+  { label: "How it works", href: "/#main" },
+  { label: "What it costs", href: "/#savings" },
+  { label: "Live demo", href: "/demo-app" },
+] as const;
+
+/**
+ * Sourcing channels the product searches across.
+ * Taken from the product itself — do not embellish this list.
+ */
+export const SOURCING_CHANNELS = [
+  "Internal Databases",
+  "External Databases",
+  "LinkedIn",
+  "Job Postings",
+  "Email Campaigns",
+  "Voice Campaigns",
+  "Text Campaigns",
+] as const;
+
+/**
+ * Headline proof points.
+ * `profilesIndexed` is still pending substantiation from ATALNT — confirm the
+ * source and as-of date before launch, or pull it.
+ */
+export const STATS = {
+  costReduction: "50–70%",
+  profilesIndexed: "2.4M",
+  accountManager: "1:1",
+} as const;
+
+/**
+ * Trust claims. Worded once, here, so the qualifier can never be dropped in
+ * one place and kept in another.
+ *
+ * SOC 2 Type II is IN PROGRESS, not achieved (confirmed by ATALNT, Aug 2026).
+ * The product demo's login screen reads "Protected by ATALNT · SOC 2 Type II"
+ * with no qualifier — that wording must NOT be carried onto the public site.
+ * Asserting a certification you don't yet hold is a misrepresentation an
+ * enterprise buyer's security review will catch.
+ */
+export const TRUST = {
+  soc2: {
+    label: "SOC 2 Type II audit in progress",
+    short: "SOC 2 Type II in progress",
+    detail:
+      "We're working toward SOC 2 Type II certification. Candidate data is encrypted in transit and at rest today.",
+    /** Flip to true only when the report is actually issued. */
+    certified: false,
+  },
+  encryption: "Candidate PII encrypted in transit and at rest",
+  ownership: "You own your data and can export it any time",
+  team: "A U.S.-based account management team",
+} as const;
+
+/** Defaults for the savings calculator. */
+export const CALC_DEFAULTS = {
+  hiresPerYear: 8,
+  averageSalary: 90_000,
+  agencyFeePct: 22,
+  /** ATALNT AI cost as a fraction of current agency spend. */
+  savingsFloor: 0.5,
+  savingsCeiling: 0.7,
+} as const;

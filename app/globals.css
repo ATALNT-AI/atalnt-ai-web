@@ -1,0 +1,383 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   ATALNT AI — design tokens
+   Ported verbatim from the product demo. Warm bone + near-black + gold.
+   Shadows are always tinted rgba(20,16,8) — never pure black.
+   ========================================================================= */
+
+@theme {
+  /* --- ink & dark surfaces --- */
+  --color-ink: #15130e;
+  --color-ink-raised: #26221a;
+  --color-ink-line: #2a271f;
+
+  /* --- bone surfaces --- */
+  --color-bone: #f7f4ec;
+  --color-bone-50: #fcfaf4;
+  --color-bone-100: #f8f4ea;
+  --color-surface: #ffffff;
+
+  /* --- text ---
+     Contrast measured against --color-bone (#F7F4EC):
+       body       11.09:1  AAA
+       secondary   5.35:1  AA
+       eyebrow     5.04:1  AA   ← use for real labels
+       muted       3.08:1  large text / UI only
+       tertiary    2.39:1  DECORATIVE ONLY — fails all text thresholds
+     The demo is an authenticated product where the audience is known.
+     A public marketing site gets audited, so small text uses the AA tokens. */
+  --color-body: #3a352a;
+  --color-secondary: #6b6452;
+  --color-eyebrow: #6f6857;
+  --color-muted: #938b79;
+  --color-tertiary: #a89f8c;
+  --color-placeholder: #b3ab99;
+  /* On ink (#15130E) everything below clears AA comfortably:
+     bone 16.89:1 · gold-bright 7.71:1 · tertiary 7.07:1 · muted-dark 5.00:1 */
+  --color-on-dark: #f7f4ec;
+  --color-on-dark-muted: #8c8472;
+
+  /* --- lines --- */
+  --color-line: #e7e0d0;
+  --color-line-input: #e3dccc;
+  --color-line-inner: #f0eadc;
+  --color-line-hover: #d8cdb2;
+
+  /* --- gold: the signature ---
+     Gold is a FILL, not a text color. On bone:
+       gold        2.72:1  fills, rules, diamonds, glows — never text
+       gold-ui     3.46:1  meaningful icons, borders, focus rings
+       gold-ink    3.68:1  display text ≥24px only
+       gold-deep   5.54:1  body-size gold text (5.17:1 on gold-tint)
+     On ink, gold 6.21:1 and gold-bright 7.71:1 — both safe for text. */
+  --color-gold: #b5903f;
+  --color-gold-bright: #c8a24c;
+  --color-gold-ui: #a07e33;
+  --color-gold-ink: #9a7a2e;
+  --color-gold-deep: #7a5e1f;
+  --color-gold-tint: #f4ecd8;
+  --color-gold-line: #e7d5a8;
+  --color-gold-soft: #fbf7ec;
+
+  /* --- semantic: success --- */
+  --color-success: #2e5b3c;
+  --color-success-mid: #3f7a52;
+  --color-success-tint: #e6f0e6;
+  --color-success-line: #cfe3d2;
+
+  /* --- semantic: decline (muted terracotta, never pure red) --- */
+  --color-decline: #a23b33;
+  --color-decline-mid: #c9897f;
+  --color-decline-tint: #fbedeb;
+  --color-decline-line: #e4c9c5;
+
+  /* --- type --- */
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-hanken), system-ui, -apple-system, sans-serif;
+
+  /* --- radii --- */
+  --radius-nav: 9px;
+  --radius-sm: 11px;
+  --radius-btn: 12px;
+  --radius-card: 16px;
+  --radius-hero: 18px;
+  --radius-pill: 99px;
+
+  /* --- shadows --- */
+  --shadow-rest: 0 1px 2px rgba(20, 16, 8, 0.04);
+  --shadow-raised: 0 1px 2px rgba(20, 16, 8, 0.04),
+    0 18px 40px -22px rgba(20, 16, 8, 0.14);
+  --shadow-modal: 0 1px 2px rgba(20, 16, 8, 0.04),
+    0 12px 32px -16px rgba(20, 16, 8, 0.12);
+  --shadow-lift: 0 8px 26px -16px rgba(20, 16, 8, 0.2);
+  --shadow-selected: 0 10px 26px -18px rgba(20, 16, 8, 0.35);
+  --shadow-dark: 0 14px 36px -16px rgba(20, 16, 8, 0.6);
+  --shadow-drawer: -26px 0 70px -34px rgba(20, 16, 8, 0.6);
+
+  /* --- animations: ported from the demo's at* keyframes --- */
+  --animate-at-fade: atFade 0.45s ease both;
+  --animate-at-fade-o: atFadeO 0.4s ease both;
+  --animate-at-rise: atRise 0.5s ease both;
+  --animate-at-chip: atChip 0.4s ease both;
+  --animate-at-pop: atPop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  --animate-at-glow: atGlow 1.8s ease-in-out infinite;
+  --animate-at-float: atFloat 3s ease-in-out infinite;
+  --animate-at-shimmer: atShimmer 1.3s linear infinite;
+  --animate-at-spin: atSpin 0.9s linear infinite;
+  --animate-at-pulse: atPulse 1.6s ease-in-out infinite;
+  --animate-at-slide-in: atSlideIn 0.34s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+
+  @keyframes atFade {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes atFadeO {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes atRise {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes atChip {
+    from {
+      opacity: 0;
+      transform: translateY(6px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes atPop {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    70% {
+      transform: scale(1.12);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes atGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 12px 0 rgba(181, 144, 63, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 28px 2px rgba(181, 144, 63, 0.22);
+    }
+  }
+  @keyframes atFloat {
+    0%,
+    100% {
+      transform: none;
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  @keyframes atShimmer {
+    from {
+      background-position: -420px 0;
+    }
+    to {
+      background-position: 420px 0;
+    }
+  }
+  @keyframes atSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes atPulse {
+    0%,
+    100% {
+      opacity: 0.25;
+      transform: scale(0.85);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes atSlideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: none;
+    }
+  }
+}
+
+/* ============================================================================
+   Base
+   ========================================================================= */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* offset anchor targets for the sticky nav */
+    scroll-padding-top: 96px;
+  }
+
+  body {
+    background: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  ::selection {
+    background: var(--color-gold-tint);
+    color: var(--color-ink);
+  }
+
+  /* Gold focus ring. Uses gold-ui, not gold — WCAG requires 3:1 for
+     non-text UI indicators, and #B5903F only reaches 2.72:1 on bone. */
+  :focus-visible {
+    outline: 2px solid var(--color-gold-ui);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+  }
+}
+
+/* ============================================================================
+   Signature textures from the demo
+   ========================================================================= */
+
+@utility glow-gold {
+  background: radial-gradient(
+    circle,
+    rgba(181, 144, 63, 0.3),
+    transparent 65%
+  );
+}
+
+@utility glow-gold-soft {
+  background: radial-gradient(
+    circle,
+    rgba(181, 144, 63, 0.16),
+    transparent 68%
+  );
+}
+
+@utility rule-dashed {
+  /* The gradient's stops are absolute px, so it must be sized and tiled —
+     without background-size it paints one 12px cycle and stops. */
+  background-image: linear-gradient(90deg, #e0d6be 0 6px, transparent 6px 12px);
+  background-size: 12px 1px;
+  background-repeat: repeat-x;
+  height: 1px;
+}
+
+@utility shimmer {
+  background: linear-gradient(90deg, #ece4d2 25%, #f6efdc 37%, #ece4d2 63%);
+  background-size: 420px 100%;
+  animation: var(--animate-at-shimmer);
+}
+
+@utility glass-bone {
+  background: rgba(247, 244, 236, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+@utility glass-ink {
+  background: rgba(21, 19, 14, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Numerals that should line up in tables and stat tiles */
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================================
+   Scroll reveal
+   The <Reveal> component only flips a data attribute; all motion lives here,
+   so no JS animation loop runs anywhere on the site.
+   ========================================================================= */
+
+@layer components {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)
+        calc(var(--reveal-delay, 0) * 1ms),
+      transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)
+        calc(var(--reveal-delay, 0) * 1ms);
+  }
+  [data-reveal="in"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Children stagger off their own --i index, not a JS timer. */
+  [data-reveal-stagger] > * {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+    transition:
+      opacity 0.34s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.34s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: calc(var(--i, 0) * 60ms);
+  }
+  [data-reveal-stagger="in"] > * {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Without JS, never hide content from the reader or the crawler. */
+@media (scripting: none) {
+  [data-reveal],
+  [data-reveal-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================================
+   Accessibility — honor the OS reduced-motion preference everywhere
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal],
+  [data-reveal-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
