@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      // The interactive demo shipped at /demo-app for the first day; keep any
+      // shared links working after the rename to /test-drive.
+      { source: "/demo-app", destination: "/test-drive", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

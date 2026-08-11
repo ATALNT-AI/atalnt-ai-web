@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // The raw bundle is an asset, not a page. /demo-app is the indexable
+      // The raw bundle is an asset, not a page. /test-drive is the indexable
       // landing page that wraps it. /styleguide is internal.
       disallow: ["/api/", "/demo/index.html", "/styleguide", "/ad"],
     },

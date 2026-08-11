@@ -6,10 +6,10 @@ import { BadgePill } from "@/components/ui/badge-pill";
 import { CTA_HREF } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Live product demo",
+  title: "Test drive",
   description:
-    "Click through the ATALNT AI platform yourself. No signup, no sales call. Sample data throughout.",
-  alternates: { canonical: "/demo-app" },
+    "Take the ATALNT AI platform for a test drive. Click through a real search yourself, no signup and no sales call. Sample data throughout.",
+  alternates: { canonical: "/test-drive" },
 };
 
 /**
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
  * The bundle is never iframed on the home page. It is ~866KB (about 450KB over
  * the wire after compression), so it stays entirely off the critical path.
  */
-export default function DemoAppPage() {
+export default function TestDrivePage() {
   return (
     <div className="flex h-dvh flex-col bg-bone">
       <header className="flex shrink-0 items-center justify-between gap-4 border-b border-line bg-bone px-4 py-2.5 sm:px-6">
@@ -29,7 +29,7 @@ export default function DemoAppPage() {
             <Wordmark size="sm" />
           </Link>
           <span className="hidden sm:block">
-            <BadgePill tone="gold">Live demo</BadgePill>
+            <BadgePill tone="gold">Test drive</BadgePill>
           </span>
           <p className="hidden truncate text-[13px] text-secondary lg:block">
             Click anything. No signup, and every candidate here is sample data.

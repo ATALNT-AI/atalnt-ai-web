@@ -30,11 +30,11 @@ export function CtaBand({
               Book a walkthrough
             </Button>
             <Button
-              href="/demo-app"
+              href="/test-drive"
               size="lg"
               className="border border-ink-line bg-transparent text-on-dark hover:bg-ink-raised"
             >
-              Open the live demo →
+              Take a test drive →
             </Button>
           </div>
           <p className="mt-6 text-[13px] text-on-dark-muted">

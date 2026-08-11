@@ -77,8 +77,8 @@ export default function DemoPage() {
                 <div className="mt-10 rounded-card border border-line bg-surface p-5">
                   <p className="text-[14px] leading-[1.6] text-secondary">
                     Would rather look around first?{" "}
-                    <Button href="/demo-app" variant="ghost" size="sm" className="px-0">
-                      Open the live demo →
+                    <Button href="/test-drive" variant="ghost" size="sm" className="px-0">
+                      Take a test drive →
                     </Button>
                   </p>
                 </div>

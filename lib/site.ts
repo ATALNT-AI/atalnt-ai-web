@@ -30,7 +30,7 @@ export const CTA_HREF = "/demo";
 export const NAV_LINKS = [
   { label: "How it works", href: "/#main" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Live demo", href: "/demo-app" },
+  { label: "Test drive", href: "/test-drive" },
 ] as const;
 
 /**

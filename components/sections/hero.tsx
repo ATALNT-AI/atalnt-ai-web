@@ -42,8 +42,8 @@ export function Hero() {
               <Button href={CTA_HREF} size="lg">
                 Book a walkthrough
               </Button>
-              <Button href="/demo-app" variant="secondary" size="lg">
-                Open the live demo →
+              <Button href="/test-drive" variant="secondary" size="lg">
+                Take a test drive →
               </Button>
             </div>
 

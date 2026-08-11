@@ -4,7 +4,7 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 /**
  * The hero's product visual, drawn in the demo's own component language
  * rather than screenshotted — so it stays crisp, themeable, and responsive.
- * Replace with real 2× captures once the demo is deployed at /demo-app.
+ * Replace with real 2× captures once the demo is deployed at /test-drive.
  */
 
 /**
