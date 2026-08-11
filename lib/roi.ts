@@ -1,58 +1,62 @@
-import { CALC_DEFAULTS } from "./site";
+import { monthlyFor, planForRoles, type Plan } from "./pricing";
 
 export type RoiInput = {
+  /** Roles open at the same time. This is what sets the plan. */
+  activeRoles: number;
+  /** Hires completed in a year. This is what sets the agency bill. */
   hiresPerYear: number;
   averageSalary: number;
   agencyFeePct: number;
 };
 
 export type RoiResult = {
-  /** Fee for a single placement at these inputs. */
+  plan: Plan;
   feePerHire: number;
-  /** What contingent search costs you across a year. */
   contingentAnnual: number;
-  /** Low/high bound of what you'd spend with ATALNT AI. */
-  atalntLow: number;
-  atalntHigh: number;
-  /** Low/high bound of what you keep. */
-  savingsLow: number;
-  savingsHigh: number;
-  /** Cost per hire, contingent vs. the ATALNT AI midpoint. */
+  atalntAnnual: number;
+  savingsAnnual: number;
+  /** 0..1. Negative when the subscription costs more than agency fees. */
+  savingsPct: number;
   costPerHireContingent: number;
   costPerHireAtalnt: number;
+  /** Hires per year at which the subscription starts winning. */
+  breakEvenHires: number;
+  /** True when ATALNT is genuinely the more expensive option. */
+  agencyIsCheaper: boolean;
+  /** True when the plan price is quoted rather than published. */
+  isEstimate: boolean;
 };
 
 /**
- * Pricing is quoted per account rather than published, so this models the
- * savings as the stated 50–70% band against current agency spend rather than
- * against a specific plan price. Every figure it produces is a range, and the
- * UI must present it as one.
+ * Honest by construction: when the numbers favour agencies, this returns a
+ * negative saving and sets `agencyIsCheaper`. The UI must say so out loud
+ * rather than hiding it. A calculator that admits when it loses is worth far
+ * more than one that always shows a win.
  */
 export function computeRoi(input: RoiInput): RoiResult {
-  const { hiresPerYear, averageSalary, agencyFeePct } = input;
-  const { savingsFloor, savingsCeiling } = CALC_DEFAULTS;
+  const { activeRoles, hiresPerYear, averageSalary, agencyFeePct } = input;
+
+  const plan = planForRoles(activeRoles);
+  const atalntAnnual = monthlyFor(plan) * 12;
 
   const feePerHire = averageSalary * (agencyFeePct / 100);
   const contingentAnnual = feePerHire * hiresPerYear;
 
-  // Saving 70% means spending 30%. High savings = low spend.
-  const atalntLow = contingentAnnual * (1 - savingsCeiling);
-  const atalntHigh = contingentAnnual * (1 - savingsFloor);
-
-  const savingsLow = contingentAnnual * savingsFloor;
-  const savingsHigh = contingentAnnual * savingsCeiling;
-
-  const midSpend = (atalntLow + atalntHigh) / 2;
+  const savingsAnnual = contingentAnnual - atalntAnnual;
+  const savingsPct = contingentAnnual > 0 ? savingsAnnual / contingentAnnual : 0;
 
   return {
+    plan,
     feePerHire,
     contingentAnnual,
-    atalntLow,
-    atalntHigh,
-    savingsLow,
-    savingsHigh,
+    atalntAnnual,
+    savingsAnnual,
+    savingsPct,
     costPerHireContingent: feePerHire,
-    costPerHireAtalnt: midSpend / Math.max(1, hiresPerYear),
+    costPerHireAtalnt: atalntAnnual / Math.max(1, hiresPerYear),
+    breakEvenHires: Math.ceil(atalntAnnual / feePerHire),
+    agencyIsCheaper: savingsAnnual <= 0,
+    isEstimate: plan.monthly === null,
   };
 }
 
@@ -64,10 +68,11 @@ const USD = new Intl.NumberFormat("en-US", {
 
 export const formatUsd = (n: number) => USD.format(Math.round(n));
 
-/** Compact form for headline numerals: $158,400 → $158.4k */
+/** Compact form for headline numerals: $158,400 → $158k */
 export function formatUsdCompact(n: number) {
-  const v = Math.round(n);
-  if (v >= 1_000_000) return `$${(v / 1_000_000).toFixed(1)}M`;
-  if (v >= 10_000) return `$${Math.round(v / 1000)}k`;
-  return USD.format(v);
+  const v = Math.round(Math.abs(n));
+  const sign = n < 0 ? "-" : "";
+  if (v >= 1_000_000) return `${sign}$${(v / 1_000_000).toFixed(1)}M`;
+  if (v >= 10_000) return `${sign}$${Math.round(v / 1000)}k`;
+  return sign + USD.format(v);
 }

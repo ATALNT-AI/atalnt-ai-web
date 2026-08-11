@@ -29,7 +29,7 @@ export const CTA_HREF = "/demo";
  */
 export const NAV_LINKS = [
   { label: "How it works", href: "/#main" },
-  { label: "What it costs", href: "/#savings" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Live demo", href: "/demo-app" },
 ] as const;
 
@@ -52,8 +52,17 @@ export const SOURCING_CHANNELS = [
  * `profilesIndexed` is still pending substantiation from ATALNT — confirm the
  * source and as-of date before launch, or pull it.
  */
+/**
+ * `costReduction` is derived from real plan pricing, not a marketing round
+ * number. Typical accounts land between 75% and 90%:
+ *   Core   at  5–10 hires/yr → 76–88%
+ *   Growth at 10–20 hires/yr → 79–89%
+ *   Scale  at 15–30 hires/yr → 80–90%
+ * Below roughly 3 hires a year agencies are cheaper, and the calculator says
+ * so rather than pretending otherwise.
+ */
 export const STATS = {
-  costReduction: "50–70%",
+  costReduction: "75–90%",
   profilesIndexed: "2.4M",
   accountManager: "1:1",
 } as const;
@@ -82,12 +91,14 @@ export const TRUST = {
   team: "A U.S.-based account management team",
 } as const;
 
-/** Defaults for the savings calculator. */
+/**
+ * Defaults for the savings calculator.
+ * These land on the Growth plan and a genuine, defensible saving, which is the
+ * story we want a first-time visitor to see before they touch anything.
+ */
 export const CALC_DEFAULTS = {
-  hiresPerYear: 8,
+  activeRoles: 6,
+  hiresPerYear: 12,
   averageSalary: 90_000,
   agencyFeePct: 22,
-  /** ATALNT AI cost as a fraction of current agency spend. */
-  savingsFloor: 0.5,
-  savingsCeiling: 0.7,
 } as const;

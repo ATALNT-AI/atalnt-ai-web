@@ -12,6 +12,7 @@ import { CALC_DEFAULTS, CTA_HREF } from "@/lib/site";
 
 type SliderProps = {
   label: string;
+  hint?: string;
   value: number;
   min: number;
   max: number;
@@ -23,6 +24,7 @@ type SliderProps = {
 
 function Slider({
   label,
+  hint,
   value,
   min,
   max,
@@ -32,24 +34,23 @@ function Slider({
   onChange,
 }: SliderProps) {
   const pct = ((value - min) / (max - min)) * 100;
+  const id = `slider-${label.replace(/\s+/g, "-").toLowerCase()}`;
   return (
     <div>
       <div className="flex items-baseline justify-between gap-4">
-        <label
-          htmlFor={`slider-${label}`}
-          className="text-[13.5px] font-medium text-secondary"
-        >
+        <label htmlFor={id} className="text-[13.5px] font-medium text-secondary">
           {label}
         </label>
         <output
-          htmlFor={`slider-${label}`}
+          htmlFor={id}
           className="font-display text-[22px] leading-none text-ink tabular"
         >
           {display}
         </output>
       </div>
+      {hint && <p className="mt-1 text-[12px] text-muted">{hint}</p>}
       <input
-        id={`slider-${label}`}
+        id={id}
         type="range"
         min={min}
         max={max}
@@ -57,7 +58,6 @@ function Slider({
         value={value}
         aria-valuetext={valueText}
         onChange={(e) => onChange(Number(e.target.value))}
-        // Gold-filled track to the left of the thumb, line to the right.
         style={{
           background: `linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold) ${pct}%, var(--color-line-input) ${pct}%, var(--color-line-input) 100%)`,
         }}
@@ -75,6 +75,7 @@ function Slider({
 }
 
 export function SavingsCalculator() {
+  const [roles, setRoles] = useState<number>(CALC_DEFAULTS.activeRoles);
   const [hires, setHires] = useState<number>(CALC_DEFAULTS.hiresPerYear);
   const [salary, setSalary] = useState<number>(CALC_DEFAULTS.averageSalary);
   const [fee, setFee] = useState<number>(CALC_DEFAULTS.agencyFeePct);
@@ -82,22 +83,20 @@ export function SavingsCalculator() {
   const roi = useMemo(
     () =>
       computeRoi({
+        activeRoles: roles,
         hiresPerYear: hires,
         averageSalary: salary,
         agencyFeePct: fee,
       }),
-    [hires, salary, fee]
+    [roles, hires, salary, fee]
   );
 
-  // The ATALNT bar's width as a share of the contingent bar.
-  const atalntShare = Math.round(
-    ((roi.atalntLow + roi.atalntHigh) / 2 / roi.contingentAnnual) * 100
+  const share = Math.min(
+    100,
+    Math.round((roi.atalntAnnual / Math.max(1, roi.contingentAnnual)) * 100)
   );
 
-  const perHireLow = roi.atalntLow / Math.max(1, hires);
-  const perHireHigh = roi.atalntHigh / Math.max(1, hires);
-
-  const quoteHref = `${CTA_HREF}?hires=${hires}&salary=${salary}&fee=${fee}`;
+  const quoteHref = `${CTA_HREF}?roles=${roles}&hires=${hires}&salary=${salary}&fee=${fee}`;
 
   return (
     <Section
@@ -114,19 +113,31 @@ export function SavingsCalculator() {
             align="center"
             eyebrow="The cost offset"
             title="Run your own numbers."
-            subtitle="Move the sliders to match your hiring plan. This is the same math your CFO will do."
+            subtitle="Your plan is set by how many roles you run at once. Your agency bill is set by how many people you hire. That gap is the whole point."
           />
         </Reveal>
 
         <Reveal delay={100}>
           <div className="mx-auto mt-14 grid max-w-[1080px] gap-10 rounded-hero border border-line bg-bone p-6 shadow-raised sm:p-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
             {/* ---- inputs ---- */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-7">
+              <Slider
+                label="Roles open at once"
+                hint="This sets your plan"
+                value={roles}
+                min={1}
+                max={20}
+                step={1}
+                display={roles >= 20 ? "20+" : String(roles)}
+                valueText={`${roles} roles open at once`}
+                onChange={setRoles}
+              />
               <Slider
                 label="Hires per year"
+                hint="This sets your agency bill"
                 value={hires}
                 min={1}
-                max={40}
+                max={50}
                 step={1}
                 display={String(hires)}
                 valueText={`${hires} hires per year`}
@@ -155,102 +166,128 @@ export function SavingsCalculator() {
 
               <div className="rounded-card border border-gold-line bg-gold-tint p-4">
                 <p className="text-[13px] leading-[1.6] text-gold-deep">
-                  At {fee}% of {formatUsd(salary)}, every single placement costs
-                  you{" "}
+                  At {roles} {roles === 1 ? "role" : "roles"} open at once,
+                  you&rsquo;d be on{" "}
                   <strong className="font-semibold">
-                    {formatUsd(roi.feePerHire)}
+                    {roi.plan.name}
+                    {roi.plan.monthly
+                      ? ` at ${formatUsd(roi.plan.monthly)} a month`
+                      : ", priced to your setup"}
                   </strong>
-                  . Your plan is priced by how many roles you run at once, not
-                  by how many people you hire.
+                  . Fill one and the next takes its place, at no extra cost.
                 </p>
               </div>
             </div>
 
             {/* ---- output ---- */}
             <div className="flex flex-col justify-center">
-              <p className="text-[13.5px] font-medium text-secondary">
-                You could keep
-              </p>
-              <p className="mt-2 font-display text-[clamp(44px,7vw,76px)] leading-[1.02] text-ink tabular">
-                {formatUsd(roi.savingsLow)}
-                <span className="text-muted">–</span>
-                {formatUsd(roi.savingsHigh)}
-              </p>
-              <div className="mt-4">
-                <BadgePill tone="gold">
-                  50–70% below contingent search
-                </BadgePill>
-              </div>
-
-              <div className="mt-10 flex flex-col gap-5">
-                {/* contingent */}
-                <div>
-                  <div className="flex items-baseline justify-between gap-3 text-[13px]">
-                    <span className="font-medium text-secondary">
-                      Contingent search today
-                    </span>
-                    <span className="font-semibold text-decline tabular">
-                      {formatUsd(roi.contingentAnnual)}
-                    </span>
-                  </div>
-                  <div className="mt-2 h-11 w-full rounded-pill border-l-[3px] border-decline bg-decline-tint" />
+              {roi.agencyIsCheaper ? (
+                /* The honest case. At low volume, agencies genuinely win. */
+                <div className="rounded-hero border border-line bg-surface p-6">
+                  <BadgePill tone="neutral">Straight answer</BadgePill>
+                  <p className="mt-4 font-display text-[26px] leading-[1.25] text-ink text-balance">
+                    At {hires} {hires === 1 ? "hire" : "hires"} a year, an
+                    agency is cheaper. We&rsquo;d tell you that on the call.
+                  </p>
+                  <p className="mt-4 text-[15px] leading-[1.7] text-secondary">
+                    Paying per placement makes sense when you hire rarely.
+                    ATALNT AI starts paying off at{" "}
+                    <strong className="font-semibold text-ink">
+                      {roi.breakEvenHires} hires a year
+                    </strong>{" "}
+                    on this plan, and every hire after that is close to free.
+                  </p>
+                  <p className="mt-4 text-[15px] leading-[1.7] text-secondary">
+                    Move the hires slider up to where you actually expect to
+                    land this year.
+                  </p>
                 </div>
-
-                {/* atalnt */}
-                <div>
-                  <div className="flex items-baseline justify-between gap-3 text-[13px]">
-                    <span className="font-medium text-secondary">
-                      With ATALNT AI
-                    </span>
-                    <span className="font-semibold text-ink tabular">
-                      {formatUsd(roi.atalntLow)}–{formatUsd(roi.atalntHigh)}
-                    </span>
+              ) : (
+                <>
+                  <p className="text-[13.5px] font-medium text-secondary">
+                    You keep
+                  </p>
+                  <p className="mt-2 font-display text-[clamp(46px,7.5vw,80px)] leading-[1.02] text-ink tabular">
+                    {formatUsd(roi.savingsAnnual)}
+                  </p>
+                  <div className="mt-4 flex flex-wrap items-center gap-2">
+                    <BadgePill tone="gold">
+                      {Math.round(roi.savingsPct * 100)}% below contingent
+                      search
+                    </BadgePill>
+                    {roi.isEstimate && (
+                      <BadgePill tone="neutral">Estimate</BadgePill>
+                    )}
                   </div>
-                  <div className="mt-2 h-11 w-full rounded-pill bg-line-inner">
-                    <div
-                      className="h-full rounded-pill border-r-[3px] border-gold bg-ink transition-[width] duration-500 ease-out"
-                      style={{ width: `${atalntShare}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
 
-              {/* Cost per hire is the number an HR leader reports upward, and
-                  it's where the volume argument lands hardest. */}
-              <div className="mt-8 rounded-card border border-line bg-surface p-5">
-                <p className="text-[11.5px] font-bold tracking-[0.06em] text-eyebrow uppercase">
-                  Your cost per hire
-                </p>
-                <div className="mt-3.5 flex flex-wrap items-baseline gap-x-4 gap-y-2">
-                  <span className="font-display text-[26px] leading-none text-decline line-through decoration-decline-mid/60 tabular">
-                    {formatUsd(roi.costPerHireContingent)}
-                  </span>
-                  <span aria-hidden className="text-[18px] text-muted">
-                    →
-                  </span>
-                  <span className="font-display text-[34px] leading-none text-success tabular">
-                    {formatUsd(perHireLow)}–{formatUsd(perHireHigh)}
-                  </span>
-                </div>
-                <p className="mt-3 text-[13px] leading-[1.6] text-secondary">
-                  Spread across {hires} hires. Because the price is flat, this
-                  number keeps dropping every time you fill another role.
-                </p>
-              </div>
+                  <div className="mt-9 flex flex-col gap-5">
+                    <div>
+                      <div className="flex items-baseline justify-between gap-3 text-[13px]">
+                        <span className="font-medium text-secondary">
+                          Contingent search today
+                        </span>
+                        <span className="font-semibold text-decline tabular">
+                          {formatUsd(roi.contingentAnnual)}
+                        </span>
+                      </div>
+                      <div className="mt-2 h-11 w-full rounded-pill border-l-[3px] border-decline bg-decline-tint" />
+                    </div>
+
+                    <div>
+                      <div className="flex items-baseline justify-between gap-3 text-[13px]">
+                        <span className="font-medium text-secondary">
+                          ATALNT AI {roi.plan.name}
+                        </span>
+                        <span className="font-semibold text-ink tabular">
+                          {formatUsd(roi.atalntAnnual)}
+                        </span>
+                      </div>
+                      <div className="mt-2 h-11 w-full rounded-pill bg-line-inner">
+                        <div
+                          className="h-full min-w-[6px] rounded-pill border-r-[3px] border-gold bg-ink transition-[width] duration-500 ease-out"
+                          style={{ width: `${share}%` }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 rounded-card border border-line bg-surface p-5">
+                    <p className="text-[11.5px] font-bold tracking-[0.06em] text-eyebrow uppercase">
+                      Your cost per hire
+                    </p>
+                    <div className="mt-3.5 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                      <span className="font-display text-[26px] leading-none text-decline line-through decoration-decline-mid/60 tabular">
+                        {formatUsd(roi.costPerHireContingent)}
+                      </span>
+                      <span aria-hidden className="text-[18px] text-muted">
+                        →
+                      </span>
+                      <span className="font-display text-[34px] leading-none text-success tabular">
+                        {formatUsd(roi.costPerHireAtalnt)}
+                      </span>
+                    </div>
+                    <p className="mt-3 text-[13px] leading-[1.6] text-secondary">
+                      Spread across {hires} {hires === 1 ? "hire" : "hires"}.
+                      The price is flat, so this keeps falling every time you
+                      fill another role.
+                    </p>
+                  </div>
+                </>
+              )}
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href={quoteHref} size="lg" variant="primary">
-                  Get your exact number
+                  Get this in writing
                 </Button>
-                <p className="text-[12.5px] leading-[1.5] text-muted">
-                  We&rsquo;ll price it to your roles and put it in writing.
-                </p>
+                <Button href="/pricing" variant="ghost" size="sm">
+                  See all plans →
+                </Button>
               </div>
 
               <p className="mt-6 border-t border-line pt-5 text-[12px] leading-[1.6] text-muted">
-                Estimates only. Agency fees vary by role and market. ATALNT AI
-                pricing is confirmed on your walkthrough, and the savings range
-                reflects typical accounts rather than a guarantee.
+                Estimates only. Agency fees vary by role and market, and your
+                actual plan depends on how many roles you run at once. Enterprise
+                pricing is quoted, so figures above that tier are indicative.
               </p>
             </div>
           </div>

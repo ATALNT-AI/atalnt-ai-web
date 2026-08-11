@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       // The raw bundle is an asset, not a page. /demo-app is the indexable
       // landing page that wraps it. /styleguide is internal.
-      disallow: ["/api/", "/demo/index.html", "/styleguide"],
+      disallow: ["/api/", "/demo/index.html", "/styleguide", "/ad"],
     },
     sitemap: `${SITE.url}/sitemap.xml`,
   };

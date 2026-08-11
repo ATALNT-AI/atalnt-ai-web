@@ -20,13 +20,15 @@ export function LeadForm() {
 
   // Carried over from the savings calculator so the quote request arrives with
   // the numbers the visitor already ran.
+  const roles = Number(params.get("roles")) || null;
   const hires = Number(params.get("hires")) || null;
   const salary = Number(params.get("salary")) || null;
   const fee = Number(params.get("fee")) || null;
-  const hasCalc = Boolean(hires && salary && fee);
+  const hasCalc = Boolean(roles && hires && salary && fee);
 
   const roi = hasCalc
     ? computeRoi({
+        activeRoles: roles!,
         hiresPerYear: hires!,
         averageSalary: salary!,
         agencyFeePct: fee!,
@@ -58,7 +60,14 @@ export function LeadForm() {
           message: form.get("message"),
           smsConsent: form.get("smsConsent") === "on",
           calculator: hasCalc
-            ? { hires, salary, feePct: fee, contingentAnnual: roi?.contingentAnnual }
+            ? {
+                roles,
+                hires,
+                salary,
+                feePct: fee,
+                plan: roi?.plan.name,
+                contingentAnnual: roi?.contingentAnnual,
+              }
             : null,
           source: "atalnt.ai/demo",
         }),
@@ -102,6 +111,10 @@ export function LeadForm() {
         <div className="rounded-card border border-gold-line bg-gold-tint p-4">
           <p className="text-[13px] leading-[1.6] text-gold-deep">
             We&rsquo;ll price this against the numbers you ran:{" "}
+            <strong className="font-semibold">
+              {roles} {roles === 1 ? "role" : "roles"} at once
+            </strong>{" "}
+            ({roi.plan.name} plan),{" "}
             <strong className="font-semibold">{hires} hires a year</strong> at{" "}
             <strong className="font-semibold">{formatUsd(salary!)}</strong> and
             a <strong className="font-semibold">{fee}%</strong> fee, which is{" "}

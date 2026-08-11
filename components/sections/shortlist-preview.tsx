@@ -14,9 +14,9 @@ import { Eyebrow } from "@/components/ui/eyebrow";
  */
 const CANDIDATES = [
   {
-    initials: "PR",
+    initials: "EV",
     avatar: "bg-[#E7DCC2]",
-    name: "Priya R.",
+    name: "Elena V.",
     title: "Operations Manager · 8 yrs",
     pitch: "Scaled a 40-person team through two back-to-back growth years.",
     skills: ["Team Leadership", "Process Design", "Vendor Management"],
@@ -124,7 +124,7 @@ export function ShortlistPreview() {
           <div className="min-w-0">
             <p className="text-[13px] leading-[1.45] text-body">
               <span className="font-semibold text-ink">Alex Rivera</span> is
-              confirming a time with Priya.
+              confirming a time with Elena.
             </p>
             <p className="mt-1 flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.04em] text-gold-deep uppercase">
               <span
