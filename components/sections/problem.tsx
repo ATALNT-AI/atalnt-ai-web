@@ -28,7 +28,7 @@ const AGING = [
 
 export function Problem() {
   return (
-    <Section bg="ink" size="lg" aria-labelledby="problem-heading">
+    <Section bg="ink" size="lg" id="how-it-works" aria-labelledby="problem-heading">
       <div
         aria-hidden
         className="glow-gold pointer-events-none absolute top-0 right-0 size-[560px] opacity-30"

@@ -10,15 +10,38 @@ type WordmarkProps = {
 };
 
 const SIZES = {
-  sm: { text: "text-[17px]", ai: "text-[9px]", dot: "size-[7px]", gap: "gap-2" },
-  md: { text: "text-[21px]", ai: "text-[10px]", dot: "size-[9px]", gap: "gap-2.5" },
-  lg: { text: "text-[30px]", ai: "text-[13px]", dot: "size-[12px]", gap: "gap-3" },
+  sm: { text: "text-[17px]", ai: "text-[9px]", gem: 12, gap: "gap-2" },
+  md: { text: "text-[21px]", ai: "text-[10px]", gem: 15, gap: "gap-2.5" },
+  lg: { text: "text-[30px]", ai: "text-[13px]", gem: 20, gap: "gap-3" },
 } as const;
 
 /**
+ * The faceted brand gem: the demo's rotated gold square, cut into four
+ * facets with a glint so it catches light instead of sitting flat.
+ * Inline SVG so it stays crisp at every size and needs no asset request.
+ */
+function Gem({ size }: { size: number }) {
+  return (
+    <svg
+      aria-hidden
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      className="shrink-0"
+    >
+      <path d="M24 3 L45 24 L24 24 Z" fill="#E8C87E" />
+      <path d="M24 3 L3 24 L24 24 Z" fill="#C8A24C" />
+      <path d="M3 24 L24 45 L24 24 Z" fill="#A8823A" />
+      <path d="M45 24 L24 45 L24 24 Z" fill="#8A6D22" />
+      <path d="M24 9.5 L29 14.5 L24 19.5 L19 14.5 Z" fill="#FFF6DF" fillOpacity="0.55" />
+    </svg>
+  );
+}
+
+/**
  * The ATALNT AI wordmark, drawn in code rather than shipped as an image:
- * a 45°-rotated gold diamond, "ATALNT" in Newsreader, and a raised gold "AI".
- * Built from the demo's own logo treatment.
+ * the faceted gem, "ATALNT" in Newsreader, and a raised gold "AI".
  */
 export function Wordmark({
   tone = "light",
@@ -32,14 +55,7 @@ export function Wordmark({
       className={cn("inline-flex items-center", s.gap, className)}
       aria-label="ATALNT AI"
     >
-      <span
-        aria-hidden
-        className={cn(
-          "rotate-45 rounded-[1px]",
-          s.dot,
-          tone === "light" ? "bg-gold" : "bg-gold-bright"
-        )}
-      />
+      <Gem size={s.gem} />
       <span
         aria-hidden
         className={cn(

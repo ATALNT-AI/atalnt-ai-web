@@ -28,7 +28,7 @@ export const CTA_HREF = "/demo";
  * phase; add them here as they ship rather than linking ahead of the pages.
  */
 export const NAV_LINKS = [
-  { label: "How it works", href: "/#main" },
+  { label: "How it works", href: "/#how-it-works" },
   { label: "Pricing", href: "/pricing" },
   { label: "Test drive", href: "/test-drive" },
 ] as const;
