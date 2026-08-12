@@ -50,7 +50,7 @@ export const PLANS: Plan[] = [
       "Interview scheduling handled for you",
       "Offer delivery and negotiation",
     ],
-    cta: "Book a walkthrough",
+    cta: "Book a demo",
     stripeUrl: "https://buy.stripe.com/28E9AUcpmczd7UQfri2Ji05",
   },
   {
@@ -69,7 +69,7 @@ export const PLANS: Plan[] = [
       "Multi-department pipelines",
       "Weekly search reviews with your AM",
     ],
-    cta: "Book a walkthrough",
+    cta: "Book a demo",
     stripeUrl: "https://buy.stripe.com/5kQ28sbli2YD8YUdja2Ji06",
     featured: true,
   },

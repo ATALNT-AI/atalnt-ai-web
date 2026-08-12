@@ -30,8 +30,7 @@ export const CTA_HREF = "/demo";
 export const NAV_LINKS = [
   { label: "How it works", href: "/#how-it-works" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Test drive", href: "/test-drive" },
-] as const;
+  ] as const;
 
 /**
  * Sourcing channels the product searches across.
@@ -62,7 +61,7 @@ export const SOURCING_CHANNELS = [
  * so rather than pretending otherwise.
  */
 export const STATS = {
-  costReduction: "75–90%",
+  costReduction: "70–85%",
   profilesIndexed: "2.4M",
   accountManager: "1:1",
 } as const;

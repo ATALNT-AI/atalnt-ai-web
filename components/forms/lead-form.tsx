@@ -214,7 +214,7 @@ export function LeadForm() {
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <Button size="lg" type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending…" : "Request a walkthrough"}
+          {status === "sending" ? "Sending…" : "Book a demo"}
         </Button>
         <p className="text-[12.5px] leading-[1.5] text-muted">
           No commitment. We reply within one business day.

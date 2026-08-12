@@ -2,7 +2,7 @@
  * Legal content, adapted from the policies published on atalnt.com so the two
  * properties stay consistent. Changes made for this site:
  *   - Applies to atalnt.ai and the ATALNT AI platform, not just the corporate site
- *   - Collection channels reflect this site (walkthrough requests, savings
+ *   - Collection channels reflect this site (demo requests, savings
  *     calculator) rather than the resume intake form
  *   - Adds platform account data and client-uploaded candidate data, which the
  *     corporate policy does not cover
@@ -34,7 +34,7 @@ export const PRIVACY: LegalSection[] = [
       "We collect personal information that you provide to us through the following channels:",
       {
         sub: "Walkthrough and demo requests",
-        body: "When you request a walkthrough or contact us, we collect your name, work email address, company name, and phone number, along with anything else you choose to tell us about your hiring needs.",
+        body: "When you request a demo or contact us, we collect your name, work email address, company name, and phone number, along with anything else you choose to tell us about your hiring needs.",
       },
       {
         sub: "Savings calculator",
@@ -60,7 +60,7 @@ export const PRIVACY: LegalSection[] = [
       "We use the information we collect to:",
       {
         list: [
-          "Respond to your inquiry and schedule and conduct walkthroughs",
+          "Respond to your inquiry and schedule and conduct demos",
           "Prepare and deliver pricing for your account",
           "Provide the ATALNT AI platform, including sourcing, screening, and shortlisting candidates for open roles",
           "Communicate with you about our services by phone, email, or text message",
@@ -175,7 +175,7 @@ export const TERMS: LegalSection[] = [
   {
     heading: "Our services",
     blocks: [
-      "ATALNT AI is a subscription recruiting service that pairs a dedicated account manager with software for sourcing, screening, and shortlisting candidates. This website lets you learn about the service, use our savings calculator, try an interactive product demo, and request a walkthrough.",
+      "ATALNT AI is a subscription recruiting service that pairs a dedicated account manager with software for sourcing, screening, and shortlisting candidates. This website lets you learn about the service, use our savings calculator, and request a demo.",
     ],
   },
   {
@@ -223,12 +223,6 @@ export const TERMS: LegalSection[] = [
     heading: "Savings calculator disclaimer",
     blocks: [
       "The savings calculator is provided to help you estimate potential value. Its results are estimates only and are not guarantees of actual results, savings, or outcomes. Agency fees vary by role and market, and actual results depend on your specific circumstances. ATALNT makes no warranties regarding the accuracy or reliability of the calculator's output. Pricing is confirmed only in a written quote.",
-    ],
-  },
-  {
-    heading: "Product demo",
-    blocks: [
-      "The interactive demo available on this site uses sample data for illustration. Candidates, companies, roles, and figures shown in it are fictional and do not represent real individuals or real placements.",
     ],
   },
   {
@@ -287,7 +281,7 @@ export const SMS_TERMS: LegalSection[] = [
   {
     heading: "Types of messages",
     blocks: [
-      "Messages may relate to walkthrough scheduling, pricing follow-ups, service updates, interview scheduling, and other communications about our recruiting services.",
+      "Messages may relate to demo scheduling, pricing follow-ups, service updates, interview scheduling, and other communications about our recruiting services.",
     ],
   },
   {

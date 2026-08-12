@@ -9,7 +9,7 @@ import { LeadForm } from "@/components/forms/lead-form";
 import { TRUST } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Book a walkthrough",
+  title: "Book a demo",
   description:
     "See the platform, meet your account manager, and get a plan priced to the roles you have open. No commitment.",
   alternates: { canonical: "/demo" },
@@ -43,7 +43,7 @@ export default function DemoPage() {
           <Container className="relative">
             <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
               <div>
-                <Eyebrow>Book a walkthrough</Eyebrow>
+                <Eyebrow>Book a demo</Eyebrow>
                 <h1 className="mt-4 text-[clamp(34px,4.6vw,52px)] leading-[1.08] text-balance">
                   See it running against your own roles.
                 </h1>
@@ -73,15 +73,6 @@ export default function DemoPage() {
                     </li>
                   ))}
                 </ol>
-
-                <div className="mt-10 rounded-card border border-line bg-surface p-5">
-                  <p className="text-[14px] leading-[1.6] text-secondary">
-                    Would rather look around first?{" "}
-                    <Button href="/test-drive" variant="ghost" size="sm" className="px-0">
-                      Take a test drive →
-                    </Button>
-                  </p>
-                </div>
 
                 <ul className="mt-8 flex flex-col gap-2.5 border-t border-line pt-6">
                   {[TRUST.soc2.short, TRUST.encryption, TRUST.ownership].map((t) => (

@@ -28,14 +28,7 @@ export function CtaBand({
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Button href={CTA_HREF} variant="onDark" size="lg">
-              Book a walkthrough
-            </Button>
-            <Button
-              href="/test-drive"
-              size="lg"
-              className="border border-ink-line bg-transparent text-on-dark hover:bg-ink-raised"
-            >
-              Take a test drive →
+              Book a demo
             </Button>
           </div>
           <p className="mt-6 text-[13px] text-on-dark-muted">

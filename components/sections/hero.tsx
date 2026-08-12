@@ -5,7 +5,7 @@ import { CTA_HREF, STATS } from "@/lib/site";
 import { ShortlistPreview } from "./shortlist-preview";
 
 const PROOF = [
-  { value: STATS.costReduction, label: "lower cost per hire" },
+  { value: STATS.costReduction, label: "lower recruiting cost" },
   { value: STATS.profilesIndexed, label: "profiles indexed" },
   { value: STATS.accountManager, label: "human account manager" },
 ];
@@ -27,27 +27,24 @@ export function Hero() {
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div>
             <Eyebrow className="animate-at-fade">
-              For teams hiring across a lot of roles at once
+              Hire more. Spend less.
             </Eyebrow>
 
             <h1 className="mt-5 animate-at-fade text-[clamp(36px,5.2vw,60px)] leading-[1.06] tracking-[-0.02em] text-balance [animation-delay:80ms]">
-              Ten roles open.
+              AI-powered recruiting,
               <br />
-              Still no shortlist.
+              combined with human expertise.
             </h1>
 
             <p className="mt-6 max-w-[54ch] animate-at-fade text-[18px] leading-[1.6] text-secondary text-pretty [animation-delay:160ms]">
-              ATALNT AI gives you a dedicated account manager and an AI that
-              sources and screens across every role you have open. One flat
-              monthly price, however many people you end up hiring.
+              One platform and a dedicated account manager that find, screen, and
+              schedule candidates across every role you have open. Flat monthly
+              price, no placement fees.
             </p>
 
             <div className="mt-9 flex animate-at-fade flex-col gap-3 sm:flex-row [animation-delay:240ms]">
               <Button href={CTA_HREF} size="lg">
-                Book a walkthrough
-              </Button>
-              <Button href="/test-drive" variant="secondary" size="lg">
-                Take a test drive →
+                Book a demo
               </Button>
             </div>
 

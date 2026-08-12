@@ -10,13 +10,12 @@ const COLUMNS = [
     links: [
       { label: "How it works", href: "/#how-it-works" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Test drive", href: "/test-drive" },
-    ],
+          ],
   },
   {
     title: "Company",
     links: [
-      { label: "Book a walkthrough", href: "/demo" },
+      { label: "Book a demo", href: "/demo" },
       { label: "ATALNT LLC", href: SITE.parent.url },
       { label: "Contact", href: "mailto:hello@atalnt.com" },
     ],

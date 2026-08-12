@@ -57,11 +57,8 @@ export function SiteNav() {
           </ul>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Button href="/test-drive" variant="ghost" size="sm">
-              Test drive
-            </Button>
             <Button href={CTA_HREF} size="sm">
-              Book a walkthrough
+              Book a demo
             </Button>
           </div>
 
@@ -112,10 +109,7 @@ export function SiteNav() {
             </ul>
             <div className="mt-8 flex flex-col gap-3">
               <Button href={CTA_HREF} size="lg" className="w-full">
-                Book a walkthrough
-              </Button>
-              <Button href="/test-drive" variant="secondary" size="lg" className="w-full">
-                Take a test drive
+                Book a demo
               </Button>
             </div>
           </Container>
