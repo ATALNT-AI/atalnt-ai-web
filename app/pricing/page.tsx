@@ -61,8 +61,8 @@ export default function PricingPage() {
               <SectionHeader
                 align="center"
                 eyebrow="Pricing"
-                title="Priced by roles open, not people hired."
-                subtitle="Every plan includes a dedicated account manager, AI sourcing across seven channels, and unlimited resume screening. No placement fees."
+                title="Pay for your hiring capacity, not every hire."
+                subtitle="One flat monthly price covers the roles you have open, with a dedicated account manager, AI sourcing across seven channels, and unlimited resume screening. No placement fees. No per-hire charges."
               />
             </Reveal>
 
@@ -161,10 +161,9 @@ export default function PricingPage() {
             </div>
 
             <Reveal delay={120}>
-              <p className="mt-8 text-center text-[13.5px] text-secondary">
-                One agency placement at a $90,000 salary runs about
-                {" "}{formatUsd(19_800)}. Core costs {formatUsd(24_000)} for the
-                whole year, however many people you hire.
+              <p className="mt-8 text-center font-display text-[clamp(19px,2.2vw,24px)] leading-[1.4] text-ink text-balance">
+                Your hiring volume shouldn&rsquo;t determine your recruiting
+                cost.
               </p>
             </Reveal>
           </Container>
