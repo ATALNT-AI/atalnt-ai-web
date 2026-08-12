@@ -1,6 +1,7 @@
 import { SiteNav } from "@/components/layout/site-nav";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Hero } from "@/components/sections/hero";
+import { ClientLogos } from "@/components/sections/client-logos";
 import { Problem } from "@/components/sections/problem";
 import { Solution } from "@/components/sections/solution";
 import { SourcingNetwork } from "@/components/sections/sourcing-network";
@@ -28,6 +29,7 @@ export default function Home() {
       <SiteNav />
       <main id="main" className="flex-1">
         <Hero />
+        <ClientLogos />
         <Problem />
         <Solution />
         <SourcingNetwork />
