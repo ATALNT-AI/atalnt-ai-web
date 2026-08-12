@@ -10,17 +10,17 @@ type WordmarkProps = {
 };
 
 const SIZES = {
-  sm: { text: "text-[17px]", ai: "text-[9px]", gem: 12, gap: "gap-2" },
-  md: { text: "text-[21px]", ai: "text-[10px]", gem: 15, gap: "gap-2.5" },
-  lg: { text: "text-[30px]", ai: "text-[13px]", gem: 20, gap: "gap-3" },
+  sm: { text: "text-[17px]", ai: "text-[9px]", gem: 15, gap: "gap-2" },
+  md: { text: "text-[21px]", ai: "text-[10px]", gem: 20, gap: "gap-2.5" },
+  lg: { text: "text-[30px]", ai: "text-[13px]", gem: 24, gap: "gap-3" },
 } as const;
 
 /**
- * The faceted brand gem: the demo's rotated gold square, cut into four
- * facets with a glint so it catches light instead of sitting flat.
- * Inline SVG so it stays crisp at every size and needs no asset request.
+ * The final mark (B9's monogram): four gold facets with the "A" knocked out
+ * in the ground color, so the letter reads as cut from the stone. Inline SVG
+ * so it stays crisp at every size and needs no asset request.
  */
-function Gem({ size }: { size: number }) {
+function Gem({ size, knockout }: { size: number; knockout: string }) {
   return (
     <svg
       aria-hidden
@@ -34,7 +34,10 @@ function Gem({ size }: { size: number }) {
       <path d="M24 3 L3 24 L24 24 Z" fill="#C8A24C" />
       <path d="M3 24 L24 45 L24 24 Z" fill="#A8823A" />
       <path d="M45 24 L24 45 L24 24 Z" fill="#8A6D22" />
-      <path d="M24 9.5 L29 14.5 L24 19.5 L19 14.5 Z" fill="#FFF6DF" fillOpacity="0.55" />
+      <path
+        d="M24 12 L31.5 33 H28.2 L26.4 27.6 H21.6 L19.8 33 H16.5 Z M24 19.8 L22.5 24.6 H25.5 Z"
+        fill={knockout}
+      />
     </svg>
   );
 }
@@ -55,7 +58,7 @@ export function Wordmark({
       className={cn("inline-flex items-center", s.gap, className)}
       aria-label="ATALNT AI"
     >
-      <Gem size={s.gem} />
+      <Gem size={s.gem} knockout={tone === "light" ? "#F7F4EC" : "#15130E"} />
       <span
         aria-hidden
         className={cn(

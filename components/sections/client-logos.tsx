@@ -11,8 +11,8 @@ import { Container } from "@/components/ui/container";
  *   - everything else: transparent art (some white, some colored).
  *     brightness-0 flattens all of it into uniform ink silhouettes.
  *
- * Balfour & Co is pending: their site sits behind a bot wall, so the file
- * comes from the client directly. Add it to CLIENTS when it lands.
+ * Balfour & Co's file is their official press-distribution logo from
+ * PRNewswire (their site sits behind a bot wall).
  */
 const CLIENTS = [
   { src: "/clients/landstar.png", alt: "Landstar", h: 26, box: true },
@@ -31,6 +31,7 @@ const CLIENTS = [
   { src: "/clients/watsonelec.svg", alt: "Watson Electrical", h: 26 },
   { src: "/clients/proconmfg.png", alt: "Pro-Con Manufacturing", h: 30 },
   { src: "/clients/cadence.svg", alt: "Cadence", h: 26 },
+  { src: "/clients/balfour.jpg", alt: "Balfour & Co", h: 34, box: true },
 ];
 
 function LogoRow({ hidden = false }: { hidden?: boolean }) {
