@@ -43,17 +43,25 @@ export function SiteFooter() {
               AI recruiting with a real account manager on every search. On a
               subscription, not a placement fee.
             </p>
-            <p className="mt-5 text-[13px] text-on-dark-muted">
-              A product of{" "}
-              <a
-                href={SITE.parent.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gold-bright underline-offset-4 hover:underline"
-              >
-                {SITE.parent.name}
-              </a>
-            </p>
+            <a
+              href={SITE.parent.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 flex items-center gap-3 text-[13px] text-on-dark-muted transition-colors hover:text-on-dark"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/atalnt-logo.png"
+                alt="ATALNT LLC logo"
+                width={40}
+                height={30}
+                className="h-[30px] w-auto"
+              />
+              <span>
+                A product of{" "}
+                <span className="text-gold-bright">{SITE.parent.name}</span>
+              </span>
+            </a>
           </div>
 
           {COLUMNS.map((col) => (
