@@ -4,7 +4,7 @@ import { Hero } from "@/components/sections/hero";
 import { Problem } from "@/components/sections/problem";
 import { Solution } from "@/components/sections/solution";
 import { SourcingNetwork } from "@/components/sections/sourcing-network";
-import { SavingsCalculator } from "@/components/sections/savings-calculator";
+import { ProofStrip } from "@/components/sections/proof-strip";
 import { Agency } from "@/components/sections/agency";
 import { Wedge } from "@/components/sections/wedge";
 import { Founders } from "@/components/sections/founders";
@@ -31,7 +31,7 @@ export default function Home() {
         <Problem />
         <Solution />
         <SourcingNetwork />
-        <SavingsCalculator />
+        <ProofStrip />
         <Agency />
         <Wedge />
         <Founders />

@@ -12,17 +12,17 @@ const CARDS = [
   {
     pull: "Messy is fine.",
     title: "Intake",
-    body: "Paste the description or drop a file. The AI pulls out the role, the skills, and the seniority, then asks you the few questions that actually sharpen a shortlist.",
+    body: "Paste the description or drop a file. The AI structures it.",
   },
   {
     pull: "No links, no back-and-forth.",
     title: "Scheduling",
-    body: "Share the times you're free. Your AM confirms directly with the candidate and tells you both once it's booked. You never send a scheduling link again.",
+    body: "Share when you're free. Your AM books the candidate directly.",
   },
   {
     pull: "No awkward back-and-forth.",
     title: "Offers",
-    body: "Set the terms. Your AM extends the offer, handles the negotiation, and closes it. If it's a pass, they let the candidate know, kindly.",
+    body: "Set the terms. Your AM extends, negotiates, and closes.",
   },
 ];
 
@@ -41,7 +41,7 @@ export function Wedge() {
             align="center"
             eyebrow="The difference"
             title="A dedicated account manager, working your search by hand."
-            subtitle="Submit a role. Over the next few days your AM sources, screens, and vets candidates, then hands you a ranked shortlist that's ready to interview. Most platforms hand you software and wish you luck. You get a person."
+            subtitle="Most platforms hand you software and wish you luck. You get a person."
           />
         </Reveal>
 

@@ -27,7 +27,7 @@ export function SourcingNetwork() {
               tone="dark"
               eyebrow="Where candidates come from"
               title="Seven channels. One shortlist."
-              subtitle="Your AM works every source we index at the same time, and the AI cross-references millions of profiles down to the handful worth your interview time."
+              subtitle="Your AM works every source we index at once, and the AI narrows millions of profiles to the handful worth your time."
             />
             {/* The accessible version of the diagram. */}
             <ul className="mt-8 flex flex-wrap gap-2 lg:hidden">
@@ -43,7 +43,7 @@ export function SourcingNetwork() {
             </ul>
           </Reveal>
 
-          <Reveal delay={150} className="hidden lg:block">
+          <Reveal delay={150} className="hidden w-full max-w-[640px] justify-self-center lg:block">
             <svg
               viewBox="0 0 720 410"
               role="img"

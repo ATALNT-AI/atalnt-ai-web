@@ -6,7 +6,7 @@ export const FOUNDERS = [
   {
     name: "Lavanya Thatikonda",
     role: "Co-founder & CEO",
-    bio: "A serial entrepreneur with 16+ years scaling organizations and driving workforce growth. Lavanya has grown companies from 50 to 400+ employees, combining technology leadership with recruitment expertise at ATALNT.",
+    bio: "Serial entrepreneur with 16+ years scaling organizations, growing companies from 50 to 400+ employees.",
     image: "/team/lavanya-thatikonda.jpeg",
     width: 864,
     height: 1184,
@@ -17,7 +17,7 @@ export const FOUNDERS = [
   {
     name: "Nik Jain",
     role: "Co-founder & COO",
-    bio: "A diverse background in recruiting, logistics, and technology. Nik founded JP Recruiting Agency and now leads the AI practice at ATALNT, combining entrepreneurial vision with a servant-leadership approach to drive growth.",
+    bio: "Founded JP Recruiting Agency and now leads the AI practice at ATALNT.",
     image: "/team/nik-jain.png",
     width: 1069,
     height: 1336,
@@ -31,8 +31,7 @@ export const MISSION = {
   title: "Recruiting should feel better than this.",
   body: [
     "We want hiring to feel better than it usually does. For the candidate, and for the company trying to reach them.",
-    "AI is good at the parts of recruiting nobody enjoys. Reading a thousand resumes. Cross-referencing databases. Ranking a stack against a brief. What it can't do is have the conversation where someone decides to join your company.",
-    "A lot of this industry is racing to take people out of hiring altogether. We think that's the wrong end of the problem. So we let the software do the sorting, and we keep a real person on every search. Culture and judgment still matter. So does how a candidate gets treated on the way out.",
+    "AI is good at the parts nobody enjoys: reading a thousand resumes, ranking a stack against a brief. What it can't do is have the conversation where someone decides to join your company. So we let the software do the sorting, and we keep a real person on every search.",
   ],
   /** 16+ years (Lavanya) plus Nik's agency and logistics background. */
   experienceLine: "20+ years of combined recruiting experience",

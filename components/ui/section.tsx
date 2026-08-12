@@ -24,7 +24,7 @@ const BG = {
 const SIZE = {
   sm: "py-16 sm:py-20",
   md: "py-20 sm:py-28",
-  lg: "py-24 sm:py-36",
+  lg: "py-20 sm:py-28",
 } as const;
 
 export function Section({

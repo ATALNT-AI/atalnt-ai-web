@@ -44,7 +44,7 @@ const CANDIDATES = [
 
 export function ShortlistPreview() {
   return (
-    <div className="relative animate-at-rise [animation-delay:240ms]">
+    <div className="relative mx-auto w-full max-w-[560px] animate-at-rise [animation-delay:240ms]">
       <div className="relative overflow-hidden rounded-hero border border-line bg-surface p-5 shadow-raised sm:p-6">
         {/* Periodic radar sweep: the AI is "reading" the shortlist. */}
         <span

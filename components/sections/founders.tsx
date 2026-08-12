@@ -92,9 +92,8 @@ export function Founders() {
             </ul>
 
             <p className="mt-6 text-[13.5px] leading-[1.6] text-secondary">
-              We ran these searches by hand as a search firm long before we
-              built software for them. ATALNT AI is that same team,
-              systematized.
+              We ran these searches by hand long before we built software for
+              them.
             </p>
           </Reveal>
         </div>

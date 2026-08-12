@@ -16,15 +16,15 @@ const ITEMS = [
   },
   {
     title: TRUST.encryption,
-    body: "Resumes, contact details, and interview notes are protected at every step, in storage and in flight.",
+    body: "Protected in storage and in flight, at every step.",
   },
   {
     title: TRUST.ownership,
-    body: "Your roles, shortlists, and feedback history are yours. Leave whenever you like and take them with you.",
+    body: "Your roles, shortlists, and history leave with you.",
   },
   {
     title: TRUST.team,
-    body: "Your account manager is a named person on our team, not a rotating offshore queue.",
+    body: "A named person on our team, not a rotating queue.",
   },
 ];
 

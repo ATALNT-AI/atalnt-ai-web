@@ -40,7 +40,7 @@ export function Problem() {
             tone="dark"
             eyebrow="What's actually happening"
             title="You're not short on candidates. You're short on capacity."
-            subtitle="Three things are true at once for almost every team hiring at volume, and they compound in this order."
+            subtitle="Three things are true at once for every team hiring at volume."
           />
         </Reveal>
 

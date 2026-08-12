@@ -10,7 +10,7 @@ type ContainerProps = {
 const SIZES = {
   sm: "max-w-[760px]",
   md: "max-w-[1040px]",
-  lg: "max-w-[1240px]",
+  lg: "max-w-[1320px]",
   prose: "max-w-[680px]",
 } as const;
 
