@@ -1,38 +1,61 @@
 import { Container } from "@/components/ui/container";
 
 /**
- * Client roster: the 8 logos atalnt.com ships plus the additional clients
- * ATALNT named directly (same search process, contingent pricing). Rendered
- * as a right-to-left marquee to match the parent site.
+ * Client roster: the logos atalnt.com ships plus the clients ATALNT named
+ * directly. Same search process for all of them, contingent pricing rather
+ * than subscription. Scrolls right to left like the parent site.
  *
- * Treatments (verified against each file's alpha channel):
- *   - `box`: dark art on an opaque white rectangle (landstar, brownlogistics).
- *     grayscale + multiply dissolves the box into the bone ground.
- *   - everything else: transparent art (some white, some colored).
- *     brightness-0 flattens all of it into uniform ink silhouettes.
+ * These files come from seventeen different companies in every possible
+ * format, so each one gets the treatment its artwork actually needs. The
+ * classification was made by measuring each file's alpha channel and mean
+ * luminance, then checking the rendered result:
  *
- * Balfour & Co's file is their official press-distribution logo from
- * PRNewswire (their site sits behind a bot wall).
+ *   invert   White artwork drawn for atalnt.com's dark site. Invisible on
+ *            bone until brightness(0) flips it to ink. Only safe for solid
+ *            silhouettes: anything with knockouts inside a shape fills solid.
+ *   box      Artwork sitting on an opaque light rectangle. multiply dissolves
+ *            the rectangle into the bone ground.
+ *   shape    Artwork inside a colored oval, circle, or badge. Neither of the
+ *            above works: invert fills the shape, multiply washes it out. A
+ *            contrast lift keeps the shape readable in grey.
+ *   (none)   Already dark artwork on transparency. Grayscale is enough.
  */
-const CLIENTS = [
-  { src: "/clients/landstar.png", alt: "Landstar", h: 26, box: true },
-  { src: "/clients/bettaway.png", alt: "Bettaway", h: 34 },
-  { src: "/clients/armstrong.png", alt: "Armstrong Transport Group", h: 22 },
-  { src: "/clients/007freight.png", alt: "007 Freight", h: 38 },
-  { src: "/clients/servefreight.svg", alt: "Serve Freight", h: 36 },
-  { src: "/clients/brownlogistics.png", alt: "Brown Logistics", h: 44, box: true },
-  { src: "/clients/vannoy.png", alt: "Vannoy", h: 40 },
-  { src: "/clients/adamselectric.png", alt: "Adams Electric", h: 30 },
-  { src: "/clients/danielstire.png", alt: "Daniels Tire Service", h: 34 },
+type Treatment = "invert" | "box" | "shape";
+
+type Client = {
+  src: string;
+  alt: string;
+  /** Rendered height in px, tuned so optical sizes match across the row. */
+  h: number;
+  t?: Treatment;
+};
+
+const CLIENTS: Client[] = [
+  { src: "/clients/landstar.png", alt: "Landstar", h: 26, t: "box" },
+  { src: "/clients/bettaway.png", alt: "Bettaway", h: 34, t: "invert" },
+  { src: "/clients/armstrong.png", alt: "Armstrong Transport Group", h: 22, t: "invert" },
+  { src: "/clients/007freight.png", alt: "007 Freight", h: 38, t: "invert" },
+  { src: "/clients/servefreight.svg", alt: "Serve Freight", h: 36, t: "invert" },
+  { src: "/clients/brownlogistics.png", alt: "Brown Logistics", h: 44, t: "box" },
+  { src: "/clients/vannoy.png", alt: "Vannoy", h: 40, t: "invert" },
+  { src: "/clients/adamselectric.png", alt: "Adams Electric", h: 30, t: "invert" },
+  { src: "/clients/danielstire.png", alt: "Daniels Tire Service", h: 38, t: "shape" },
   { src: "/clients/thsnational.png", alt: "THS National", h: 26 },
-  { src: "/clients/nuagebuilders.png", alt: "NuAge Builders", h: 40 },
-  { src: "/clients/creteunited.png", alt: "Crete United", h: 40 },
-  { src: "/clients/sttlogistics.webp", alt: "STT Logistics Group", h: 34 },
+  { src: "/clients/nuagebuilders.png", alt: "NuAge Builders", h: 34, t: "box" },
+  { src: "/clients/creteunited.png", alt: "Crete United", h: 44, t: "shape" },
+  { src: "/clients/sttlogistics.webp", alt: "STT Logistics Group", h: 34, t: "invert" },
   { src: "/clients/watsonelec.svg", alt: "Watson Electrical", h: 26 },
   { src: "/clients/proconmfg.png", alt: "Pro-Con Manufacturing", h: 30 },
   { src: "/clients/cadence.svg", alt: "Cadence", h: 26 },
-  { src: "/clients/balfour.jpg", alt: "Balfour & Co", h: 34, box: true },
+  { src: "/clients/balfour.jpg", alt: "Balfour & Co", h: 34, t: "box" },
 ];
+
+const TREATMENT: Record<Treatment | "default", string> = {
+  invert: "opacity-60 brightness-0",
+  box: "opacity-70 grayscale mix-blend-multiply",
+  shape: "opacity-80 grayscale contrast-[1.6] brightness-[0.75]",
+  default: "opacity-65 grayscale",
+};
 
 function LogoRow({ hidden = false }: { hidden?: boolean }) {
   return (
@@ -47,11 +70,7 @@ function LogoRow({ hidden = false }: { hidden?: boolean }) {
             src={c.src}
             alt={hidden ? "" : c.alt}
             style={{ height: c.h }}
-            className={
-              "box" in c && c.box
-                ? "w-auto max-w-none opacity-70 grayscale mix-blend-multiply"
-                : "w-auto max-w-none opacity-60 brightness-0"
-            }
+            className={`w-auto max-w-none ${TREATMENT[c.t ?? "default"]}`}
           />
         </li>
       ))}
@@ -71,7 +90,9 @@ export function ClientLogos() {
         </p>
       </Container>
 
-      {/* Full-bleed marquee with bone fade at the edges. */}
+      {/* Full-bleed marquee with bone fades at the edges. The track paints its
+          own bone ground because the animated transform creates a stacking
+          context that would otherwise cut multiply off from the page. */}
       <div className="relative mt-7 overflow-hidden">
         <div
           aria-hidden
