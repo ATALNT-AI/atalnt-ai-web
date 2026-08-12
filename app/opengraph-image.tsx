@@ -11,7 +11,8 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const GEM_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none"><path d="M24 3 L45 24 L24 24 Z" fill="#E8C87E"/><path d="M24 3 L3 24 L24 24 Z" fill="#C8A24C"/><path d="M3 24 L24 45 L24 24 Z" fill="#A8823A"/><path d="M45 24 L24 45 L24 24 Z" fill="#8A6D22"/><path d="M24 9.5 L29 14.5 L24 19.5 L19 14.5 Z" fill="#FFF6DF" fill-opacity="0.55"/></svg>`;
+// The final mark (B9's monogram, bare since the card ground is already ink).
+const GEM_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none"><path d="M24 3 L45 24 L24 24 Z" fill="#E8C87E"/><path d="M24 3 L3 24 L24 24 Z" fill="#C8A24C"/><path d="M3 24 L24 45 L24 24 Z" fill="#A8823A"/><path d="M45 24 L24 45 L24 24 Z" fill="#8A6D22"/><path d="M24 12 L31.5 33 H28.2 L26.4 27.6 H21.6 L19.8 33 H16.5 Z M24 19.8 L22.5 24.6 H25.5 Z" fill="#15130E"/></svg>`;
 const GEM_URI = `data:image/svg+xml,${encodeURIComponent(GEM_SVG)}`;
 
 /** Fetch a TTF from Google Fonts; the legacy UA makes css2 return truetype. */

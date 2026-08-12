@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- ATALNT AI · final mark (B9): faceted gem monogram in the ink tile -->
+  <rect x="1.5" y="1.5" width="45" height="45" rx="11" fill="#15130E"/>
+  <g transform="translate(24 24) scale(.74) translate(-24 -24)">
+    <path d="M24 3 L45 24 L24 24 Z" fill="#E8C87E"/>
+    <path d="M24 3 L3 24 L24 24 Z" fill="#C8A24C"/>
+    <path d="M3 24 L24 45 L24 24 Z" fill="#A8823A"/>
+    <path d="M45 24 L24 45 L24 24 Z" fill="#8A6D22"/>
+    <path d="M24 12 L31.5 33 H28.2 L26.4 27.6 H21.6 L19.8 33 H16.5 Z M24 19.8 L22.5 24.6 H25.5 Z" fill="#15130E"/>
+  </g>
+</svg>

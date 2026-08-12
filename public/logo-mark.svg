@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <!-- ATALNT gem: four facets of gold, cut from the brand diamond -->
-  <path d="M24 5 L43 24 L24 24 Z" fill="#E8C87E"/>
-  <path d="M24 5 L5 24 L24 24 Z" fill="#C8A24C"/>
-  <path d="M5 24 L24 43 L24 24 Z" fill="#A8823A"/>
-  <path d="M43 24 L24 43 L24 24 Z" fill="#8A6D22"/>
-  <path d="M24 5 L43 24 L24 43 L5 24 Z" stroke="#7A5E1F" stroke-opacity=".35" stroke-width="1"/>
-  <path d="M24 11 L28.5 15.5 L24 20 L19.5 15.5 Z" fill="#FFF6DF" fill-opacity=".55"/>
+  <!-- Bare gem monogram, for use on any ground without the tile -->
+  <path d="M24 3 L45 24 L24 24 Z" fill="#E8C87E"/>
+  <path d="M24 3 L3 24 L24 24 Z" fill="#C8A24C"/>
+  <path d="M3 24 L24 45 L24 24 Z" fill="#A8823A"/>
+  <path d="M45 24 L24 45 L24 24 Z" fill="#8A6D22"/>
+  <path d="M24 12 L31.5 33 H28.2 L26.4 27.6 H21.6 L19.8 33 H16.5 Z M24 19.8 L22.5 24.6 H25.5 Z" fill="#F7F4EC"/>
 </svg>

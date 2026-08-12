@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- One-color version (B10) for invoices, merch, embossing -->
+  <path d="M24 3 L45 24 L24 45 L3 24 Z" fill="#B5903F"/>
+  <path d="M24 3 L24 24 M3 24 L45 24" stroke="#F7F4EC" stroke-opacity=".35" stroke-width="1.2"/>
+  <path d="M24 12 L31.5 33 H28.2 L26.4 27.6 H21.6 L19.8 33 H16.5 Z M24 19.8 L22.5 24.6 H25.5 Z" fill="#F7F4EC"/>
+</svg>
