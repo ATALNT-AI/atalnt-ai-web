@@ -5,8 +5,8 @@ import { Reveal } from "@/components/motion/reveal";
 import { CTA_HREF } from "@/lib/site";
 
 export function CtaBand({
-  title = "Stop paying for introductions.",
-  body = "See the platform, meet your account manager, and get a cost model that doesn't punish you for hiring.",
+  title = "Your next hire shouldn\u2019t require five different tools.",
+  body = "From sourcing and enrichment to outreach, screening, and scheduling, ATALNT AI brings the recruiting workflow together in one platform.",
 }: {
   title?: string;
   body?: string;

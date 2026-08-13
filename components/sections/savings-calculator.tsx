@@ -132,9 +132,9 @@ export function SavingsCalculator() {
           <SectionHeader
             id="savings-heading"
             align="center"
-            eyebrow="The math"
-            title="What would this save you?"
-            subtitle="One question. Everything else is our standard assumptions, which you can adjust."
+            eyebrow="What are you really paying for?"
+            title="Job boards. Recruiters. Tools. More tools."
+            subtitle="Recruiter salaries and bonuses, job posts, enrichment, outreach, sourcing and screening tools. The costs add up quickly. ATALNT AI brings the recruiting workflow together in one platform, combining AI-powered sourcing with human recruiting expertise."
           />
         </Reveal>
 

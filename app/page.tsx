@@ -2,19 +2,17 @@ import { SiteNav } from "@/components/layout/site-nav";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Hero } from "@/components/sections/hero";
 import { ClientLogos } from "@/components/sections/client-logos";
-import { Pipeline } from "@/components/sections/pipeline";
+import { Difference } from "@/components/sections/difference";
 import { SourcingNetwork } from "@/components/sections/sourcing-network";
 import { ProofStrip } from "@/components/sections/proof-strip";
 import { Agency } from "@/components/sections/agency";
-import { Wedge } from "@/components/sections/wedge";
 import { Founders } from "@/components/sections/founders";
-import { Trust } from "@/components/sections/trust";
 import { CtaBand } from "@/components/sections/cta-band";
 
 /**
- * Page spine: three escalating pains, answered in the same order, then the
- * money, then who we are. Capacity before cost, because this buyer feels the
- * aging req before they feel the invoice.
+ * Page spine: what the platform does, what it replaces, where candidates come
+ * from, then who is behind it. The two ink sections are separated by the
+ * surface-toned math section so they never sit adjacent.
  */
 export default function Home() {
   return (
@@ -29,13 +27,11 @@ export default function Home() {
       <main id="main" className="flex-1">
         <Hero />
         <ClientLogos />
-        <Pipeline />
-        <SourcingNetwork />
+        <Difference />
         <ProofStrip />
+        <SourcingNetwork />
         <Agency />
-        <Wedge />
         <Founders />
-        <Trust />
         <CtaBand />
       </main>
       <SiteFooter />

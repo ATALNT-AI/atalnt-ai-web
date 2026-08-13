@@ -27,7 +27,7 @@ export function Hero() {
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div>
             <Eyebrow className="animate-at-fade">
-              Hire more. Spend less.
+              Hire more. Spend less. Up to 80% lower cost.
             </Eyebrow>
 
             <h1 className="mt-5 animate-at-fade text-[clamp(36px,5.2vw,60px)] leading-[1.06] tracking-[-0.02em] text-balance [animation-delay:80ms]">

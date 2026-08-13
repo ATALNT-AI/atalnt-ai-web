@@ -1,64 +1,42 @@
 /**
- * The end-to-end recruiting workflow, replacing the old problem/answer pair.
- * One section instead of two: the seven steps are a single idea (what happens
- * from first search to scheduled interview), and splitting them across two
- * sections was what made that page feel long.
+ * "The difference": the recruiting workflow, paired into three stages.
  *
- * Bodies are capped at one sentence on purpose. The step names carry the
- * argument; the detail is for the walkthrough.
+ * This replaces both the old seven-step Pipeline and the separate Wedge
+ * section. The seven steps and this copy made the same argument in the same
+ * words, so running both would have said everything twice on one page. Three
+ * pairs is also easier to hold than seven singles.
  */
-export const PIPELINE = [
+export const STAGES = [
   {
-    n: "01",
-    title: "Discover",
-    body: "Find qualified candidates across every talent source with AI search and intelligent matching.",
+    pull: "From search to shortlist, and beyond.",
+    title: "Discover + Enrich",
+    body: "Find qualified candidates across multiple talent sources with AI-powered search and intelligent matching. ATALNT AI then enriches each profile with the information your team needs to evaluate fit and make better decisions.",
   },
   {
-    n: "02",
-    title: "Enrich",
-    body: "Build a complete profile automatically, with the detail a recruiter needs to make a call.",
+    pull: "The shortlist is only the start.",
+    title: "Engage + Screen",
+    body: "Reach candidates through personalized email, LinkedIn, and text outreach. Keep conversations moving, ask the right questions, understand their experience, and determine whether they are genuinely qualified for the role.",
   },
   {
-    n: "03",
-    title: "Engage",
-    body: "Personalized outreach on the channels that actually get replies: email, LinkedIn, and text.",
-  },
-  {
-    n: "04",
-    title: "Screen",
-    body: "Ask the right questions, understand the experience, and find out who is genuinely qualified.",
-  },
-  {
-    n: "05",
-    title: "Respond",
-    body: "Replies get managed and moved forward instead of sitting in someone's inbox.",
-  },
-  {
-    n: "06",
-    title: "Coordinate",
-    body: "Interested and qualified means straight to scheduling, with everyone's availability aligned.",
-  },
-  {
-    n: "07",
-    title: "Track",
-    body: "Every candidate, conversation, and interview stays connected in one workflow.",
+    pull: "Keep the process moving.",
+    title: "Coordinate + Track",
+    body: "When a qualified candidate is ready to move forward, coordinate availability, schedule the interview, and keep everyone aligned. Candidates, conversations, responses, screening, and interviews stay connected in one workflow.",
   },
 ] as const;
 
-export const PIPELINE_INTRO = {
-  eyebrow: "From first search to scheduled interview",
-  title: "We built something different.",
+export const STAGES_INTRO = {
+  eyebrow: "The difference",
+  title: "More than sourcing. A recruiting engine that keeps hiring moving.",
   subtitle:
-    "Our platform doesn't just find candidates. It moves the whole recruiting process forward.",
+    "ATALNT AI combines AI-powered recruiting intelligence with human recruiting expertise to take your search from the first candidate to the scheduled interview.",
 } as const;
 
-/** The closer. This is the argument the seven steps are evidence for. */
-export const PIPELINE_CLOSER = {
-  title: "The difference is what happens after the search.",
-  body: [
-    "Finding 500 candidates isn't the goal. Finding the right one, getting their attention, qualifying them, and getting them in front of your hiring manager is.",
-    "That's where most sourcing platforms stop. We don't.",
-  ],
+/** The closer. This is the argument the three stages are evidence for. */
+export const STAGES_CLOSER = {
   summary: "Find. Engage. Screen. Schedule.",
-  summaryNote: "One platform. One connected workflow.",
+  body: [
+    "Finding 500 candidates is not the goal. Finding the right candidate, getting their attention, qualifying them, and getting them in front of the hiring manager is.",
+    "That is where most sourcing platforms stop.",
+  ],
+  kicker: "ATALNT AI keeps going.",
 } as const;
