@@ -85,7 +85,7 @@ export function SiteFooter() {
           </p>
           <a
             href="mailto:hello@atalnt.com"
-            className="transition-colors hover:text-on-dark"
+            className="inline-block py-2 transition-colors hover:text-on-dark"
           >
             hello@atalnt.com
           </a>

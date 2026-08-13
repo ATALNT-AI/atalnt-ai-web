@@ -61,76 +61,84 @@ export function SiteNav() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "glass-bone sticky top-0 z-50 transition-shadow duration-200",
-        scrolled ? "border-b border-line shadow-rest" : "border-b border-transparent"
-      )}
-    >
-      <Container>
-        <nav
-          aria-label="Main"
-          className="flex h-16 items-center justify-between gap-6"
-        >
-          <Link
-            href="/"
-            onClick={onLogoClick}
-            className="shrink-0 rounded-nav outline-offset-4"
-            aria-label="ATALNT AI home"
+    <>
+      <header
+        className={cn(
+          "glass-bone sticky top-0 z-50 transition-shadow duration-200",
+          scrolled
+            ? "border-b border-line shadow-rest"
+            : "border-b border-transparent",
+        )}
+      >
+        <Container>
+          <nav
+            aria-label="Main"
+            className="flex h-16 items-center justify-between gap-6"
           >
-            <Wordmark />
-          </Link>
+            <Link
+              href="/"
+              onClick={onLogoClick}
+              className="shrink-0 rounded-nav outline-offset-4"
+              aria-label="ATALNT AI home"
+            >
+              <Wordmark />
+            </Link>
 
-          <ul className="hidden items-center gap-7 lg:flex">
-            {NAV_LINKS.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  onClick={(e) => onAnchorClick(e, l.href)}
-                  className="text-[14.5px] font-medium text-secondary transition-colors hover:text-ink"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+            <ul className="hidden items-center gap-7 lg:flex">
+              {NAV_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    onClick={(e) => onAnchorClick(e, l.href)}
+                    className="text-[14.5px] font-medium text-secondary transition-colors hover:text-ink"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          <div className="hidden items-center gap-3 lg:flex">
-            <Button href={CTA_HREF} size="sm">
-              Book a demo
-            </Button>
-          </div>
+            <div className="hidden items-center gap-3 lg:flex">
+              <Button href={CTA_HREF} size="sm">
+                Book a demo
+              </Button>
+            </div>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? "Close menu" : "Open menu"}
-            className="flex size-10 items-center justify-center rounded-nav border border-line-input bg-surface lg:hidden"
-          >
-            <span className="relative block h-[10px] w-[18px]" aria-hidden>
-              <span
-                className={cn(
-                  "absolute left-0 h-[1.5px] w-full bg-ink transition-transform duration-200",
-                  open ? "top-[4px] rotate-45" : "top-0"
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute left-0 h-[1.5px] w-full bg-ink transition-transform duration-200",
-                  open ? "top-[4px] -rotate-45" : "top-[9px]"
-                )}
-              />
-            </span>
-          </button>
-        </nav>
-      </Container>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? "Close menu" : "Open menu"}
+              className="flex size-10 items-center justify-center rounded-nav border border-line-input bg-surface lg:hidden"
+            >
+              <span className="relative block h-[10px] w-[18px]" aria-hidden>
+                <span
+                  className={cn(
+                    "absolute left-0 h-[1.5px] w-full bg-ink transition-transform duration-200",
+                    open ? "top-[4px] rotate-45" : "top-0",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute left-0 h-[1.5px] w-full bg-ink transition-transform duration-200",
+                    open ? "top-[4px] -rotate-45" : "top-[9px]",
+                  )}
+                />
+              </span>
+            </button>
+          </nav>
+        </Container>
+      </header>
 
+      {/* Sibling of <header>, never a child: the header's backdrop-filter
+          would otherwise become this element's containing block and the
+          fixed positioning would resolve against a 64px box. Uses dvh so an
+          iOS URL bar cannot cut the last item off. */}
       {open && (
         <div
           id="mobile-nav"
-          className="glass-bone fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-line lg:hidden"
+          className="glass-bone fixed inset-x-0 top-16 z-40 h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line lg:hidden"
         >
           <Container className="py-8">
             <ul className="flex flex-col">
@@ -157,6 +165,6 @@ export function SiteNav() {
           </Container>
         </div>
       )}
-    </header>
+    </>
   );
 }
