@@ -71,9 +71,12 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <p className="mt-16 border-t border-ink-line pt-12 text-center font-display text-[clamp(20px,2.6vw,28px)] leading-[1.3] text-gold-bright text-balance">
-          Built for teams who are done paying per placement.
-        </p>
+        <div className="mt-16 border-t border-ink-line pt-12">
+          <p className="mx-auto max-w-[30ch] text-center font-display text-[clamp(19px,2.3vw,26px)] leading-[1.35] text-gold-bright text-balance">
+            Built for companies done paying agencies for every hire, and done
+            building expensive internal recruiting teams and infrastructure.
+          </p>
+        </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-ink-line pt-7 text-[13px] text-on-dark-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
