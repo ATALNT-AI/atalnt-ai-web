@@ -82,7 +82,7 @@ export function Founders() {
                       href={f.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-3 inline-block text-[13px] font-semibold text-secondary underline-offset-4 transition-colors hover:text-ink hover:underline"
+                      className="mt-2 inline-block py-1.5 text-[13px] font-semibold text-secondary underline-offset-4 transition-colors hover:text-ink hover:underline"
                     >
                       LinkedIn ↗
                     </a>

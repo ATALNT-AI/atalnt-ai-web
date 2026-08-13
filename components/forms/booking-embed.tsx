@@ -34,14 +34,14 @@ export function BookingFallback() {
         href={BOOKING.directUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-semibold text-secondary underline underline-offset-4 hover:text-ink"
+        className="inline-block py-1.5 font-semibold text-secondary underline underline-offset-4 hover:text-ink"
       >
         Open it in a new tab
       </a>{" "}
       or email{" "}
       <a
         href="mailto:hello@atalnt.com"
-        className="font-semibold text-secondary underline underline-offset-4 hover:text-ink"
+        className="inline-block py-1.5 font-semibold text-secondary underline underline-offset-4 hover:text-ink"
       >
         hello@atalnt.com
       </a>

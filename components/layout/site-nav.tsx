@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { CTA_HREF, NAV_LINKS } from "@/lib/site";
@@ -9,8 +10,25 @@ import { Container } from "@/components/ui/container";
 import { Wordmark } from "@/components/ui/wordmark";
 
 export function SiteNav() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  /**
+   * On any other page the Link navigates home as usual. On the home page a
+   * plain <Link href="/"> is a no-op, so clicking the logo appeared to do
+   * nothing; scroll to the top instead, and clear any lingering #hash so the
+   * URL matches where the reader actually is.
+   */
+  function onLogoClick(e: React.MouseEvent) {
+    if (pathname !== "/") return;
+    e.preventDefault();
+    setOpen(false);
+    if (window.location.hash) {
+      history.replaceState(null, "", window.location.pathname);
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -39,7 +57,12 @@ export function SiteNav() {
           aria-label="Main"
           className="flex h-16 items-center justify-between gap-6"
         >
-          <Link href="/" className="shrink-0" aria-label="ATALNT AI home">
+          <Link
+            href="/"
+            onClick={onLogoClick}
+            className="shrink-0 rounded-nav outline-offset-4"
+            aria-label="ATALNT AI home"
+          >
             <Wordmark />
           </Link>
 

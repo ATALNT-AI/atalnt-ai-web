@@ -36,7 +36,7 @@ const FAQ = [
   },
   {
     q: "Is there a setup fee?",
-    a: "No. There's nothing to implement and nothing to pay up front. Your first shortlist is moving within the week, and billing terms are agreed on your demo call.",
+    a: "No. There's nothing to implement and nothing to pay up front. Your sourced candidate list lands within the week, and billing terms are agreed on your demo call.",
   },
   {
     q: "When does this not make sense?",

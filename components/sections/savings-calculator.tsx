@@ -254,7 +254,7 @@ export function SavingsCalculator() {
                 type="button"
                 onClick={() => setShowDetails((v) => !v)}
                 aria-expanded={showDetails}
-                className="text-left text-[13px] font-semibold text-secondary underline-offset-4 hover:text-ink hover:underline sm:ml-auto"
+                className="py-2 text-left text-[13px] font-semibold text-secondary underline-offset-4 hover:text-ink hover:underline sm:ml-auto"
               >
                 {showDetails ? "Hide assumptions" : "Adjust assumptions"}
               </button>

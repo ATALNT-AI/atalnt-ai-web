@@ -32,7 +32,7 @@ export function CtaBand({
             </Button>
           </div>
           <p className="mt-6 text-[13px] text-on-dark-muted">
-            No implementation fee · First shortlist inside a week
+            No implementation fee · Sourced candidate list within a week
           </p>
         </Reveal>
       </Container>

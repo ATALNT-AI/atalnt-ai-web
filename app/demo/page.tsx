@@ -39,10 +39,10 @@ export default function DemoPage() {
             className="glow-gold pointer-events-none absolute top-[-200px] right-[-120px] size-[620px] opacity-60"
           />
           <Container className="relative">
-            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-              <div>
+            <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+              <div className="order-2 lg:order-1">
                 <Eyebrow>Book a demo</Eyebrow>
-                <h1 className="mt-4 text-[clamp(32px,4.2vw,46px)] leading-[1.08] text-balance">
+                <h1 className="mt-4 text-[clamp(28px,4.2vw,46px)] leading-[1.08] text-balance">
                   Pick a time that works.
                 </h1>
                 <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.65] text-secondary">
@@ -87,7 +87,7 @@ export default function DemoPage() {
                 </ul>
               </div>
 
-              <div>
+              <div className="order-1 lg:order-2">
                 <BookingEmbed />
                 <BookingFallback />
               </div>

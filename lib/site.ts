@@ -43,7 +43,8 @@ export const BOOKING = {
 export const NAV_LINKS = [
   { label: "How it works", href: "/#how-it-works" },
   { label: "Pricing", href: "/pricing" },
-  ] as const;
+  { label: "Testimonials", href: "/testimonials" },
+] as const;
 
 /**
  * Sourcing channels the product searches across.

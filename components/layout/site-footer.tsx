@@ -10,6 +10,7 @@ const COLUMNS = [
     links: [
       { label: "How it works", href: "/#how-it-works" },
       { label: "Pricing", href: "/pricing" },
+      { label: "Testimonials", href: "/testimonials" },
           ],
   },
   {
@@ -39,8 +40,7 @@ export function SiteFooter() {
           <div className="max-w-[300px]">
             <Wordmark tone="dark" />
             <p className="mt-5 text-[14.5px] leading-[1.6] text-on-dark-muted">
-              AI recruiting with a real account manager on every search. On a
-              subscription, not a placement fee.
+              AI recruiting with a real account manager on every search.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export function SiteFooter() {
                         {...(external
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
-                        className="text-[14px] text-on-dark-muted transition-colors hover:text-on-dark"
+                        className="inline-block py-2.5 text-[14px] text-on-dark-muted transition-colors hover:text-on-dark"
                       >
                         {l.label}
                       </Link>
@@ -71,12 +71,21 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-ink-line pt-7 text-[13px] text-on-dark-muted sm:flex-row sm:items-center sm:justify-between">
+        <p className="mt-16 border-t border-ink-line pt-12 text-center font-display text-[clamp(20px,2.6vw,28px)] leading-[1.3] text-gold-bright text-balance">
+          Built for teams who are done paying per placement.
+        </p>
+
+        <div className="mt-10 flex flex-col gap-3 border-t border-ink-line pt-7 text-[13px] text-on-dark-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {SITE.parent.name}. All rights
             reserved.
           </p>
-          <p>Built for teams who are done paying per placement.</p>
+          <a
+            href="mailto:hello@atalnt.com"
+            className="transition-colors hover:text-on-dark"
+          >
+            hello@atalnt.com
+          </a>
         </div>
       </Container>
     </footer>

@@ -1178,7 +1178,7 @@ function S8({ t }: { t: number }) {
                   margin: 0,
                 }}
               >
-                First shortlist inside a week · atalnt.ai
+                Sourced candidate list within a week · atalnt.ai
               </p>
               <Diamond size={12} />
             </div>

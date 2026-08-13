@@ -40,7 +40,11 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative",
+        // Sections are full-bleed bands, so clipping is always right here.
+        // Without it the decorative glows (720px and 560px squares pinned to
+        // the right edge) push the document wider than the viewport, which
+        // showed up as a sideways scroll on phones.
+        "relative overflow-hidden",
         BG[bg],
         SIZE[size],
         bordered && "border-y border-line",

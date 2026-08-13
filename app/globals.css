@@ -248,8 +248,19 @@
 
   html {
     scroll-behavior: smooth;
-    /* offset anchor targets for the sticky nav */
+    /* Offset anchor targets for the sticky nav. Safari has historically
+       ignored this for hash navigation, so targets also carry their own
+       scroll-margin-top below. */
     scroll-padding-top: 96px;
+  }
+
+  /* Any element that a link can jump to clears the 64px sticky nav with room
+     to breathe, however the scroll was triggered. */
+  :target,
+  [id="main"],
+  [id="how-it-works"],
+  [id="savings"] {
+    scroll-margin-top: 96px;
   }
 
   body {
