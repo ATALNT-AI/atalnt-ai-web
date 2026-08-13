@@ -23,6 +23,19 @@ export const SITE = {
 export const CTA_HREF = "/demo";
 
 /**
+ * Zoho Bookings, service "ATALNT AI Demo" (30 min) on the ATALNT portal.
+ * `portal-embed` is the iframe-safe variant; `portal` is the standalone page
+ * we link to when the iframe is blocked.
+ */
+export const BOOKING = {
+  serviceId: "4732308000001686006",
+  embedUrl:
+    "https://admin-atalnt.zohobookings.com/portal-embed#/4732308000001686006",
+  directUrl:
+    "https://admin-atalnt.zohobookings.com/portal/4732308000001686006",
+} as const;
+
+/**
  * Launch nav. Only routes that exist.
  * Platform, How it works, Pricing, Who it's for, and About are the next build
  * phase; add them here as they ship rather than linking ahead of the pages.

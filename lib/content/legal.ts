@@ -33,12 +33,8 @@ export const PRIVACY: LegalSection[] = [
     blocks: [
       "We collect personal information that you provide to us through the following channels:",
       {
-        sub: "Walkthrough and demo requests",
-        body: "When you request a demo or contact us, we collect your name, work email address, company name, and phone number, along with anything else you choose to tell us about your hiring needs.",
-      },
-      {
-        sub: "Savings calculator",
-        body: "If you ask us to price your plan from the calculator, we collect the figures you entered along with your contact details so we can follow up with a quote.",
+        sub: "Demo bookings",
+        body: "When you book a demo, our scheduling provider Zoho Bookings collects your name, email address, and any details you add to the booking, and shares them with us so we can prepare for and hold the meeting.",
       },
       {
         sub: "Platform accounts",
@@ -111,7 +107,7 @@ export const PRIVACY: LegalSection[] = [
   {
     heading: "Third-party services",
     blocks: [
-      "We use third-party service providers to help operate our business and deliver our services, including Zoho for scheduling, forms, and customer relationship management, and hosting and analytics providers.",
+      "We use third-party service providers to help operate our business and deliver our services, including Zoho Bookings for demo scheduling, Zoho for customer relationship management, and hosting and analytics providers. Booking a demo takes place in an embedded Zoho page, so their privacy terms apply to what you enter there.",
       "We do not sell your personal information. We share information with service providers only as necessary to perform services on our behalf, and they are required to protect it consistent with this policy.",
     ],
   },
@@ -119,7 +115,7 @@ export const PRIVACY: LegalSection[] = [
     heading: "Data retention",
     blocks: [
       "We retain personal information for as long as necessary to fulfill the purposes described here, unless a longer period is required or permitted by law.",
-      "Inquiry and calculator data is retained for up to 24 months. Candidate data is retained for up to 24 months after last activity, unless earlier deletion is requested.",
+      "Booking and inquiry data is retained for up to 24 months. Candidate data is retained for up to 24 months after last activity, unless earlier deletion is requested.",
       `You may request deletion of your data at any time by contacting ${LEGAL_CONTACT}.`,
     ],
   },
@@ -175,7 +171,7 @@ export const TERMS: LegalSection[] = [
   {
     heading: "Our services",
     blocks: [
-      "ATALNT AI is a subscription recruiting service that pairs a dedicated account manager with software for sourcing, screening, and shortlisting candidates. This website lets you learn about the service, use our savings calculator, and request a demo.",
+      "ATALNT AI is a subscription recruiting service that pairs a dedicated account manager with software for sourcing, screening, and shortlisting candidates. This website lets you learn about the service, use our savings calculator, and book a demo.",
     ],
   },
   {

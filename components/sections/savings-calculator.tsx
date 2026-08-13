@@ -117,8 +117,6 @@ export function SavingsCalculator() {
     Math.round((roi.atalntAnnual / Math.max(1, roi.contingentAnnual)) * 100)
   );
 
-  const quoteHref = `${CTA_HREF}?roles=${roles}&hires=${hires}&salary=${salary}&fee=${fee}`;
-
   return (
     <Section
       bg="surface"
@@ -246,8 +244,8 @@ export function SavingsCalculator() {
             )}
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href={quoteHref} size="lg">
-                Get this in writing
+              <Button href={CTA_HREF} size="lg">
+                Book a demo
               </Button>
               <Button href="/pricing" variant="ghost" size="sm">
                 See plans →
