@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
+import { Wordmark } from "@/components/ui/wordmark";
 import { Reveal } from "@/components/motion/reveal";
 import { formatUsd } from "@/lib/roi";
 import { RECRUITER_STACK, RECRUITER_TOTAL, COST_SOURCES } from "@/lib/recruiter-cost";
@@ -74,10 +75,21 @@ export function ProofStrip() {
           {/* The alternative, stated without a price */}
           <Reveal delay={100}>
             <div className="flex h-full flex-col justify-center rounded-hero border border-gold-line bg-gold-tint p-6 sm:p-8">
-              <p className="text-[11.5px] font-bold tracking-[0.06em] text-gold-deep uppercase">
-                With ATALNT AI
-              </p>
-              <p className="mt-5 font-display text-[clamp(30px,4.2vw,44px)] leading-[1.12] text-ink text-balance">
+              {/* The brand lockup, not an eyebrow: this is the answer to the
+                  column on the left, so it carries the mark at full size. */}
+              <div className="flex items-baseline gap-2.5">
+                <span className="text-[11.5px] font-bold tracking-[0.06em] text-gold-deep uppercase">
+                  With
+                </span>
+                <span className="relative">
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-[2px] h-[9px] bg-gold/25"
+                  />
+                  <Wordmark size="lg" className="relative" />
+                </span>
+              </div>
+              <p className="mt-6 font-display text-[clamp(28px,3.8vw,40px)] leading-[1.12] text-ink text-balance">
                 All of it. One platform.
               </p>
               <p className="mt-4 text-[15px] leading-[1.65] text-body">
