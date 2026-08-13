@@ -247,7 +247,16 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* Do NOT set `scroll-behavior: smooth` here. It breaks Next's App Router
+       scroll reset between pages: the router's scrollTo(0, 0) becomes an
+       animation the navigation does not wait for, so you keep the previous
+       page's scroll position. Going from a scrolled home page to /demo landed
+       768px down a 1764px page, which read as the booking page opening
+       half-way through itself.
+
+       In-page anchors scroll smoothly via the nav's own handler instead,
+       which cannot interfere with navigation. */
+
     /* Offset anchor targets for the sticky nav. Safari has historically
        ignored this for hash navigation, so targets also carry their own
        scroll-margin-top below. */

@@ -20,6 +20,21 @@ export function SiteNav() {
    * nothing; scroll to the top instead, and clear any lingering #hash so the
    * URL matches where the reader actually is.
    */
+  /**
+   * Same-page anchor links scroll smoothly without CSS `scroll-behavior`,
+   * which cannot be used globally (see the note in globals.css). On any other
+   * page the link navigates normally and the browser handles the hash.
+   */
+  function onAnchorClick(e: React.MouseEvent, href: string) {
+    if (!href.startsWith("/#") || pathname !== "/") return;
+    const el = document.getElementById(href.slice(2));
+    if (!el) return;
+    e.preventDefault();
+    setOpen(false);
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", href);
+  }
+
   function onLogoClick(e: React.MouseEvent) {
     if (pathname !== "/") return;
     e.preventDefault();
@@ -71,6 +86,7 @@ export function SiteNav() {
               <li key={l.href}>
                 <Link
                   href={l.href}
+                  onClick={(e) => onAnchorClick(e, l.href)}
                   className="text-[14.5px] font-medium text-secondary transition-colors hover:text-ink"
                 >
                   {l.label}
@@ -122,7 +138,10 @@ export function SiteNav() {
                 <li key={l.href} style={{ "--i": i } as React.CSSProperties}>
                   <Link
                     href={l.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => {
+                      setOpen(false);
+                      onAnchorClick(e, l.href);
+                    }}
                     className="block border-b border-line-inner py-4 font-display text-[26px] text-ink"
                   >
                     {l.label}
