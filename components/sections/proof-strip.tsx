@@ -2,23 +2,20 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
-import { BadgePill } from "@/components/ui/badge-pill";
 import { Reveal } from "@/components/motion/reveal";
-import { PLANS } from "@/lib/pricing";
 import { formatUsd } from "@/lib/roi";
 import { RECRUITER_STACK, RECRUITER_TOTAL, COST_SOURCES } from "@/lib/recruiter-cost";
 import { CTA_HREF } from "@/lib/site";
 
 /**
- * The money section, itemized. A single headline number invites doubt; a
- * ledger a CFO can check line by line does the opposite, and it makes the
- * real point: this replaces a recruiter and their whole stack, not one fee.
+ * The cost of the stack a company already runs, itemized, with no ATALNT AI
+ * price opposite it.
+ *
+ * Deliberately no number on the right: naming a figure here answers the
+ * question instead of provoking it, and the pricing page is one click away for
+ * anyone who wants it. The left column does the work; the right column only
+ * has to say "all of that, in one place."
  */
-const GROWTH = PLANS.find((p) => p.id === "growth")!;
-const GROWTH_ANNUAL = (GROWTH.monthly ?? 0) * 12;
-const SAVINGS = RECRUITER_TOTAL - GROWTH_ANNUAL;
-const SAVINGS_PCT = Math.round((SAVINGS / RECRUITER_TOTAL) * 100);
-
 export function ProofStrip() {
   return (
     <Section bg="surface" size="lg" bordered id="savings" aria-labelledby="math-heading">
@@ -28,13 +25,13 @@ export function ProofStrip() {
             id="math-heading"
             align="center"
             eyebrow="The math"
-            title="One recruiter costs more than the whole platform."
-            subtitle="Not one placement fee. A recruiter, their seat licences, their data, and their job boards, against what we charge to run every one of your searches."
+            title="Everything you're already paying for."
+            subtitle="A recruiter, their seat licences, their data, their job boards, and the tools that stitch it all together. Six line items, six renewal dates, one hire at a time."
           />
         </Reveal>
 
         <div className="mx-auto mt-14 grid max-w-[1000px] gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-          {/* The ledger */}
+          {/* What it costs to run this in-house */}
           <Reveal>
             <div className="h-full rounded-hero border border-line bg-bone p-6 sm:p-8">
               <p className="text-[11.5px] font-bold tracking-[0.06em] text-eyebrow uppercase">
@@ -74,36 +71,31 @@ export function ProofStrip() {
             </div>
           </Reveal>
 
-          {/* The answer */}
+          {/* The alternative, stated without a price */}
           <Reveal delay={100}>
             <div className="flex h-full flex-col justify-center rounded-hero border border-gold-line bg-gold-tint p-6 sm:p-8">
               <p className="text-[11.5px] font-bold tracking-[0.06em] text-gold-deep uppercase">
-                ATALNT AI {GROWTH.name}, per year
+                With ATALNT AI
               </p>
-              <p className="mt-5 font-display text-[clamp(38px,5.5vw,58px)] leading-none text-ink tabular">
-                {formatUsd(GROWTH_ANNUAL)}
+              <p className="mt-5 font-display text-[clamp(30px,4.2vw,44px)] leading-[1.12] text-ink text-balance">
+                All of it. One platform.
               </p>
-              <p className="mt-3 text-[14px] leading-[1.6] text-body">
-                {GROWTH.rolesLabel.toLowerCase()}, a dedicated account manager,
-                and every tool above included.
+              <p className="mt-4 text-[15px] leading-[1.65] text-body">
+                Sourcing, enrichment, outreach, screening, scheduling, and a
+                dedicated account manager who runs your searches. Everything in
+                that column, in one place, for one monthly price.
               </p>
 
-              <div className="mt-6 border-t border-gold-line pt-5">
-                <p className="text-[13px] text-gold-deep">You keep</p>
-                <p className="mt-1 font-display text-[30px] leading-none text-success tabular">
-                  {formatUsd(SAVINGS)}
-                </p>
-                <div className="mt-3">
-                  <BadgePill tone="green">{SAVINGS_PCT}% less</BadgePill>
-                </div>
-              </div>
+              <p className="mt-6 border-t border-gold-line pt-5 text-[13.5px] leading-[1.6] text-gold-deep">
+                Priced by the roles you have open, not the people you hire.
+              </p>
 
               <div className="mt-7 flex flex-col gap-2">
-                <Button href={CTA_HREF} size="lg" className="w-full justify-center">
-                  Book a demo
+                <Button href="/pricing" size="lg" className="w-full justify-center">
+                  See what it costs
                 </Button>
-                <Button href="/pricing" variant="ghost" size="sm">
-                  See all plans →
+                <Button href={CTA_HREF} variant="ghost" size="sm">
+                  Book a demo →
                 </Button>
               </div>
             </div>
