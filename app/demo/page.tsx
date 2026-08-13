@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { BookingEmbed, BookingFallback } from "@/components/forms/booking-embed";
+import { PinScrollTop } from "@/components/forms/pin-scroll-top";
 import { TRUST } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ const STEPS = [
 export default function DemoPage() {
   return (
     <>
+      <PinScrollTop />
       <SiteNav />
       <main className="flex-1">
         <section className="relative overflow-hidden bg-bone py-14 sm:py-20">
