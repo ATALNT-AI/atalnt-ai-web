@@ -6,12 +6,12 @@ import { Difference } from "@/components/sections/difference";
 import { SourcingNetwork } from "@/components/sections/sourcing-network";
 import { ProofStrip } from "@/components/sections/proof-strip";
 import { Agency } from "@/components/sections/agency";
-import { Founders } from "@/components/sections/founders";
 import { CtaBand } from "@/components/sections/cta-band";
 
 /**
- * Page spine: what the platform does, what it replaces, where candidates come
- * from, then who is behind it. The two ink sections are separated by the
+ * Page spine: what the platform does, what it replaces, and where candidates
+ * come from. The founder story lives on /about now; the home page sells the
+ * product and hands off. The two ink sections are separated by the
  * surface-toned math section so they never sit adjacent.
  */
 export default function Home() {
@@ -31,7 +31,6 @@ export default function Home() {
         <ProofStrip />
         <SourcingNetwork />
         <Agency />
-        <Founders />
         <CtaBand />
       </main>
       <SiteFooter />
