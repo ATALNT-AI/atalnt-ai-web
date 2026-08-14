@@ -29,9 +29,25 @@ const STEPS = [
   },
 ];
 
+/**
+ * Every origin the Zoho iframe hits while booting. Preconnecting from here
+ * means its requests start on already-open sockets instead of paying DNS and
+ * TLS per origin first; Chrome partitions connections by top-level site, so
+ * the iframe reuses these. React hoists <link> tags into <head>.
+ */
+const ZOHO_ORIGINS = [
+  "https://admin-atalnt.zohobookings.com",
+  "https://static.zohocdn.com",
+  "https://accounts.zoho.com",
+  "https://us4-internaliplocation.zoho.com",
+];
+
 export default function DemoPage() {
   return (
     <>
+      {ZOHO_ORIGINS.map((href) => (
+        <link key={href} rel="preconnect" href={href} />
+      ))}
       <PinScrollTop />
       <SiteNav />
       <main className="flex-1">

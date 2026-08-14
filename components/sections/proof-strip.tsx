@@ -69,6 +69,20 @@ export function ProofStrip() {
                   {formatUsd(RECRUITER_TOTAL)}
                 </span>
               </div>
+
+              {/* The other path, promoted out of the footnote: readers kept
+                  missing the placement-fee comparison entirely. Same 20% the
+                  sales calls quote; the calculator's agency mode uses it as
+                  its default, so the two surfaces agree. */}
+              <div className="mt-5 rounded-card border border-line bg-surface p-4">
+                <p className="text-[13px] leading-[1.6] text-secondary">
+                  <span className="font-semibold text-ink">
+                    Or skip the hire and pay agencies instead:
+                  </span>{" "}
+                  about 20% of salary per placement. That&rsquo;s $18,000 on
+                  one $90,000 role, and again on the next, with no cap.
+                </p>
+              </div>
             </div>
           </Reveal>
 
