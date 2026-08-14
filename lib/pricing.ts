@@ -98,24 +98,22 @@ export const PLANS: Plan[] = [
 ];
 
 /**
- * What the recruiter commits, worded once so all three cards say the same thing.
+ * What the human side commits, worded once so all three cards say the same
+ * thing.
  *
- * Every clause is already published elsewhere and defensible today: "named
- * recruiter" is a Core feature, recruiting experience is TRUST.team, and the
- * candidate list inside a week matches the service-levels clause in the
- * subscription agreement, which correctly states it as a target.
+ * Deliberately AI-first: the platform does the volume work, the recruiter is
+ * oversight and a person to reach. An earlier version credited the recruiter
+ * with sourcing, screening, scheduling, and offers, which made it sound like
+ * one person does everything by hand and undersold the product's actual
+ * engine (confirmed by Nik, Aug 2026).
  *
- * Deliberately no location claim. What the buyer is actually asking when they
- * ask "who does the work" is whether the person knows recruiting, so answer
- * that instead of making a staffing commitment we would have to keep.
- *
- * Deliberately no hours-per-week figure either. Publishing one moves the
- * buyer's comparison to an hourly rate against fractional recruiters, which is
- * not the comparison this product wins. Revisit only when the recruiter time data
- * exists.
+ * Deliberately no location claim, no task inventory, and no hours-per-week
+ * figure. Publishing hours moves the buyer's comparison to an hourly rate
+ * against fractional recruiters, which is not the comparison this product
+ * wins. Revisit only when the recruiter time data exists.
  */
 export const RECRUITER_COMMITMENT =
-  "A named recruiter runs your searches: sourcing, screening conversations, interview scheduling, and offer delivery. Sourced candidate list within a week of intake.";
+  "The AI works your searches around the clock, and you get direct access to a dedicated recruiter who oversees every one. Sourced candidate list within a week of intake.";
 
 /**
  * The buyers who do not fit a tier. Volume is only one of five reasons, and it

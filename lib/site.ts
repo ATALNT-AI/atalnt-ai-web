@@ -9,7 +9,7 @@ export const SITE = {
   tagline: "AI recruiting with a human on your side",
   url: "https://atalnt.ai",
   description:
-    "Replace contingent search fees with a subscription. Submit a role, and your recruiter sources, screens, and vets candidates, then hands you a ranked shortlist that's ready to interview.",
+    "Replace contingent search fees with a subscription. Submit a role, and AI sourcing overseen by a dedicated recruiter hands you a ranked shortlist that's ready to interview.",
   parent: {
     name: "ATALNT LLC",
     url: "https://atalnt.com",

@@ -44,7 +44,7 @@ const FAQ = [
   },
   {
     q: "Who actually does the work?",
-    a: "A named recruiter, and it's the same person on every search. They source, run screening conversations, coordinate interviews, and deliver offers at your direction. You'll meet them on the demo call, before you buy anything.",
+    a: "The AI does the heavy lifting: sourcing across seven channels, screening, and ranking, around the clock. A dedicated recruiter oversees your searches and is your point of contact throughout. You'll meet them on the demo call, before you buy anything.",
   },
   {
     q: "What counts as an active role?",
@@ -143,7 +143,7 @@ export default function PricingPage() {
                         price, so it should not be the fourth bullet down. */}
                     <div className="mt-5 rounded-card border border-gold-line bg-gold-tint p-4">
                       <p className="text-[11px] font-bold tracking-[0.08em] text-gold-deep uppercase">
-                        Your recruiter
+                        AI + a real recruiter
                       </p>
                       <p className="mt-2 text-[13px] leading-[1.55] text-body">
                         {RECRUITER_COMMITMENT}
