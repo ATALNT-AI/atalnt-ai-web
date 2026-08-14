@@ -26,7 +26,7 @@ Organizations running **high req volume that can't close roles fast enough**. No
 - **Measured on:** their number. Recruiting metrics are somebody else's problem.
 - **Feels:** their best people covering the gap and getting close to done with it. Interviewing candidates who waste their time.
 - **Fears:** missing the quarter because they're a person down. Losing a second person to burnout.
-- **Does not care about cost per hire.** Telling this person you're 50–70% cheaper is answering a question they never asked. They want the seat filled.
+- **Does not care about cost per hire.** Telling this person you're up to 80% cheaper is answering a question they never asked. They want the seat filled.
 
 ### The trap, and it's a serious one
 
@@ -90,7 +90,7 @@ Pulled from the live site copy in `lib/site.ts`. Stick to these words.
 
 | Claim | Exact wording |
 |---|---|
-| Cost | "50 to 70% lower cost per hire" |
+| Cost | "Up to 80% lower cost per hire" |
 | Model | "One flat monthly price" — never a dollar figure, pricing is quoted per account |
 | Human | "A dedicated, U.S.-based account manager" · "1:1" |
 | Speed | "Your first shortlist inside a week" |
@@ -268,7 +268,7 @@ Hit the situation hard. Never hit the viewer.
 - **VISUAL PROMPT:** Recruiting shortlist with three candidate cards and gold match scores on cream, a small profile card, and a summary tile showing a count of roles submitted.
 
 **0:26 – 0:30 — Close**
-- **ON SCREEN:** `50–70% lower cost per hire` → wordmark → `atalnt.ai`
+- **ON SCREEN:** `Up to 80% lower cost per hire` → wordmark → `atalnt.ai`
 - **VO:** "Fifty to seventy percent lower, per hire. Book a walkthrough."
 - **VISUAL PROMPT:** Bold gold statistic on deep near-black dissolving into a minimal serif wordmark with warm gold glow.
 
@@ -316,13 +316,13 @@ Swap into the first 3 seconds of any ad. Test five, keep two.
 > Job boards give you applicants. Sourcing gives you candidates. ATALNT AI searches internal and external databases, LinkedIn, and live postings, then reaches out by email, voice, and text — and a dedicated U.S.-based account manager screens every result by hand before it reaches you. Submit every open role for one flat monthly price. First shortlist inside a week.
 
 **Ad 2 — speed:**
-> The best candidates are gone in days, and most of that time is calendar friction. Your ATALNT AI account manager confirms interviews directly with the candidate — you share your availability, they handle the rest, you both get told once it's booked. Ranked shortlist inside a week. 50–70% lower cost per hire.
+> The best candidates are gone in days, and most of that time is calendar friction. Your ATALNT AI account manager confirms interviews directly with the candidate — you share your availability, they handle the rest, you both get told once it's booked. Ranked shortlist inside a week. Up to 80% lower cost per hire.
 
 **Ad 3 — the empty seat *(written for the line leader, not the talent leader)*:**
 > An empty seat costs more than the invoice ever shows — it costs the three people covering it. ATALNT AI puts a dedicated account manager on the role: they source, screen, and book the interviews, and your first shortlist lands inside a week. You show up and pick. Send it to whoever owns hiring where you work.
 
 **Ad 4 — the model:**
-> Contingent search charges 18–25% of first-year salary on every hire — your tenth costs exactly what your first did, and if they leave, the meter restarts. ATALNT AI replaces the fee with one flat monthly price, so the next role is free at the margin. 50–70% lower cost per hire.
+> Contingent search charges 18–25% of first-year salary on every hire — your tenth costs exactly what your first did, and if they leave, the meter restarts. ATALNT AI replaces the fee with one flat monthly price, so the next role is free at the margin. Up to 80% lower cost per hire.
 
 **Headlines:** `412 applicants. 2 worth calling.` · `You lost her to nine days, not a better offer` · `Your tenth hire shouldn't cost what your first did` · `The sourcing capacity you couldn't get headcount for` *(A)* · `Get the seat filled` *(B)*
 

@@ -66,16 +66,20 @@ export const SOURCING_CHANNELS = [
  * source and as-of date before launch, or pull it.
  */
 /**
- * `costReduction` is derived from real plan pricing, not a marketing round
- * number. Typical accounts land between 75% and 90%:
- *   Core   at  5–10 hires/yr → 76–88%
- *   Growth at 10–20 hires/yr → 79–89%
- *   Scale  at 15–30 hires/yr → 80–90%
- * Below roughly 3 hires a year agencies are cheaper, and the calculator says
- * so rather than pretending otherwise.
+ * `costReduction` is ONE number, used everywhere. The site used to ship three
+ * at once: this constant said 70–85%, the hero eyebrow directly above it said
+ * "Up to 80%", and both sales scripts said 50–70%. A reader saw two of them
+ * stacked in the same hero.
+ *
+ * "Up to 80%" is the number that survives every comparison the site makes:
+ *   vs an in-house recruiter  $146,393 → Growth $42,000 = 71%, Core $24,000 = 84%
+ *   vs agency fees            varies with volume, and the calculator computes
+ *                             it live rather than claiming it
+ * Below roughly 3 hires a year an agency is cheaper, and the calculator says so
+ * rather than pretending otherwise.
  */
 export const STATS = {
-  costReduction: "70–85%",
+  costReduction: "Up to 80%",
   profilesIndexed: "2.4M",
   accountManager: "1:1",
 } as const;
@@ -108,10 +112,14 @@ export const TRUST = {
  * Defaults for the savings calculator.
  * These land on the Growth plan and a genuine, defensible saving, which is the
  * story we want a first-time visitor to see before they touch anything.
+ *
+ * `agencyFeePct` is 20 because that is the figure ATALNT quotes on calls. It
+ * sits inside the "18% to 25%" the rest of the site states, so the slider range
+ * stays wider than the default.
  */
 export const CALC_DEFAULTS = {
   activeRoles: 6,
   hiresPerYear: 12,
   averageSalary: 90_000,
-  agencyFeePct: 22,
+  agencyFeePct: 20,
 } as const;

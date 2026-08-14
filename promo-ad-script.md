@@ -247,7 +247,7 @@ The manifesto lines are strong enough that using them only in an ad wastes them:
 > AI brings the scale. Humans bring the judgment.
 
 **Headline:** `412 applicants. 2 worth calling.`
-**Description:** `50–70% lower cost per hire`
+**Description:** `Up to 80% lower cost per hire`
 **CTA button:** Book a walkthrough → `atalnt.ai/demo`
 
 **Headline variants to test:** `The ones you want aren't applying` · `AI brings the scale. Humans bring the judgment.` · `Not a hiring problem. A capacity problem.` · `Your first shortlist inside a week`

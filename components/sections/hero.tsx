@@ -1,11 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { CTA_HREF, STATS } from "@/lib/site";
+import { CTA_HREF, SOURCING_CHANNELS, STATS } from "@/lib/site";
 import { ShortlistPreview } from "./shortlist-preview";
 
+/**
+ * The savings figure lives in the eyebrow, not here. It used to appear in both
+ * places with two different values, so a reader saw "Up to 80%" and "70–85%"
+ * stacked eight lines apart. One claim, stated once, is worth more than two.
+ */
 const PROOF = [
-  { value: STATS.costReduction, label: "lower recruiting cost" },
+  { value: String(SOURCING_CHANNELS.length), label: "sourcing channels" },
   { value: STATS.profilesIndexed, label: "profiles indexed" },
   { value: STATS.accountManager, label: "human account manager" },
 ];

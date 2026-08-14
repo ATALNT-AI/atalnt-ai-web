@@ -10,9 +10,9 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 import { SavingsCalculator } from "@/components/sections/savings-calculator";
 import { CtaBand } from "@/components/sections/cta-band";
-import { PLANS } from "@/lib/pricing";
+import { AM_COMMITMENT, CUSTOM_SITUATIONS, PLANS } from "@/lib/pricing";
 import { formatUsd } from "@/lib/roi";
-import { CTA_HREF } from "@/lib/site";
+import { CTA_HREF, TRUST } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -21,7 +21,31 @@ export const metadata: Metadata = {
   alternates: { canonical: "/pricing" },
 };
 
+/**
+ * Ordered by what a reader actually asks, not by what is easiest to answer.
+ *
+ * The old list argued the agency deal in four of six questions, which is the
+ * wrong deal for a buyer who was never paying placement fees. The three
+ * questions that lead now are the ones that come up on every first call: how
+ * this sits next to the recruiter they are hiring, what happens when that
+ * person starts, and whether the account manager is a real person.
+ *
+ * "When does this not make sense" stays. Telling a prospect an agency is
+ * cheaper for them is the reason they believe the rest of the page.
+ */
 const FAQ = [
+  {
+    q: "How is this different from hiring the recruiter we posted for?",
+    a: "We're not competing with that req. Filling it takes 90 to 120 days, plus ramp, and your open roles age the whole time. We work them now. When your recruiter starts, they walk into a running sourcing engine instead of a purchase-order queue.",
+  },
+  {
+    q: "What happens when we do hire an in-house recruiter?",
+    a: "Nothing changes on our side. Most clients keep the subscription and their recruiter runs intake and closes, while we carry the sourcing and screening volume. If you'd rather stop, you can, effective the end of that billing month.",
+  },
+  {
+    q: "Who actually does the work?",
+    a: "A named account manager based in the U.S., the same person on every search. They source, run screening conversations, coordinate interviews, and deliver offers at your direction. You'll meet them on the demo call, before you buy anything.",
+  },
   {
     q: "What counts as an active role?",
     a: "A role that we're actively sourcing and screening for right now. When you fill or close one, the slot frees up immediately and the next role takes its place. You can swap roles in and out whenever your priorities change.",
@@ -31,12 +55,12 @@ const FAQ = [
     a: "One requisition with multiple openings still counts as one active role. Hiring five dispatchers off one shortlist doesn't use five slots.",
   },
   {
-    q: "Is there a placement fee on top?",
-    a: "No. The monthly price is the whole price, however many people you hire. That's the point.",
+    q: "How fast does this start?",
+    a: "There's no implementation and no setup fee. We do intake on the first call, and your sourced candidate list lands within the week.",
   },
   {
-    q: "Is there a setup fee?",
-    a: "No. There's nothing to implement and nothing to pay up front. Your sourced candidate list lands within the week, and billing terms are agreed on your demo call.",
+    q: "Do you integrate with our ATS?",
+    a: "Usually you don't need one. What we hand you is a scheduled interview and a ranked shortlist, not another tool for your team to run, so most clients work straight out of email and their calendar. If you do want candidates written back into Greenhouse, Lever, Workday, or whatever you run, that's part of a custom plan.",
   },
   {
     q: "When does this not make sense?",
@@ -114,6 +138,18 @@ export default function PricingPage() {
                       {plan.blurb}
                     </p>
 
+                    {/* The human, pulled out of the bullet list. It is what
+                        separates this from sourcing software at a quarter the
+                        price, so it should not be the fourth bullet down. */}
+                    <div className="mt-5 rounded-card border border-gold-line bg-gold-tint p-4">
+                      <p className="text-[11px] font-bold tracking-[0.08em] text-gold-deep uppercase">
+                        Your account manager
+                      </p>
+                      <p className="mt-2 text-[13px] leading-[1.55] text-body">
+                        {AM_COMMITMENT}
+                      </p>
+                    </div>
+
                     <div className="rule-dashed my-5" />
 
                     <ul className="flex flex-1 flex-col gap-2.5">
@@ -160,12 +196,61 @@ export default function PricingPage() {
               ))}
             </div>
 
+            {/* Quiet, because it is only load-bearing for the one reader who
+                needs it. A Director-level buyer at a 600-person company has to
+                see that this vendor has been through procurement before. */}
             <Reveal delay={120}>
-              <p className="mt-8 text-center font-display text-[clamp(19px,2.2vw,24px)] leading-[1.4] text-ink text-balance">
+              <p className="mt-7 text-center text-[12.5px] text-muted">
+                MSA and order form available · DPA on request ·{" "}
+                {TRUST.soc2.short}
+              </p>
+            </Reveal>
+
+            <Reveal delay={140}>
+              <p className="mt-9 text-center font-display text-[clamp(19px,2.2vw,24px)] leading-[1.4] text-ink text-balance">
                 Your hiring volume shouldn&rsquo;t determine your recruiting
                 cost.
               </p>
             </Reveal>
+          </Container>
+        </Section>
+
+        <Section bg="sand" size="sm" aria-labelledby="custom-plans">
+          <Container>
+            <Reveal>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <Eyebrow className="mb-3">Custom</Eyebrow>
+                  <h2
+                    id="custom-plans"
+                    className="text-[clamp(26px,3.2vw,36px)]"
+                  >
+                    Not everyone fits a plan.
+                  </h2>
+                </div>
+                <Button href={CTA_HREF} variant="secondary">
+                  Talk to us
+                </Button>
+              </div>
+            </Reveal>
+
+            <ul className="mt-9 grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+              {CUSTOM_SITUATIONS.map((s, i) => (
+                <Reveal
+                  key={s.title}
+                  as="li"
+                  delay={i * 60}
+                  className="border-t border-line pt-4"
+                >
+                  <p className="text-[15px] font-semibold text-ink">
+                    {s.title}
+                  </p>
+                  <p className="mt-1.5 max-w-[34ch] text-[13.5px] leading-[1.6] text-secondary">
+                    {s.body}
+                  </p>
+                </Reveal>
+              ))}
+            </ul>
           </Container>
         </Section>
 
