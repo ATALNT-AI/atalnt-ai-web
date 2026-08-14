@@ -12,7 +12,7 @@ import { ShortlistPreview } from "./shortlist-preview";
 const PROOF = [
   { value: String(SOURCING_CHANNELS.length), label: "sourcing channels" },
   { value: STATS.profilesIndexed, label: "profiles indexed" },
-  { value: STATS.accountManager, label: "human account manager" },
+  { value: STATS.recruiter, label: "dedicated recruiter" },
 ];
 
 export function Hero() {
@@ -42,7 +42,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 max-w-[54ch] animate-at-fade text-[18px] leading-[1.6] text-secondary text-pretty [animation-delay:160ms]">
-              One platform and a dedicated account manager that find, screen, and
+              One platform and a dedicated recruiter that find, screen, and
               schedule candidates across every role you have open. Flat monthly
               price, no placement fees.
             </p>

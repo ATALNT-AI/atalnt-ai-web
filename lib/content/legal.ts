@@ -171,7 +171,7 @@ export const TERMS: LegalSection[] = [
   {
     heading: "Our services",
     blocks: [
-      "ATALNT AI is a subscription recruiting service that pairs a dedicated account manager with software for sourcing, screening, and shortlisting candidates. This website lets you learn about the service, use our savings calculator, and book a demo.",
+      "ATALNT AI is a subscription recruiting service that pairs a dedicated recruiter with software for sourcing, screening, and shortlisting candidates. This website lets you learn about the service, use our savings calculator, and book a demo.",
     ],
   },
   {

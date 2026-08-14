@@ -10,14 +10,14 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 import { SavingsCalculator } from "@/components/sections/savings-calculator";
 import { CtaBand } from "@/components/sections/cta-band";
-import { AM_COMMITMENT, CUSTOM_SITUATIONS, PLANS } from "@/lib/pricing";
+import { RECRUITER_COMMITMENT, CUSTOM_SITUATIONS, PLANS } from "@/lib/pricing";
 import { formatUsd } from "@/lib/roi";
 import { CTA_HREF, TRUST } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Plans from $2,000 a month, priced by how many roles you run at once. Every plan includes a dedicated account manager. No placement fees.",
+    "Plans from $1,850 a month, priced by how many roles you run at once. Every plan includes a dedicated recruiter. No placement fees.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
  * wrong deal for a buyer who was never paying placement fees. The three
  * questions that lead now are the ones that come up on every first call: how
  * this sits next to the recruiter they are hiring, what happens when that
- * person starts, and whether the account manager is a real person.
+ * person starts, and whether the recruiter is a real person.
  *
  * "When does this not make sense" stays. Telling a prospect an agency is
  * cheaper for them is the reason they believe the rest of the page.
@@ -44,7 +44,7 @@ const FAQ = [
   },
   {
     q: "Who actually does the work?",
-    a: "A named account manager based in the U.S., the same person on every search. They source, run screening conversations, coordinate interviews, and deliver offers at your direction. You'll meet them on the demo call, before you buy anything.",
+    a: "A named recruiter, and it's the same person on every search. They source, run screening conversations, coordinate interviews, and deliver offers at your direction. You'll meet them on the demo call, before you buy anything.",
   },
   {
     q: "What counts as an active role?",
@@ -86,7 +86,7 @@ export default function PricingPage() {
                 align="center"
                 eyebrow="Pricing"
                 title="Pay for your hiring capacity, not every hire."
-                subtitle="One flat monthly price covers the roles you have open, with a dedicated account manager, AI sourcing across seven channels, and unlimited resume screening. No placement fees. No per-hire charges."
+                subtitle="One flat monthly price covers the roles you have open, with a dedicated recruiter, AI sourcing across seven channels, and unlimited resume screening. No placement fees. No per-hire charges."
               />
             </Reveal>
 
@@ -143,10 +143,10 @@ export default function PricingPage() {
                         price, so it should not be the fourth bullet down. */}
                     <div className="mt-5 rounded-card border border-gold-line bg-gold-tint p-4">
                       <p className="text-[11px] font-bold tracking-[0.08em] text-gold-deep uppercase">
-                        Your account manager
+                        Your recruiter
                       </p>
                       <p className="mt-2 text-[13px] leading-[1.55] text-body">
-                        {AM_COMMITMENT}
+                        {RECRUITER_COMMITMENT}
                       </p>
                     </div>
 

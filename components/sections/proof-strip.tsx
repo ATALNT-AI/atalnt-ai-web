@@ -94,7 +94,7 @@ export function ProofStrip() {
               </p>
               <p className="mt-4 text-[15px] leading-[1.65] text-body">
                 Sourcing, enrichment, outreach, screening, scheduling, and a
-                dedicated account manager who runs your searches. Everything in
+                dedicated recruiter who runs your searches. Everything in
                 that column, in one place, for one monthly price.
               </p>
 

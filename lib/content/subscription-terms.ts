@@ -23,7 +23,7 @@ export const SUBSCRIPTION_TERMS: LegalSection[] = [
   {
     heading: "The service",
     blocks: [
-      "ATALNT AI is a subscription recruiting service. It combines a software platform with recruiting services delivered by a named account manager: sourcing and screening candidates, assembling ranked shortlists, coordinating interview scheduling, and communicating offers at your direction.",
+      "ATALNT AI is a subscription recruiting service. It combines a software platform with recruiting services delivered by a named recruiter: sourcing and screening candidates, assembling ranked shortlists, coordinating interview scheduling, and communicating offers at your direction.",
       {
         sub: "Active roles",
         body: "Your plan includes a stated number of active roles: searches we are working at the same time. When a role is filled or closed, its slot frees up and you may replace it with another role. Multiple openings filled from a single requisition count as one active role.",
@@ -85,7 +85,7 @@ export const SUBSCRIPTION_TERMS: LegalSection[] = [
     heading: "Confidentiality and non-solicitation",
     blocks: [
       "Each party will protect the other's non-public information with at least the care it uses for its own, and use it only to perform under this Agreement. This does not restrict information that is public, independently developed, or lawfully received from someone else.",
-      "During the subscription and for twelve months after, you agree not to solicit for employment the ATALNT account managers who worked your searches, and we agree not to solicit your employees, in each case excluding responses to general job postings not directed at that person.",
+      "During the subscription and for twelve months after, you agree not to solicit for employment the ATALNT recruiters who worked your searches, and we agree not to solicit your employees, in each case excluding responses to general job postings not directed at that person.",
     ],
   },
   {

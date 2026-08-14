@@ -135,7 +135,7 @@ export function ShortlistPreview() {
                 aria-hidden
                 className="size-1.5 animate-at-pulse rounded-pill bg-gold"
               />
-              Your account manager
+              Your recruiter
             </p>
           </div>
         </div>

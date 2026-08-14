@@ -3,10 +3,13 @@
  * people they hire. That distinction is the whole product argument, so the
  * calculator and the pricing page both key off `maxRoles`.
  *
- * Prices confirmed by ATALNT (Aug 2026): $2,000 to $7,000 per month.
- * The two middle tiers are an evenly spaced ladder across that range. If the
- * real Growth number differs, change it here and every surface
- * updates.
+ * Prices confirmed by ATALNT (Aug 2026): Core $1,850, Growth $2,850, Custom
+ * quoted. Change them here and every surface updates.
+ *
+ * The Stripe Payment Links below are created against a fixed amount on
+ * Stripe's side. They do NOT follow `monthly`. Whenever a price changes here,
+ * a new Payment Link has to be created at the new amount and pasted in, or the
+ * button charges one number while the card shows another.
  */
 
 export type Plan = {
@@ -36,7 +39,7 @@ export const PLANS: Plan[] = [
   {
     id: "core",
     name: "Core",
-    monthly: 2000,
+    monthly: 1850,
     minRoles: 1,
     maxRoles: 5,
     rolesLabel: "Up to 5 active roles",
@@ -44,19 +47,19 @@ export const PLANS: Plan[] = [
       "For teams filling a handful of roles at a time who are tired of paying a fee on every one.",
     features: [
       "Up to 5 roles open at once",
-      "A named account manager on every search",
+      "A named recruiter on every search",
       "AI sourcing across all seven channels",
       "Unlimited resume screening",
       "Interview scheduling handled for you",
       "Offer delivery and negotiation",
     ],
     cta: "Book a demo",
-    stripeUrl: "https://buy.stripe.com/28E9AUcpmczd7UQfri2Ji05",
+    stripeUrl: "https://buy.stripe.com/28E6oI1KIar54IE1As2Ji07",
   },
   {
     id: "growth",
     name: "Growth",
-    monthly: 3500,
+    monthly: 2850,
     minRoles: 6,
     maxRoles: 10,
     rolesLabel: "Up to 10 active roles",
@@ -67,10 +70,10 @@ export const PLANS: Plan[] = [
       "Up to 10 roles open at once",
       "Priority sourcing turnaround",
       "Multi-department pipelines",
-      "Weekly search reviews with your AM",
+      "Weekly search reviews with your recruiter",
     ],
     cta: "Book a demo",
-    stripeUrl: "https://buy.stripe.com/5kQ28sbli2YD8YUdja2Ji06",
+    stripeUrl: "https://buy.stripe.com/00w6oIdtqar50so92U2Ji08",
     featured: true,
   },
   {
@@ -95,35 +98,39 @@ export const PLANS: Plan[] = [
 ];
 
 /**
- * What the account manager commits, worded once so all three cards say the
- * same thing.
+ * What the recruiter commits, worded once so all three cards say the same thing.
  *
  * Every clause is already published elsewhere and defensible today: "named
- * account manager" is a Core feature, U.S.-based is TRUST.team, and the
+ * recruiter" is a Core feature, recruiting experience is TRUST.team, and the
  * candidate list inside a week matches the service-levels clause in the
  * subscription agreement, which correctly states it as a target.
  *
- * Deliberately no hours-per-week figure. Publishing one moves the buyer's
- * comparison to an hourly rate against fractional recruiters, which is not the
- * comparison this product wins. Revisit only when the AM time data exists.
+ * Deliberately no location claim. What the buyer is actually asking when they
+ * ask "who does the work" is whether the person knows recruiting, so answer
+ * that instead of making a staffing commitment we would have to keep.
+ *
+ * Deliberately no hours-per-week figure either. Publishing one moves the
+ * buyer's comparison to an hourly rate against fractional recruiters, which is
+ * not the comparison this product wins. Revisit only when the recruiter time data
+ * exists.
  */
-export const AM_COMMITMENT =
-  "A named, U.S.-based account manager runs your searches: sourcing, screening conversations, interview scheduling, and offer delivery. Sourced candidate list within a week of intake.";
+export const RECRUITER_COMMITMENT =
+  "A named recruiter runs your searches: sourcing, screening conversations, interview scheduling, and offer delivery. Sourced candidate list within a week of intake.";
 
 /**
  * The buyers who do not fit a tier. Volume is only one of five reasons, and it
  * was the only one the page used to acknowledge, so everyone else bounced.
  *
  * Two of these are quote-only on purpose. "Platform only" has no published
- * price because dropping the account manager has to cost visibly less than
- * $2,000, and that number is a pricing decision. "Recruiters in-house" is
+ * price because dropping the recruiter has to cost visibly less than Core, and that
+ * number is a pricing decision. "Recruiters in-house" is
  * ATALNT LLC's staffing business rather than this subscription, so it routes to
  * a conversation rather than a checkout.
  */
 export const CUSTOM_SITUATIONS = [
   {
     title: "Platform only",
-    body: "You want the sourcing and screening engine, and your own team runs it. No account manager.",
+    body: "You want the sourcing and screening engine, and your own team runs it. No recruiter attached.",
   },
   {
     title: "Recruiters in-house",

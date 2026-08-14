@@ -9,7 +9,7 @@ export const SITE = {
   tagline: "AI recruiting with a human on your side",
   url: "https://atalnt.ai",
   description:
-    "Replace contingent search fees with a subscription. Submit a role, and your account manager sources, screens, and vets candidates, then hands you a ranked shortlist that's ready to interview.",
+    "Replace contingent search fees with a subscription. Submit a role, and your recruiter sources, screens, and vets candidates, then hands you a ranked shortlist that's ready to interview.",
   parent: {
     name: "ATALNT LLC",
     url: "https://atalnt.com",
@@ -72,16 +72,19 @@ export const SOURCING_CHANNELS = [
  * stacked in the same hero.
  *
  * "Up to 80%" is the number that survives every comparison the site makes:
- *   vs an in-house recruiter  $146,393 → Growth $42,000 = 71%, Core $24,000 = 84%
+ *   vs an in-house recruiter  $146,393 → Growth $34,200 = 77%, Core $22,200 = 85%
  *   vs agency fees            varies with volume, and the calculator computes
  *                             it live rather than claiming it
+ * Note the calculator can exceed 80% on both comparisons at the low end of the
+ * plan ladder. It is computed live and labelled an estimate, so it under-claims
+ * rather than over-claims, but revisit the headline if that starts to jar.
  * Below roughly 3 hires a year an agency is cheaper, and the calculator says so
  * rather than pretending otherwise.
  */
 export const STATS = {
   costReduction: "Up to 80%",
   profilesIndexed: "2.4M",
-  accountManager: "1:1",
+  recruiter: "1:1",
 } as const;
 
 /**
@@ -105,7 +108,7 @@ export const TRUST = {
   },
   encryption: "Candidate PII encrypted in transit and at rest",
   ownership: "You own your data and can export it any time",
-  team: "A U.S.-based account management team",
+  team: "A team of experienced recruiters",
 } as const;
 
 /**

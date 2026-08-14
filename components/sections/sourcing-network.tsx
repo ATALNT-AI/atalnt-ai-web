@@ -27,7 +27,7 @@ export function SourcingNetwork() {
               tone="dark"
               eyebrow="Where candidates come from"
               title="Seven channels. One shortlist."
-              subtitle="Your AM works every source we index at once, and the AI narrows millions of profiles to the handful worth your time."
+              subtitle="Your recruiter works every source we index at once, and the AI narrows millions of profiles to the handful worth your time."
             />
             {/* The accessible version of the diagram. */}
             <ul className="mt-8 flex flex-wrap gap-2 lg:hidden">

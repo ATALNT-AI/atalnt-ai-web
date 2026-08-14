@@ -84,7 +84,7 @@ const VO_CUES: { at: number; text: string }[] = [
     at: 34.4,
     text: "Our agents work thirty plus job boards, and cold outreach the people who aren't applying.",
   },
-  { at: 38.3, text: "Then an in-house account manager screens every one by hand." },
+  { at: 38.3, text: "Then an in-house recruiter screens every one by hand." },
   {
     at: 41.4,
     text: "They confirm interviews directly with the candidate. You share when you're free.",
@@ -928,7 +928,7 @@ function S5({ t }: { t: number }) {
   );
 }
 
-/** 41–48 · the account manager closes the speed loop */
+/** 41–48 · the recruiter closes the speed loop */
 function S6({ t }: { t: number }) {
   const booked = t > 3.6;
   return (
@@ -989,7 +989,7 @@ function S6({ t }: { t: number }) {
                   margin: "8px 0 0",
                 }}
               >
-                Your account manager
+                Your recruiter
               </p>
             </div>
           </div>

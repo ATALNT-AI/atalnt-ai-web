@@ -10,7 +10,7 @@ import { TRUST } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Book a demo",
   description:
-    "Pick a time. Twenty minutes, no deck. See the platform, meet your account manager, and get a plan priced to the roles you have open.",
+    "Pick a time. Twenty minutes, no deck. See the platform, meet your recruiter, and get a plan priced to the roles you have open.",
   alternates: { canonical: "/demo" },
 };
 
@@ -49,7 +49,7 @@ export default function DemoPage() {
                 </h1>
                 <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.65] text-secondary">
                   Thirty minutes, no deck. We&rsquo;ll show you the platform,
-                  introduce the account manager who would run your searches, and
+                  introduce the recruiter who would run your searches, and
                   send you a price scoped to the roles you have open.
                 </p>
 

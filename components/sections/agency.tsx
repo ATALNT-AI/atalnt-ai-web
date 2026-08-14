@@ -17,7 +17,7 @@ const BUILT = [
     body: "Shortlist scoring built on thousands of real hiring decisions.",
   },
   {
-    title: "Account managers who do this all day",
+    title: "Recruiters who do this all day",
     body: "The scheduling, the follow-up, the comp conversation. Handled.",
   },
   {

@@ -92,7 +92,7 @@ Pulled from the live site copy in `lib/site.ts`. Stick to these words.
 |---|---|
 | Cost | "Up to 80% lower cost per hire" |
 | Model | "One flat monthly price" — never a dollar figure, pricing is quoted per account |
-| Human | "A dedicated, U.S.-based account manager" · "1:1" |
+| Human | "A dedicated recruiter" · "1:1" |
 | Speed | "Your first shortlist inside a week" |
 | Terms | "No implementation fee. Cancel anytime." |
 | Agency cost | "18 to 25% of first-year salary" · "$10,000 to $40,000 per hire" |
@@ -152,7 +152,7 @@ Hit the situation hard. Never hit the viewer.
 
 **0:17 – 0:23 — Solutions 1 and 2**
 - **ON SCREEN:** Sourcing channels light up — *Internal Databases · LinkedIn · Job Postings · Email · Voice · Text*. Resolves into a ranked shortlist: three candidates, gold match scores.
-- **VO:** "ATALNT AI goes and finds them. Then a real account manager screens every one by hand — so what reaches you is three people who can actually do the job."
+- **VO:** "ATALNT AI goes and finds them. Then a real recruiter screens every one by hand — so what reaches you is three people who can actually do the job."
 - **VISUAL PROMPT:** Labeled channel nodes illuminating in sequence around a center point with thin gold connecting lines on dark background, dissolving into a recruiting interface with three candidate cards on warm cream, each with a large gold percentage match score.
 
 **0:23 – 0:27 — Solution 3**
@@ -191,8 +191,8 @@ Hit the situation hard. Never hit the viewer.
 - **VISUAL PROMPT:** A single line of elegant serif text on deep black with faint gold glow, generous spacing.
 
 **0:19 – 0:26 — Solutions**
-- **ON SCREEN:** The account manager card. An availability panel. Then a confirmation: *Booked — Wednesday 2:00pm*, in a single beat.
-- **VO:** "Your account manager confirms interviews directly with the candidate. You share when you're free, they handle the rest, and you both get told once it's booked. No links. No chasing."
+- **ON SCREEN:** The recruiter card. An availability panel. Then a confirmation: *Booked — Wednesday 2:00pm*, in a single beat.
+- **VO:** "Your recruiter confirms interviews directly with the candidate. You share when you're free, they handle the rest, and you both get told once it's booked. No links. No chasing."
 - **VISUAL PROMPT:** A profile card with a dark circular avatar and gold initials beside a simple availability selector, resolving to a single clean confirmation panel. Warm cream, gold accents, calm and immediate.
 
 **0:26 – 0:30 — Close**
@@ -226,8 +226,8 @@ Hit the situation hard. Never hit the viewer.
 - **VISUAL PROMPT:** A single line of serif text on deep black with faint gold glow.
 
 **0:19 – 0:26 — Solutions**
-- **ON SCREEN:** The board clears. Roles resolve to **Ready**. The account manager card sits alongside. The three "covering" labels disappear.
-- **VO:** "ATALNT AI puts a dedicated account manager on that role — sourcing, screening, and booking the interviews. Your first shortlist lands inside a week. You just show up and pick."
+- **ON SCREEN:** The board clears. Roles resolve to **Ready**. The recruiter card sits alongside. The three "covering" labels disappear.
+- **VO:** "ATALNT AI puts a dedicated recruiter on that role — sourcing, screening, and booking the interviews. Your first shortlist lands inside a week. You just show up and pick."
 - **VISUAL PROMPT:** A cluttered warm-red requisition board clearing to calm neutral rows each carrying a gold "Ready" badge, with a profile card beside it. Relief, order, warmth.
 
 **0:26 – 0:30 — Close**
@@ -263,7 +263,7 @@ Hit the situation hard. Never hit the viewer.
 - **VISUAL PROMPT:** Multiple stacked ledger rows collapsing and merging into a single clean line of text on warm cream.
 
 **0:19 – 0:26 — Solutions**
-- **ON SCREEN:** Ranked shortlist. Then the account manager card. Then a counter: `Roles submitted this month: 11`.
+- **ON SCREEN:** Ranked shortlist. Then the recruiter card. Then a counter: `Roles submitted this month: 11`.
 - **VO:** "Submit as many roles as you need — the price doesn't move. It's the sourcing capacity you couldn't get headcount for, so your team spends their time closing instead of searching."
 - **VISUAL PROMPT:** Recruiting shortlist with three candidate cards and gold match scores on cream, a small profile card, and a summary tile showing a count of roles submitted.
 
@@ -313,13 +313,13 @@ Swap into the first 3 seconds of any ad. Test five, keep two.
 ## Caption + CTA
 
 **Ad 1 — quality:**
-> Job boards give you applicants. Sourcing gives you candidates. ATALNT AI searches internal and external databases, LinkedIn, and live postings, then reaches out by email, voice, and text — and a dedicated U.S.-based account manager screens every result by hand before it reaches you. Submit every open role for one flat monthly price. First shortlist inside a week.
+> Job boards give you applicants. Sourcing gives you candidates. ATALNT AI searches internal and external databases, LinkedIn, and live postings, then reaches out by email, voice, and text — and a dedicated recruiter screens every result by hand before it reaches you. Submit every open role for one flat monthly price. First shortlist inside a week.
 
 **Ad 2 — speed:**
-> The best candidates are gone in days, and most of that time is calendar friction. Your ATALNT AI account manager confirms interviews directly with the candidate — you share your availability, they handle the rest, you both get told once it's booked. Ranked shortlist inside a week. Up to 80% lower cost per hire.
+> The best candidates are gone in days, and most of that time is calendar friction. Your ATALNT AI recruiter confirms interviews directly with the candidate — you share your availability, they handle the rest, you both get told once it's booked. Ranked shortlist inside a week. Up to 80% lower cost per hire.
 
 **Ad 3 — the empty seat *(written for the line leader, not the talent leader)*:**
-> An empty seat costs more than the invoice ever shows — it costs the three people covering it. ATALNT AI puts a dedicated account manager on the role: they source, screen, and book the interviews, and your first shortlist lands inside a week. You show up and pick. Send it to whoever owns hiring where you work.
+> An empty seat costs more than the invoice ever shows — it costs the three people covering it. ATALNT AI puts a dedicated recruiter on the role: they source, screen, and book the interviews, and your first shortlist lands inside a week. You show up and pick. Send it to whoever owns hiring where you work.
 
 **Ad 4 — the model:**
 > Contingent search charges 18–25% of first-year salary on every hire — your tenth costs exactly what your first did, and if they leave, the meter restarts. ATALNT AI replaces the fee with one flat monthly price, so the next role is free at the margin. Up to 80% lower cost per hire.
@@ -350,8 +350,8 @@ Screen recordings are the hero. Presenter is voiceover only.
 - **VISUAL PROMPT:** Four rapid sequential images — a list of open requisitions with climbing day counters, a long applicant list reducing to two highlighted rows, a single desaturated candidate card stamped "Accepted elsewhere," and a financial ledger of ten identical fee rows with a large total. Warm cream and near-black, editorial, escalating tension.
 
 ### Scene 2 — The turn: what it is (0:35 – 1:05)
-- **ON SCREEN:** Two panels. Left: the ATALNT AI interface. Right: a named account manager card.
-- **VO:** "ATALNT AI is two things working together. An AI that sources, screens, and ranks — and a dedicated account manager, a named person on a U.S.-based team, who works your searches by hand. Software gives you a tool. We give you a person, backed by one. One flat monthly price, however many roles you're running. And to be clear about what this is: it's the sourcing capacity you probably couldn't get approved as headcount. Your team doesn't get replaced by it — they stop spending their week searching and get their time back for the part only they can do."
+- **ON SCREEN:** Two panels. Left: the ATALNT AI interface. Right: a named recruiter card.
+- **VO:** "ATALNT AI is two things working together. An AI that sources, screens, and ranks — and a dedicated recruiter, a named person who works your searches by hand. Software gives you a tool. We give you a person, backed by one. One flat monthly price, however many roles you're running. And to be clear about what this is: it's the sourcing capacity you probably couldn't get approved as headcount. Your team doesn't get replaced by it — they stop spending their week searching and get their time back for the part only they can do."
 - **VISUAL PROMPT:** Balanced two-panel layout, clean software interface beside a warm profile card with gold accent border. Calm, premium, cream and near-black.
 
 > **Persona note.** Almost everyone who watches three and a half minutes of this is Persona A — a talent leader evaluating whether to bring it to their exec team. The last two sentences exist entirely for them. A Head of Talent watching an AI recruiting demo is quietly asking whether this is a case for cutting their team, and if you don't answer it they'll answer it themselves, badly. Say it once, early, plainly, and then never mention it again — belabouring it sounds defensive.
@@ -367,14 +367,14 @@ Screen recordings are the hero. Presenter is voiceover only.
 - **VISUAL PROMPT:** Seven labeled channel nodes illuminating in sequence around a center point with thin gold connecting lines on dark background, several parallel groups running at once. Understated, not futuristic.
 
 ### Scene 5 — Closing loop 2, part two: the shortlist (2:00 – 2:30)
-- **ON SCREEN:** Scroll the ranked shortlist slowly. Hover one card to expand — the one-line pitch, skill tags, match score, the account manager's notes.
-- **VO:** "And this is the half that isn't software. Every candidate here was screened and vetted by your account manager before it reached you. You see why each person is on the list — the line that matters, the skills that matched, where they fall against the rest. Three to five people you'd actually call. Nobody on this list is filler."
+- **ON SCREEN:** Scroll the ranked shortlist slowly. Hover one card to expand — the one-line pitch, skill tags, match score, the recruiter's notes.
+- **VO:** "And this is the half that isn't software. Every candidate here was screened and vetted by your recruiter before it reached you. You see why each person is on the list — the line that matters, the skills that matched, where they fall against the rest. Three to five people you'd actually call. Nobody on this list is filler."
 - **VISUAL PROMPT:** Recruiting shortlist interface with three to five candidate cards, circular avatars, large gold match percentages, one-line summaries and skill tag pills on warm cream. One card expanded showing detail and handwritten-style notes.
 
 ### Scene 6 — Closing loop 3: speed (2:30 – 3:00)
-- **ON SCREEN:** Three beats, account manager card visible throughout. Share availability → interview confirmed → offer terms → a declined candidate handled.
-- **VO:** "Third problem: losing people to your own process. Share the times you're free — your account manager confirms directly with the candidate and tells you both once it's booked. You never send a scheduling link again. Set the offer terms, they extend it, handle the negotiation, and close it. And when it's a pass, they tell the candidate. Kindly. At this volume, that reputation compounds."
-- **VISUAL PROMPT:** Three sequential interface moments — an availability selector, a booked confirmation, and an offer terms panel — each with a small account manager avatar card present. Warm, calm, human.
+- **ON SCREEN:** Three beats, recruiter card visible throughout. Share availability → interview confirmed → offer terms → a declined candidate handled.
+- **VO:** "Third problem: losing people to your own process. Share the times you're free — your recruiter confirms directly with the candidate and tells you both once it's booked. You never send a scheduling link again. Set the offer terms, they extend it, handle the negotiation, and close it. And when it's a pass, they tell the candidate. Kindly. At this volume, that reputation compounds."
+- **VISUAL PROMPT:** Three sequential interface moments — an availability selector, a booked confirmation, and an offer terms panel — each with a small recruiter avatar card present. Warm, calm, human.
 
 ### Scene 7 — Closing loop 4: the model (3:00 – 3:30)
 - **ON SCREEN:** The savings calculator. Drag *hires per year* from 4 to 12 and let the gap widen visibly. Land on the annual saving range.

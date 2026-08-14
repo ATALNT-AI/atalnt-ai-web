@@ -40,7 +40,7 @@ export function SiteFooter() {
           <div className="max-w-[300px]">
             <Wordmark tone="dark" />
             <p className="mt-5 text-[14.5px] leading-[1.6] text-on-dark-muted">
-              AI recruiting with a real account manager on every search.
+              AI recruiting with a real person on every search.
             </p>
           </div>
 

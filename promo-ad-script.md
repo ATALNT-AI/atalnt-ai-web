@@ -74,7 +74,7 @@ If a rewrite pushes any section past ~3.2 w/s, move the line to a **text card** 
 ### SOLUTION 1 — Quality · 0:30 – 0:41
 
 - **ON SCREEN:** The wordmark, briefly. Then two lines land in sequence: `AI brings the scale.` / `Humans bring the judgment.` Cut to a counter spinning up to `30+ job boards`, then cold outreach firing — email, voice, text — into a field of candidates who were never in the applicant list. Dissolve to a ranked shortlist: three candidate cards, gold match scores, skill tags. **Text card over the shortlist:** `3 people you'd actually call.`
-- **VO:** "ATALNT AI. **AI brings the scale. Humans bring the judgment.** Our agents work thirty-plus job boards and cold-outreach the people who *aren't* applying. Then an in-house account manager screens every one by hand."
+- **VO:** "ATALNT AI. **AI brings the scale. Humans bring the judgment.** Our agents work thirty-plus job boards and cold-outreach the people who *aren't* applying. Then an in-house recruiter screens every one by hand."
 - **VISUAL PROMPT:** Two lines of elegant serif text appearing in sequence on deep black with warm gold glow. Then a counter rapidly incrementing to "30+", surrounded by many small labeled source nodes illuminating at once, thin gold lines reaching outward to dim silhouetted profile markers that light up as they're contacted. Dissolving into a recruiting interface on warm cream with three candidate cards, circular avatars, large gold percentage match scores and small skill tag pills.
 
 > **Why the manifesto line sits here and not at 0:00.** This is the moment it's worth the most. Tension has been built across three pains and released by the turn — the viewer is now actually asking *"so what's the alternative?"*, and this answers it in eight words. Opening with it means saying it to someone who hasn't agreed to care yet. Same sentence, roughly ten times the value, purely from position.
@@ -83,7 +83,7 @@ If a rewrite pushes any section past ~3.2 w/s, move the line to a **text card** 
 
 ### SOLUTION 2 — Speed · 0:40 – 0:48
 
-- **ON SCREEN:** The account manager card — dark avatar, gold initials, *Alex Rivera · your account manager*. An availability panel. Then one clean confirmation: `Booked — Wednesday 2:00pm`.
+- **ON SCREEN:** The recruiter card — dark avatar, gold initials, *Alex Rivera · your recruiter*. An availability panel. Then one clean confirmation: `Booked — Wednesday 2:00pm`.
 - **VO:** "They confirm interviews directly with the candidate. You share when you're free. No links, no chasing. No nine days."
 - **VISUAL PROMPT:** A profile card with a dark circular avatar and gold initials beside a simple availability selector, resolving to a single clean booked-confirmation panel. Warm cream, gold accents, calm and immediate.
 
@@ -192,8 +192,8 @@ Be clear-eyed about what this is: with no pain stack there's no open loop, so th
 - **VISUAL PROMPT:** A counter rapidly incrementing to "30+" surrounded by many small labeled source nodes illuminating at once, thin gold lines reaching outward to dim silhouetted profile markers that light as they're contacted. Dark background, restrained.
 
 ### 0:35 – 0:45 — Judgment
-- **ON SCREEN:** `Humans bring the judgment.` The account manager card. A shortlist narrowing to three. Then `Booked — Wednesday 2:00pm`.
-- **VO:** "Humans bring the judgment. An in-house account manager screens every result by hand, confirms the interviews, and closes the offer."
+- **ON SCREEN:** `Humans bring the judgment.` The recruiter card. A shortlist narrowing to three. Then `Booked — Wednesday 2:00pm`.
+- **VO:** "Humans bring the judgment. An in-house recruiter screens every result by hand, confirms the interviews, and closes the offer."
 - **VISUAL PROMPT:** A profile card with dark circular avatar and gold initials beside a recruiting shortlist narrowing to three candidate cards with gold match scores, resolving to a clean booked-confirmation panel. Warm cream, calm.
 
 ### 0:45 – 0:52 — The model
@@ -240,7 +240,7 @@ The manifesto lines are strong enough that using them only in an ad wastes them:
 **Primary text:**
 > 412 applicants. Two worth calling. The problem is that the people you actually want aren't applying to anything.
 >
-> ATALNT AI's sourcing agents work 30+ job boards and run cold outreach — email, voice, and text — to passive candidates who were never going to see your posting. Then an in-house account manager screens every result by hand, confirms the interviews, and closes the offer.
+> ATALNT AI's sourcing agents work 30+ job boards and run cold outreach — email, voice, and text — to passive candidates who were never going to see your posting. Then an in-house recruiter screens every result by hand, confirms the interviews, and closes the offer.
 >
 > Submit every open role for one flat monthly price, instead of 18–25% of salary every time someone signs. First shortlist inside a week. No implementation fee. Cancel anytime.
 >
@@ -274,7 +274,7 @@ Three things worth stating precisely, because they're sharper than what the site
 |---|---|
 | Sourcing agents work **30+ job boards** | Replaces the vague "live postings." Concrete beats broad |
 | Cold outreach targets **passive candidates** — people not applying | The actual resolution to Pain 1. Load-bearing |
-| The account manager is **in-house** and understands the model | Reinforces the site's "not a rotating offshore queue" |
+| The recruiter is **in-house** and understands the model | Reinforces the site's "not a rotating offshore queue" |
 
 **Worth flagging back to the website:** `lib/site.ts` lists `SOURCING_CHANNELS` as seven generic buckets, one of which is just "Job Postings." That undersells 30+ boards, and it hides the passive-candidate capability entirely behind "Email / Voice / Text Campaigns" — which reads as spam tooling rather than as the answer to the applicant-quality problem. The site is currently making a weaker version of the argument this ad makes.
 

@@ -49,7 +49,7 @@ export const ANSWERS = [
   {
     n: "03",
     title: "Someone else does the chasing.",
-    body: "A named account manager runs the searches, books the interviews, and delivers the offers. You decide.",
+    body: "A named recruiter runs the searches, books the interviews, and delivers the offers. You decide.",
     echo: "You stop being the recruiter",
   },
 ] as const;
