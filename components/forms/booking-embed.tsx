@@ -26,12 +26,22 @@ import { BOOKING } from "@/lib/site";
 export function BookingEmbed() {
   const [shellLoaded, setShellLoaded] = useState(false);
   const [settled, setSettled] = useState(false);
+  const [stalled, setStalled] = useState(false);
 
   useEffect(() => {
     if (!shellLoaded) return;
     // The Ember app keeps working after the shell's load event; hold the
     // skeleton a moment longer so the fade lands near the real paint.
     const t = setTimeout(() => setSettled(true), 1200);
+    return () => clearTimeout(t);
+  }, [shellLoaded]);
+
+  // Privacy blockers can kill the iframe outright. There is deliberately no
+  // fallback link under the calendar (removed at Nik's request), so if the
+  // shell never arrives, the skeleton's own loading line becomes the way out.
+  useEffect(() => {
+    if (shellLoaded) return;
+    const t = setTimeout(() => setStalled(true), 8000);
     return () => clearTimeout(t);
   }, [shellLoaded]);
 
@@ -46,58 +56,48 @@ export function BookingEmbed() {
         allow="camera; microphone; fullscreen"
       />
 
-      {/* Calendar-shaped placeholder, painted instantly. aria-hidden because
-          the iframe below carries the accessible name; this is scenery. Stays
+      {/* Calendar-shaped placeholder, painted instantly. The shimmer block is
+          aria-hidden scenery, but the wrapper is not: in the stalled state the
+          loading line becomes a real link, and it must stay reachable. Stays
           mounted through the fade so the transition can actually play. */}
       <div
-        aria-hidden
         className={`absolute inset-0 flex flex-col bg-surface p-6 transition-opacity duration-500 sm:p-8 ${
           settled ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
-        <div className="shimmer h-5 w-44 rounded-sm" />
-        <div className="shimmer mt-3 h-3.5 w-64 max-w-full rounded-sm" />
-        <div className="mt-8 grid grid-cols-7 gap-2">
-          {Array.from({ length: 28 }).map((_, i) => (
-            <div key={i} className="shimmer aspect-square rounded-sm" />
-          ))}
+        <div aria-hidden className="contents">
+          <div className="shimmer h-5 w-44 rounded-sm" />
+          <div className="shimmer mt-3 h-3.5 w-64 max-w-full rounded-sm" />
+          <div className="mt-8 grid grid-cols-7 gap-2">
+            {Array.from({ length: 28 }).map((_, i) => (
+              <div key={i} className="shimmer aspect-square rounded-sm" />
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col gap-2.5">
+            <div className="shimmer h-3.5 w-full rounded-sm" />
+            <div className="shimmer h-3.5 w-4/5 rounded-sm" />
+          </div>
         </div>
-        <div className="mt-8 flex flex-col gap-2.5">
-          <div className="shimmer h-3.5 w-full rounded-sm" />
-          <div className="shimmer h-3.5 w-4/5 rounded-sm" />
-        </div>
-        <p className="mt-auto text-[13px] text-muted">
-          Loading the calendar&hellip;
-        </p>
+        {stalled && !shellLoaded ? (
+          <p className="pointer-events-auto mt-auto text-[13px] text-muted">
+            Taking a while?{" "}
+            <a
+              href={BOOKING.directUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-secondary underline underline-offset-4 hover:text-ink"
+            >
+              Open the calendar in a new tab
+            </a>
+            .
+          </p>
+        ) : (
+          <p className="mt-auto text-[13px] text-muted">
+            Loading the calendar&hellip;
+          </p>
+        )}
       </div>
     </div>
   );
 }
 
-/**
- * Shown if the iframe is blocked (strict privacy extensions do this), so the
- * page never becomes a dead end.
- */
-export function BookingFallback() {
-  return (
-    <p className="mt-4 text-center text-[13px] text-muted">
-      Calendar not loading?{" "}
-      <a
-        href={BOOKING.directUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block py-1.5 font-semibold text-secondary underline underline-offset-4 hover:text-ink"
-      >
-        Open it in a new tab
-      </a>{" "}
-      or email{" "}
-      <a
-        href="mailto:hello@atalnt.com"
-        className="inline-block py-1.5 font-semibold text-secondary underline underline-offset-4 hover:text-ink"
-      >
-        hello@atalnt.com
-      </a>
-      .
-    </p>
-  );
-}

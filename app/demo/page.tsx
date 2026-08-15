@@ -3,7 +3,7 @@ import { SiteNav } from "@/components/layout/site-nav";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { BookingEmbed, BookingFallback } from "@/components/forms/booking-embed";
+import { BookingEmbed } from "@/components/forms/booking-embed";
 import { PinScrollTop } from "@/components/forms/pin-scroll-top";
 import { TRUST } from "@/lib/site";
 
@@ -107,7 +107,6 @@ export default function DemoPage() {
 
               <div className="order-1 lg:order-2">
                 <BookingEmbed />
-                <BookingFallback />
               </div>
             </div>
           </Container>
