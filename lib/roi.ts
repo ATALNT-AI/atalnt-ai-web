@@ -1,31 +1,26 @@
-import { monthlyFor, planForRoles, type Plan } from "./pricing";
 import { inHouseAnnual } from "./recruiter-cost";
 
 /**
- * Which comparison applies to the reader.
+ * Which cost the reader carries today.
  *
- * The site used to argue only one of these, and it argued a different one on
- * each page: the home page ledger compares against an in-house recruiter, the
- * pricing calculator compared against agency fees. A visitor who already had a
- * recruiter got measured against a cost they might not carry, and a visitor
- * about to hire one never saw that math where they decide.
- *
- * Both arguments are true. Which one lands depends entirely on where the
- * reader is standing, so let them say.
+ * With pricing quote-only (Aug 2026), the calculator no longer computes a
+ * saving against a published plan price, because there isn't one to show.
+ * Instead it puts a number on the reader's status quo, which is the number
+ * that starts the pricing conversation. Naming their cost and not ours is the
+ * same stance the home page ledger takes: provoke the question, answer it on
+ * the call.
  */
 export type RoiMode = "no-recruiter" | "has-recruiter";
 
 /**
- * Below this many roles running at once, nobody hires a full-time recruiter,
- * so comparing against one would be flattering rather than honest. The UI says
- * so instead of showing a number.
+ * Below this many concurrent roles, nobody hires a full-time recruiter, so
+ * pricing the reader against one would be flattering rather than honest. The
+ * UI says so instead of showing a number.
  */
 export const MIN_ROLES_FOR_IN_HOUSE = 3;
 
 export type RoiInput = {
   mode: RoiMode;
-  /** Roles open at the same time. This is what sets the plan. */
-  activeRoles: number;
   /** Hires completed in a year. This is what sets the agency bill. */
   hiresPerYear: number;
   averageSalary: number;
@@ -36,74 +31,33 @@ export type RoiInput = {
 
 export type RoiResult = {
   mode: RoiMode;
-  plan: Plan;
-  atalntAnnual: number;
-  /** What the reader spends a year today, under whichever comparison applies. */
+  /** What the reader spends a year today, under whichever cost applies. */
   comparisonAnnual: number;
   /** What to call that spend on the chart. */
   comparisonLabel: string;
-  savingsAnnual: number;
-  /** 0..1. Negative when the subscription costs more. */
-  savingsPct: number;
-  /** True when the thing we are compared against is genuinely the cheaper option. */
-  alternativeIsCheaper: boolean;
-  /** True when the plan price is quoted rather than published. */
-  isEstimate: boolean;
-
-  /** Agency mode. Both are zero when there are no hires to divide by. */
+  /** Agency mode: the fee a single hire costs. */
   feePerHire: number;
-  costPerHireAtalnt: number;
-  /** Hires per year at which the subscription starts winning. */
-  breakEvenHires: number;
 };
 
-/**
- * Honest by construction: when the numbers favour the alternative, this returns
- * a negative saving and sets `alternativeIsCheaper`. The UI must say so out
- * loud rather than hiding it. A calculator that admits when it loses is worth
- * far more than one that always shows a win.
- */
 export function computeRoi(input: RoiInput): RoiResult {
-  const {
-    mode,
-    activeRoles,
-    hiresPerYear,
-    averageSalary,
-    agencyFeePct,
-    recruiterSalary,
-  } = input;
-
-  const plan = planForRoles(activeRoles);
-  const atalntAnnual = monthlyFor(plan) * 12;
+  const { mode, hiresPerYear, averageSalary, agencyFeePct, recruiterSalary } =
+    input;
 
   const feePerHire = averageSalary * (agencyFeePct / 100);
-  const contingentAnnual = feePerHire * hiresPerYear;
 
-  const comparisonAnnual =
-    mode === "no-recruiter" ? inHouseAnnual(recruiterSalary) : contingentAnnual;
-
-  const comparisonLabel =
-    mode === "no-recruiter" ? "Hiring in-house" : "Agencies today";
-
-  const savingsAnnual = comparisonAnnual - atalntAnnual;
-
-  return {
-    mode,
-    plan,
-    atalntAnnual,
-    comparisonAnnual,
-    comparisonLabel,
-    savingsAnnual,
-    savingsPct: comparisonAnnual > 0 ? savingsAnnual / comparisonAnnual : 0,
-    alternativeIsCheaper: savingsAnnual <= 0,
-    isEstimate: plan.monthly === null,
-
-    feePerHire,
-    costPerHireAtalnt: atalntAnnual / Math.max(1, hiresPerYear),
-    // Guard the divide: the fee slider can't reach zero today, but a zero here
-    // would put Infinity on the page.
-    breakEvenHires: feePerHire > 0 ? Math.ceil(atalntAnnual / feePerHire) : 0,
-  };
+  return mode === "no-recruiter"
+    ? {
+        mode,
+        comparisonAnnual: inHouseAnnual(recruiterSalary),
+        comparisonLabel: "Hiring in-house",
+        feePerHire,
+      }
+    : {
+        mode,
+        comparisonAnnual: feePerHire * hiresPerYear,
+        comparisonLabel: "Agency fees this year",
+        feePerHire,
+      };
 }
 
 const USD = new Intl.NumberFormat("en-US", {

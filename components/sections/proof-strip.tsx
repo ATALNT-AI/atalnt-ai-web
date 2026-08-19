@@ -118,7 +118,7 @@ export function ProofStrip() {
 
               <div className="mt-7 flex flex-col gap-2">
                 <Button href="/pricing" size="lg" className="w-full justify-center">
-                  See what it costs
+                  See how pricing works
                 </Button>
                 <Button href={CTA_HREF} variant="ghost" size="sm">
                   Book a demo →

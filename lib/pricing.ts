@@ -1,129 +1,58 @@
 /**
- * Plans are priced by how many roles a client runs AT ONCE, not by how many
- * people they hire. That distinction is the whole product argument, so the
- * calculator and the pricing page both key off `maxRoles`.
+ * Pricing is QUOTE-ONLY on the website (Nik's call, Aug 2026). No dollar
+ * amount renders anywhere; every price is given on the demo call and in
+ * writing. The shape of the model is still public because it is the product
+ * argument: priced by how many roles run at once, flat monthly, no placement
+ * fees.
  *
- * Prices confirmed by ATALNT (Aug 2026): Core $1,850, Growth $2,850, Custom
- * quoted. Change them here and every surface updates.
- *
- * The Stripe Payment Links below are created against a fixed amount on
- * Stripe's side. They do NOT follow `monthly`. Whenever a price changes here,
- * a new Payment Link has to be created at the new amount and pasted in, or the
- * button charges one number while the card shows another.
+ * For sales reference, the last published ladder was Core $1,850 (up to 5
+ * roles), Growth $2,850 (up to 10), custom above that. The Stripe Payment
+ * Links for those amounts still exist and are active; they are no longer
+ * linked from the site and are now closing tools for sales to send after a
+ * quote.
  */
 
-export type Plan = {
-  id: "core" | "growth" | "enterprise";
-  name: string;
-  /** Monthly price, or null when it's quoted. */
-  monthly: number | null;
-  minRoles: number;
-  /** Inclusive upper bound. Infinity for the top tier. */
-  maxRoles: number;
-  rolesLabel: string;
-  blurb: string;
-  features: string[];
-  cta: string;
-  featured?: boolean;
-  /**
-   * Stripe Payment Link for this plan. When set, the pricing card shows a
-   * direct "Start now" checkout button (card, ACH, Apple Pay, handled by
-   * Stripe's hosted page) above the walkthrough CTA. The link should require
-   * acceptance of /subscription-terms at checkout, so every self-serve client
-   * has a recorded agreement.
-   */
-  stripeUrl?: string;
-};
+/** How the price is scoped. Rendered as the top of the pricing page. */
+export const PRICING_MODEL = [
+  {
+    title: "Priced by active roles",
+    body: "The only thing that sets your price is how many searches we run at the same time. Not headcount, not hires, not salaries.",
+  },
+  {
+    title: "One flat monthly price",
+    body: "Hire two people or twelve inside your allowance. The price doesn't move, and there's nothing to true up at the end of the year.",
+  },
+  {
+    title: "No placement fees",
+    body: "No percentages of salary, no per-hire charges, no fee when someone accepts. The monthly price is the whole price.",
+  },
+] as const;
 
-export const PLANS: Plan[] = [
-  {
-    id: "core",
-    name: "Core",
-    monthly: 1850,
-    minRoles: 1,
-    maxRoles: 5,
-    rolesLabel: "Up to 5 active roles",
-    blurb:
-      "For teams filling a handful of roles at a time who are tired of paying a fee on every one.",
-    features: [
-      "Up to 5 roles open at once",
-      "A named recruiter on every search",
-      "AI sourcing across all seven channels",
-      "Unlimited resume screening",
-      "Interview scheduling handled for you",
-      "Offer delivery and negotiation",
-    ],
-    cta: "Book a demo",
-    stripeUrl: "https://buy.stripe.com/28E6oI1KIar54IE1As2Ji07",
-  },
-  {
-    id: "growth",
-    name: "Growth",
-    monthly: 2850,
-    minRoles: 6,
-    maxRoles: 10,
-    rolesLabel: "Up to 10 active roles",
-    blurb:
-      "For teams hiring continuously across departments, where reqs pile up faster than anyone can work them.",
-    features: [
-      "Everything in Core",
-      "Up to 10 roles open at once",
-      "Priority sourcing turnaround",
-      "Multi-department pipelines",
-      "Weekly search reviews with your recruiter",
-    ],
-    cta: "Book a demo",
-    stripeUrl: "https://buy.stripe.com/00w6oIdtqar50so92U2Ji08",
-    featured: true,
-  },
-  {
-    id: "enterprise",
-    name: "Custom",
-    monthly: null,
-    minRoles: 11,
-    maxRoles: Infinity,
-    rolesLabel: "11+ active roles",
-    blurb:
-      "For companies in a real growth year, hiring at volume across sites or business units. Scoped to how you actually operate.",
-    features: [
-      "Everything in Growth",
-      "As many active roles as you need",
-      "A dedicated account team",
-      "Custom intake and scorecards",
-      "ATS and HRIS integration",
-      "Custom SLAs and reporting",
-    ],
-    cta: "Talk to us",
-  },
-];
+/** Everything a plan includes, regardless of scope. */
+export const INCLUDED = [
+  "AI sourcing across all seven channels",
+  "Unlimited resume screening",
+  "Interview scheduling handled for you",
+  "Offer delivery and negotiation",
+  "Weekly search reviews",
+  "ATS and HRIS integration when you need it",
+] as const;
 
 /**
- * What the human side commits, worded once so all three cards say the same
- * thing.
+ * What the human side commits, worded once.
  *
  * Deliberately AI-first: the platform does the volume work, the recruiter is
- * oversight and a person to reach. An earlier version credited the recruiter
- * with sourcing, screening, scheduling, and offers, which made it sound like
- * one person does everything by hand and undersold the product's actual
- * engine (confirmed by Nik, Aug 2026).
- *
- * Deliberately no location claim, no task inventory, and no hours-per-week
- * figure. Publishing hours moves the buyer's comparison to an hourly rate
- * against fractional recruiters, which is not the comparison this product
- * wins. Revisit only when the recruiter time data exists.
+ * oversight and a person to reach. Deliberately no location claim, no task
+ * inventory, and no hours-per-week figure. Publishing hours moves the buyer's
+ * comparison to an hourly rate against fractional recruiters, which is not
+ * the comparison this product wins.
  */
 export const RECRUITER_COMMITMENT =
   "The AI works your searches around the clock, and you get direct access to a dedicated recruiter who oversees every one. Sourced candidate list within a week of intake.";
 
 /**
- * The buyers who do not fit a tier. Volume is only one of five reasons, and it
- * was the only one the page used to acknowledge, so everyone else bounced.
- *
- * Two of these are quote-only on purpose. "Platform only" has no published
- * price because dropping the recruiter has to cost visibly less than Core, and that
- * number is a pricing decision. "Recruiters in-house" is
- * ATALNT LLC's staffing business rather than this subscription, so it routes to
- * a conversation rather than a checkout.
+ * The situations a quote gets shaped around. With published tiers gone this
+ * is the heart of the page: every one of these routes to a conversation.
  */
 export const CUSTOM_SITUATIONS = [
   {
@@ -140,25 +69,14 @@ export const CUSTOM_SITUATIONS = [
   },
   {
     title: "Real volume",
-    body: "You are hiring across sites or business units, well past ten roles at once.",
+    body: "You are hiring across sites or business units, with searches running everywhere at once.",
+  },
+  {
+    title: "Bridge coverage",
+    body: "You are hiring your own recruiter and need the open roles worked while that search runs.",
   },
   {
     title: "Custom terms",
-    body: "Unusual roles, a fixed project, a defined ramp, or anything the three plans do not cover.",
+    body: "Unusual roles, a fixed project, a defined ramp, or anything a standard scope does not cover.",
   },
 ] as const;
-
-/** Pick the plan that covers a given number of concurrent roles. */
-export function planForRoles(roles: number): Plan {
-  return PLANS.find((p) => roles <= p.maxRoles) ?? PLANS[PLANS.length - 1];
-}
-
-/**
- * Enterprise has no published price. For estimating only, assume the top of
- * the published range. Anything using this must label the result an estimate.
- */
-export const ENTERPRISE_ESTIMATE = 7000;
-
-export function monthlyFor(plan: Plan): number {
-  return plan.monthly ?? ENTERPRISE_ESTIMATE;
-}

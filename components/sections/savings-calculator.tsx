@@ -21,21 +21,11 @@ import {
 import { CALC_DEFAULTS, CTA_HREF } from "@/lib/site";
 
 /**
- * Two comparisons, one calculator.
- *
- * Which argument lands depends on where the reader is standing. Someone with no
- * recruiting function is weighing us against building one. Someone who already
- * has a recruiter is weighing us against the fee they pay when that person runs
- * out of hours. Showing only the first reads as "don't hire your recruiter,"
- * which attacks a headcount the buyer usually just fought to win.
- *
- * In agency mode concurrent roles are estimated at roughly one active role per
- * three hires a year, which maps a hiring pace onto a plan without asking a
- * second question. In in-house mode the reader gives us the role count directly,
- * because that is the number they know.
+ * The status-quo calculator. With pricing quote-only there is no plan price
+ * to subtract from, so this stopped being a savings calculator: it puts a
+ * number on what the reader pays today, and the CTA offers our number in
+ * writing. Their cost is public math; ours is the call.
  */
-const rolesForHires = (hires: number) => Math.max(1, Math.ceil(hires / 3));
-
 const MODES: { id: RoiMode; label: string }[] = [
   { id: "no-recruiter", label: "We don't have in-house recruiting yet" },
   {
@@ -195,29 +185,21 @@ export function SavingsCalculator() {
   const [showDetails, setShowDetails] = useState(false);
 
   const inHouse = mode === "no-recruiter";
-  const activeRoles = inHouse ? roles : rolesForHires(hires);
 
   const roi = useMemo(
     () =>
       computeRoi({
         mode,
-        activeRoles,
         hiresPerYear: hires,
         averageSalary: salary,
         agencyFeePct: fee,
         recruiterSalary,
       }),
-    [mode, activeRoles, hires, salary, fee, recruiterSalary]
-  );
-
-  const share = Math.min(
-    100,
-    Math.round((roi.atalntAnnual / Math.max(1, roi.comparisonAnnual)) * 100)
+    [mode, hires, salary, fee, recruiterSalary]
   );
 
   /** Below three concurrent roles, nobody hires a full-time recruiter. */
-  const tooFewRoles = inHouse && activeRoles < MIN_ROLES_FOR_IN_HOUSE;
-  const straightAnswer = tooFewRoles || roi.alternativeIsCheaper;
+  const tooFewRoles = inHouse && roles < MIN_ROLES_FOR_IN_HOUSE;
 
   return (
     <Section
@@ -232,9 +214,9 @@ export function SavingsCalculator() {
           <SectionHeader
             id="savings-heading"
             align="center"
-            eyebrow="The comparison"
-            title="Two ways companies pay for recruiting."
-            subtitle="Most teams either build the function in-house or pay a fee on every hire. Pick the one that describes you and see what the same year costs on a subscription."
+            eyebrow="The math"
+            title="What does hiring cost you today?"
+            subtitle="Most teams either build recruiting in-house or pay a fee on every hire. Pick the one that describes you and put a number on it. On the call, we'll put our price in writing next to it."
           />
         </Reveal>
 
@@ -245,150 +227,83 @@ export function SavingsCalculator() {
             <div className="rule-dashed my-7" />
 
             {inHouse ? (
-              <>
-                <Slider
-                  big
-                  label="How many roles are open right now?"
-                  value={roles}
-                  min={1}
-                  max={20}
-                  step={1}
-                  display={String(roles)}
-                  valueText={`${roles} roles open at once`}
-                  onChange={setRoles}
-                />
-                <p className="mt-3 text-[13px] text-muted">
-                  That puts you on{" "}
-                  <strong className="font-semibold text-gold-deep">
-                    {roi.plan.name}
-                    {roi.plan.monthly
-                      ? ` at ${formatUsd(roi.plan.monthly)}/mo`
-                      : ", priced to your setup"}
-                  </strong>
-                  .
-                </p>
-              </>
+              <Slider
+                big
+                label="How many roles are open right now?"
+                value={roles}
+                min={1}
+                max={20}
+                step={1}
+                display={String(roles)}
+                valueText={`${roles} roles open at once`}
+                onChange={setRoles}
+              />
             ) : (
-              <>
-                <Slider
-                  big
-                  label="How many hires this year?"
-                  value={hires}
-                  min={1}
-                  max={50}
-                  step={1}
-                  display={String(hires)}
-                  valueText={`${hires} hires this year`}
-                  onChange={setHires}
-                />
-                <p className="mt-3 text-[13px] text-muted">
-                  Your team can properly work about three searches at a time, so
-                  that&rsquo;s roughly {activeRoles}{" "}
-                  {activeRoles === 1 ? "role" : "roles"} running at once, which
-                  puts you on{" "}
-                  <strong className="font-semibold text-gold-deep">
-                    {roi.plan.name}
-                    {roi.plan.monthly
-                      ? ` at ${formatUsd(roi.plan.monthly)}/mo`
-                      : ", priced to your setup"}
-                  </strong>
-                  .
-                </p>
-              </>
+              <Slider
+                big
+                label="How many hires this year?"
+                value={hires}
+                min={1}
+                max={50}
+                step={1}
+                display={String(hires)}
+                valueText={`${hires} hires this year`}
+                onChange={setHires}
+              />
             )}
 
             <div className="rule-dashed my-7" />
 
-            {straightAnswer ? (
+            {tooFewRoles ? (
               <div className="rounded-card border border-line bg-surface p-6">
                 <BadgePill tone="neutral">Straight answer</BadgePill>
-                {tooFewRoles ? (
-                  <>
-                    <p className="mt-3 font-display text-[24px] leading-[1.3] text-ink text-balance">
-                      At {activeRoles} {activeRoles === 1 ? "role" : "roles"},
-                      nobody hires a full-time recruiter. Comparing us to one
-                      wouldn&rsquo;t be honest.
-                    </p>
-                    <p className="mt-3 text-[14.5px] leading-[1.7] text-secondary">
-                      Core still covers you at{" "}
-                      <strong className="font-semibold text-ink">
-                        {formatUsd(roi.plan.monthly ?? 0)} a month
-                      </strong>
-                      , and the fairer comparison is what an agency would charge
-                      on those roles. Switch the answer above and see.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <p className="mt-3 font-display text-[24px] leading-[1.3] text-ink text-balance">
-                      At {hires} {hires === 1 ? "hire" : "hires"} a year, an
-                      agency is cheaper. We&rsquo;d tell you that on the call.
-                    </p>
-                    <p className="mt-3 text-[14.5px] leading-[1.7] text-secondary">
-                      The subscription starts winning at about{" "}
-                      <strong className="font-semibold text-ink">
-                        {roi.breakEvenHires} hires a year
-                      </strong>
-                      . Drag the slider to where you actually expect to land.
-                    </p>
-                  </>
-                )}
+                <p className="mt-3 font-display text-[24px] leading-[1.3] text-ink text-balance">
+                  At {roles} {roles === 1 ? "role" : "roles"}, nobody hires a
+                  full-time recruiter. Comparing you to one wouldn&rsquo;t be
+                  honest.
+                </p>
+                <p className="mt-3 text-[14.5px] leading-[1.7] text-secondary">
+                  The fairer comparison at this size is what an agency would
+                  charge per hire. Switch the answer above and see, or just ask
+                  us for a number scoped to your roles.
+                </p>
               </div>
             ) : (
               <div className="grid gap-8 sm:grid-cols-[1.1fr_0.9fr] sm:items-center">
                 <div>
                   <p className="text-[13.5px] font-medium text-secondary">
-                    You keep
+                    {inHouse
+                      ? "One recruiter, fully loaded, per year"
+                      : "What agencies bill you this year"}
                   </p>
-                  <p className="mt-1.5 font-display text-[clamp(40px,6vw,64px)] leading-[1.02] text-ink tabular">
-                    {formatUsd(roi.savingsAnnual)}
+                  <p className="mt-1.5 font-display text-[clamp(40px,6vw,64px)] leading-[1.02] text-decline tabular">
+                    {formatUsd(roi.comparisonAnnual)}
                   </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <BadgePill tone="gold">
-                      {Math.round(roi.savingsPct * 100)}% less than{" "}
-                      {inHouse ? "building it in-house" : "agencies"}
-                    </BadgePill>
-                    {roi.isEstimate && (
-                      <BadgePill tone="neutral">Estimate</BadgePill>
-                    )}
-                  </div>
-
-                  <div className="mt-7 flex flex-col gap-4">
-                    <div>
-                      <div className="flex items-baseline justify-between text-[12.5px]">
-                        <span className="text-secondary">
-                          {roi.comparisonLabel}
-                        </span>
-                        <span className="font-semibold text-decline tabular">
-                          {formatUsd(roi.comparisonAnnual)}
-                        </span>
-                      </div>
-                      <div className="mt-1.5 h-8 rounded-pill border-l-[3px] border-decline bg-decline-tint" />
-                    </div>
-                    <div>
-                      <div className="flex items-baseline justify-between text-[12.5px]">
-                        <span className="text-secondary">
-                          ATALNT AI {roi.plan.name}
-                        </span>
-                        <span className="font-semibold text-ink tabular">
-                          {formatUsd(roi.atalntAnnual)}
-                        </span>
-                      </div>
-                      <div className="mt-1.5 h-8 rounded-pill bg-line-inner">
-                        <div
-                          className="h-full min-w-[6px] rounded-pill border-r-[3px] border-gold bg-ink transition-[width] duration-500 ease-out"
-                          style={{ width: `${share}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
+                  {inHouse ? (
+                    <p className="mt-4 max-w-[44ch] text-[13.5px] leading-[1.65] text-secondary">
+                      Salary and burden, plus{" "}
+                      <strong className="font-semibold text-ink tabular">
+                        {formatUsd(RECRUITER_TOOLS_TOTAL)}
+                      </strong>{" "}
+                      a year for the LinkedIn seat, sourcing data, job boards,
+                      and tooling the role needs. Before they source a single
+                      candidate.
+                    </p>
+                  ) : (
+                    <p className="mt-4 max-w-[44ch] text-[13.5px] leading-[1.65] text-secondary">
+                      At {fee}% of a {formatUsd(salary)} salary, that&rsquo;s{" "}
+                      <strong className="font-semibold text-ink tabular">
+                        {formatUsd(roi.feePerHire)}
+                      </strong>{" "}
+                      per hire. Your tenth hire costs exactly what your first
+                      did.
+                    </p>
+                  )}
                 </div>
 
                 {inHouse ? (
-                  /* The bridge. This is what keeps the in-house comparison from
-                     reading as "don't hire your recruiter": we are not
-                     competing with the req, we are competing with the months
-                     before that person starts. */
+                  /* The bridge: we are not competing with the req, we are
+                     competing with the months before that person starts. */
                   <div className="rounded-card border border-line bg-surface p-5">
                     <p className="text-[11.5px] font-bold tracking-[0.06em] text-eyebrow uppercase">
                       While you search
@@ -402,25 +317,23 @@ export function SavingsCalculator() {
                       <strong className="font-semibold text-ink tabular">
                         {formatUsd(recruiterSalary / 12)}
                       </strong>{" "}
-                      a month of approved salary sits unspent. We can work those
-                      roles now, and hand the searches over when your recruiter
-                      starts.
+                      a month of approved salary sits unspent. We can work
+                      those roles now, and hand the searches over when your
+                      recruiter starts.
                     </p>
                   </div>
                 ) : (
                   <div className="rounded-card border border-line bg-surface p-5">
                     <p className="text-[11.5px] font-bold tracking-[0.06em] text-eyebrow uppercase">
-                      Cost per hire
+                      The other model
                     </p>
-                    <p className="mt-3 font-display text-[24px] leading-none text-decline line-through decoration-decline-mid/60 tabular">
-                      {formatUsd(roi.feePerHire)}
-                    </p>
-                    <p className="mt-2 font-display text-[38px] leading-none text-success tabular">
-                      {formatUsd(roi.costPerHireAtalnt)}
+                    <p className="mt-3 font-display text-[24px] leading-[1.25] text-ink text-balance">
+                      One flat monthly price. No fee per hire.
                     </p>
                     <p className="mt-3 text-[12.5px] leading-[1.6] text-secondary">
-                      And it keeps falling with every extra hire, because the
-                      price doesn&rsquo;t move.
+                      Scoped to how many roles you run at once, so every hire
+                      inside it is free at the margin. We&rsquo;ll put the
+                      number in writing on the call.
                     </p>
                   </div>
                 )}
@@ -429,7 +342,7 @@ export function SavingsCalculator() {
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button href={CTA_HREF} size="lg">
-                Book a demo
+                Get your price
               </Button>
               <button
                 type="button"
@@ -486,16 +399,16 @@ export function SavingsCalculator() {
                 <>
                   Estimates only. Assumes a {formatUsd(recruiterSalary)}{" "}
                   recruiter plus 25% payroll burden, and{" "}
-                  {formatUsd(RECRUITER_TOOLS_TOTAL)} a year for the LinkedIn
-                  seat, sourcing data, job boards, and tooling that role needs.{" "}
+                  {formatUsd(RECRUITER_TOOLS_TOTAL)} a year for tools.{" "}
                   {COST_SOURCES} Agency fees sit on top of this and are not
-                  counted in it. Pricing above 10 roles is quoted.
+                  counted in it. Your price is quoted to your setup and
+                  confirmed in writing.
                 </>
               ) : (
                 <>
-                  Estimates only. Assumes {formatUsd(salary)} average salary and
-                  a {fee}% agency fee. Your plan depends on how many roles you
-                  run at once; pricing above 10 roles is quoted.
+                  Estimates only. Assumes {formatUsd(salary)} average salary
+                  and a {fee}% agency fee. Your price is quoted to your setup
+                  and confirmed in writing.
                 </>
               )}
             </p>
