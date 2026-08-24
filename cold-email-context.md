@@ -47,7 +47,7 @@ Internal sizing anchors, for qualification only, never for copy:
 
 | Tier | Covers | Internal anchor |
 |---|---|---|
-| Core | Up to 5 active roles | $1,850/mo list; existing staffing clients may be quoted higher bundled rates |
+| Core | Up to 3 active roles | $1,850/mo list; existing staffing clients may be quoted higher bundled rates |
 | Growth | Up to 10 active roles | $2,850/mo list |
 | Custom | 11+ roles, platform-only, procurement | scoped |
 

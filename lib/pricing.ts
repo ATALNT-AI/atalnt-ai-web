@@ -5,7 +5,7 @@
  * argument: priced by how many roles run at once, flat monthly, no placement
  * fees.
  *
- * For sales reference, the last published ladder was Core $1,850 (up to 5
+ * For sales reference, the last published ladder was Core $1,850 (up to 3
  * roles), Growth $2,850 (up to 10), custom above that. The Stripe Payment
  * Links for those amounts still exist and are active; they are no longer
  * linked from the site and are now closing tools for sales to send after a
