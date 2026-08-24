@@ -28,10 +28,16 @@ export const PRICING_MODEL = [
   },
 ] as const;
 
-/** Everything a plan includes, regardless of scope. */
+/**
+ * Everything a plan includes, regardless of scope.
+ * "Unlimited resume screening" was removed (Nik, Aug 2026): "unlimited" is a
+ * commitment word, and screening is folded into the engine rather than sold
+ * as its own line.
+ */
 export const INCLUDED = [
   "AI sourcing across all seven channels",
-  "Unlimited resume screening",
+  "Data enrichment on every candidate",
+  "Email, voice, and text outreach",
   "Interview scheduling handled for you",
   "Offer delivery and negotiation",
   "Weekly search reviews",
