@@ -165,6 +165,10 @@ Req Play". Subject lines that fit the argument:
 - when this does not work
 - while you are hiring for [TA title]
 
+Product videos (send overview first):
+- Overview: https://www.loom.com/share/857e4e723f5548008d05adb6212f5e85
+- Demo (front end walkthrough): https://www.loom.com/share/cecce0e4e455444e8e00ecb390091ba7
+
 CTA target: book a 20-minute walkthrough at atalnt.ai/demo (Zoho booking).
 Secondary CTA for skeptics: offer to send the cost breakdown in reply.
 Do not link the pricing page; pricing is custom only and the page is being retired.

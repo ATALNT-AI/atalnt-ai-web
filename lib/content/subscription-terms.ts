@@ -46,8 +46,8 @@ export const SUBSCRIPTION_TERMS: LegalSection[] = [
   {
     heading: "Term and termination",
     blocks: [
-      "The subscription runs month to month from your start date and renews automatically each billing month until terminated, unless your order form states a different initial term.",
-      "Either party may terminate the subscription with written notice, effective at the end of the then-current billing month. We may also terminate or suspend immediately for material breach that goes uncured for fourteen days after notice, or for unlawful use of the service.",
+      "Unless your order form states otherwise, the subscription begins with a ninety-day initial commitment from your start date, billed monthly, and renews automatically each billing month after that.",
+      "Either party may terminate the subscription with at least fifteen days' written notice. Termination takes effect at the end of the then-current billing month, and no earlier than the end of the ninety-day initial commitment. We may also terminate or suspend immediately for material breach that goes uncured for fourteen days after notice, or for unlawful use of the service.",
       "On termination, access to the platform ends, we stop work on open searches, and you may export your data as described in the Data section. Sections of this Agreement that by their nature should survive termination (including confidentiality, ownership, limitation of liability, and payment of accrued fees) survive.",
       "Candidates presented to you during the subscription may be hired by you at any time, including after termination, with no additional fee.",
     ],

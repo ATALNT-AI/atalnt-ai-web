@@ -41,7 +41,7 @@ const FAQ = [
   },
   {
     q: "What happens when we do hire an in-house recruiter?",
-    a: "Nothing changes on our side. Most clients keep the subscription and their recruiter runs intake and closes, while we carry the sourcing and screening volume. If you'd rather stop, you can, effective the end of that billing month.",
+    a: "Nothing changes on our side. Most clients keep the subscription and their recruiter runs intake and closes, while we carry the sourcing and screening volume. If you'd rather stop, give us fifteen days' notice after the ninety-day initial commitment and it ends with that billing month.",
   },
   {
     q: "Who actually does the work?",
