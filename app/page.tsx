@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/hero";
 import { ClientLogos } from "@/components/sections/client-logos";
 import { Difference } from "@/components/sections/difference";
 import { SourcingNetwork } from "@/components/sections/sourcing-network";
+import { LaunchVideo } from "@/components/sections/launch-video";
 import { ProofStrip } from "@/components/sections/proof-strip";
 import { Agency } from "@/components/sections/agency";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -28,6 +29,7 @@ export default function Home() {
         <Hero />
         <ClientLogos />
         <Difference />
+        <LaunchVideo />
         <ProofStrip />
         <SourcingNetwork />
         <Agency />
