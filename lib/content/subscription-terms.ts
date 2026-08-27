@@ -67,6 +67,20 @@ export const SUBSCRIPTION_TERMS: LegalSection[] = [
     ],
   },
   {
+    heading: "Compliance of our sourcing and outreach",
+    blocks: [
+      "The sourcing and outreach we perform is ours to keep compliant. We are responsible for the legal compliance of the candidate communications we send by email, voice, and text, including the consents and disclosures those channels require, and for maintaining records of our sourcing and screening activity. Where a law requires disclosing that automated tools were used in an activity we perform, we make that disclosure.",
+      {
+        sub: "Confidential outreach",
+        body: "Our initial candidate outreach does not identify you by name unless you ask us to. Candidates learn your identity when a search reaches the stage where an introduction requires it.",
+      },
+      {
+        sub: "Cooperation",
+        body: "Responsibilities that the law places on you as the employer remain yours, and we will cooperate with reasonable requests to help you meet them, including providing information about our process and tools where a law applicable to your hiring requires it.",
+      },
+    ],
+  },
+  {
     heading: "Candidate data and privacy",
     blocks: [
       "The service processes candidate personal information: resumes, contact details, work history, screening notes, and interview feedback. Our Privacy Policy describes this processing and forms part of this Agreement.",
