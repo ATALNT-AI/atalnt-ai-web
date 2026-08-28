@@ -12,7 +12,7 @@ export function Founders() {
       <Container>
         <div className="grid gap-16 lg:grid-cols-[1fr_0.85fr] lg:gap-20">
           {/* ---- mission ---- */}
-          <Reveal>
+          <Reveal className="min-w-0">
             <Eyebrow className="mb-4">{MISSION.eyebrow}</Eyebrow>
             <h2
               id="mission-heading"
@@ -45,10 +45,15 @@ export function Founders() {
           </Reveal>
 
           {/* ---- founders ---- */}
-          <Reveal delay={120}>
-            <div className="flex items-center gap-3">
+          {/* min-w-0 on the grid item: without it, any non-wrapping child sets
+              the column's min-content width and pushes the whole grid past the
+              viewport on phones, which the section then clips. That is exactly
+              what happened with the badge below on anything narrower than a
+              Pro Max. */}
+          <Reveal delay={120} className="min-w-0">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <Eyebrow tone="gold">Founded by recruiters</Eyebrow>
-              <BadgePill tone="neutral">
+              <BadgePill tone="neutral" className="whitespace-normal">
                 {MISSION.experienceLine}
               </BadgePill>
             </div>
