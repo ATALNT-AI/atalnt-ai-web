@@ -19,7 +19,7 @@ const COLUMNS = [
       { label: "About", href: "/about" },
       { label: "Book a demo", href: "/demo" },
       { label: "ATALNT LLC", href: SITE.parent.url },
-      { label: "Contact", href: "mailto:hello@atalnt.com" },
+      { label: "Contact", href: "mailto:admin@atalnt.com" },
     ],
   },
   {
@@ -85,10 +85,10 @@ export function SiteFooter() {
             reserved.
           </p>
           <a
-            href="mailto:hello@atalnt.com"
+            href="mailto:admin@atalnt.com"
             className="inline-block py-2 transition-colors hover:text-on-dark"
           >
-            hello@atalnt.com
+            admin@atalnt.com
           </a>
         </div>
       </Container>
