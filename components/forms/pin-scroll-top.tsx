@@ -5,11 +5,12 @@ import { useEffect } from "react";
 /**
  * Holds the page at the top while a third-party iframe finishes loading.
  *
- * The Zoho Bookings widget focuses a control inside itself once its calendar
+ * A booking widget may focus a control inside itself once its calendar
  * renders, and a focus inside an iframe makes the browser scroll every
- * ancestor to reveal it. On /demo that dragged the visitor down to the bottom
- * edge of the 760px iframe, so the page appeared to open half-way down with
- * the heading and the first half of the calendar above the viewport.
+ * ancestor to reveal it. Zoho did exactly that, dragging the visitor to the
+ * bottom edge of the iframe so /demo appeared to open half-way down. Calendly
+ * behaves better, but this is cheap insurance and equally harmless if the
+ * embed never grabs focus at all.
  *
  * There is no way to refuse a cross-origin focus, so instead we undo the
  * scroll it causes, and only until the visitor does something themselves.

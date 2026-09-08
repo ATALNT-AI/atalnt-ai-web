@@ -23,16 +23,29 @@ export const SITE = {
 export const CTA_HREF = "/demo";
 
 /**
- * Zoho Bookings, service "ATALNT AI Demo" (30 min) on the ATALNT portal.
- * `portal-embed` is the iframe-safe variant; `portal` is the standalone page
- * we link to when the iframe is blocked.
+ * Calendly, event type "ATALNT AI [Overview & Demo]" (30 min, Microsoft
+ * Teams), replacing Zoho Bookings in Aug 2026.
+ *
+ * `embedUrl` carries Calendly's own query flags: the cookie banner and the
+ * page details are hidden because the surrounding page already says what the
+ * meeting is, and the accent colours are the site's gold and ink so the widget
+ * stops looking like someone else's product. `directUrl` is the plain public
+ * page, used when the embed is blocked.
+ */
+const CALENDLY_EVENT = "https://calendly.com/atalntai/30min";
+
+/**
+ * Calendly's widget.js appends `embed_domain` and `embed_type` itself, so the
+ * data-url only carries the display flags: the cookie banner and page details
+ * are hidden because the surrounding page already says what the meeting is,
+ * and the accent colours are the site's gold and ink so the widget stops
+ * looking like someone else's product.
  */
 export const BOOKING = {
-  serviceId: "4732308000001686006",
+  directUrl: CALENDLY_EVENT,
   embedUrl:
-    "https://admin-atalnt.zohobookings.com/portal-embed#/4732308000001686006",
-  directUrl:
-    "https://admin-atalnt.zohobookings.com/portal/4732308000001686006",
+    `${CALENDLY_EVENT}?hide_gdpr_banner=1&hide_event_type_details=1` +
+    "&background_color=ffffff&text_color=15130e&primary_color=b5903f",
 } as const;
 
 /**

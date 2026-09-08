@@ -34,7 +34,7 @@ export const PRIVACY: LegalSection[] = [
       "We collect personal information that you provide to us through the following channels:",
       {
         sub: "Demo bookings",
-        body: "When you book a demo, our scheduling provider Zoho Bookings collects your name, email address, and any details you add to the booking, and shares them with us so we can prepare for and hold the meeting.",
+        body: "When you book a demo, our scheduling provider Calendly collects your name, email address, and any details you add to the booking, and shares them with us so we can prepare for and hold the meeting.",
       },
       {
         sub: "Platform accounts",
@@ -107,7 +107,7 @@ export const PRIVACY: LegalSection[] = [
   {
     heading: "Third-party services",
     blocks: [
-      "We use third-party service providers to help operate our business and deliver our services, including Zoho Bookings for demo scheduling, Zoho for customer relationship management, and hosting and analytics providers. Booking a demo takes place in an embedded Zoho page, so their privacy terms apply to what you enter there.",
+      "We use third-party service providers to help operate our business and deliver our services, including Calendly for demo scheduling, Zoho for customer relationship management, and hosting and analytics providers. Booking a demo takes place in an embedded Calendly page, so their privacy terms apply to what you enter there.",
       "We do not sell your personal information. We share information with service providers only as necessary to perform services on our behalf, and they are required to protect it consistent with this policy.",
     ],
   },
@@ -224,7 +224,7 @@ export const TERMS: LegalSection[] = [
   {
     heading: "Third-party links and services",
     blocks: [
-      "This site may contain links to third-party websites and services, including Zoho for scheduling and forms. These are not controlled by ATALNT, and we are not responsible for their content, privacy practices, or terms. We encourage you to review the terms and privacy policies of any third-party site you visit.",
+      "This site may contain links to third-party websites and services, including Calendly for scheduling and Zoho for customer relationship management. These are not controlled by ATALNT, and we are not responsible for their content, privacy practices, or terms. We encourage you to review the terms and privacy policies of any third-party site you visit.",
     ],
   },
   {
