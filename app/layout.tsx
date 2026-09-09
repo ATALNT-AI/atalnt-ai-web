@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "logistics recruiting",
     "freight recruiting",
   ],
-  authors: [{ name: "ATALNT LLC", url: "https://atalnt.com" }],
+  authors: [{ name: "ATALNT LLC" }],
   creator: "ATALNT LLC",
   publisher: "ATALNT LLC",
   alternates: { canonical: "/" },

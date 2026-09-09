@@ -18,7 +18,6 @@ const COLUMNS = [
     links: [
       { label: "About", href: "/about" },
       { label: "Book a demo", href: "/demo" },
-      { label: "ATALNT LLC", href: SITE.parent.url },
       { label: "Contact", href: "mailto:admin@atalnt.com" },
     ],
   },

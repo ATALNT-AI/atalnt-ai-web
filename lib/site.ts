@@ -10,9 +10,14 @@ export const SITE = {
   url: "https://atalnt.ai",
   description:
     "Replace contingent search fees with a subscription. Submit a role, and AI sourcing overseen by a dedicated recruiter hands you a ranked shortlist that's ready to interview.",
+  /**
+   * atalnt.com 301-redirects to this site (Cloudflare redirect rule, Aug
+   * 2026), so the parent has no separate URL to link to any more. Linking it
+   * would bounce a reader back to the page they are already on, and telling
+   * search engines the two domains are related now describes a loop.
+   */
   parent: {
     name: "ATALNT LLC",
-    url: "https://atalnt.com",
   },
   social: {
     twitter: "@AtalntLLC",
