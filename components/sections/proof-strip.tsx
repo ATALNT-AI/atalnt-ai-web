@@ -109,7 +109,7 @@ export function ProofStrip() {
               <p className="mt-4 text-[15px] leading-[1.65] text-body">
                 Sourcing, enrichment, outreach, screening, scheduling, and a
                 dedicated recruiter who runs your searches. Everything in
-                that column, in one place, for one monthly price.
+                that column, in one place, for one flat price.
               </p>
 
               <p className="mt-6 border-t border-gold-line pt-5 text-[13.5px] leading-[1.6] text-gold-deep">

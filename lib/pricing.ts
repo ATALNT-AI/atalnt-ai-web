@@ -2,8 +2,19 @@
  * Pricing is QUOTE-ONLY on the website (Nik's call, Aug 2026). No dollar
  * amount renders anywhere; every price is given on the demo call and in
  * writing. The shape of the model is still public because it is the product
- * argument: priced by how many roles run at once, flat monthly, no placement
- * fees.
+ * argument: priced by how many roles run at once, flat, no placement fees.
+ *
+ * Billing CADENCE is deliberately absent from all public copy (Sept 2026).
+ * The site used to say "flat monthly price" in seven places; cadence is now
+ * a conversation on the demo call, the same way the number itself is. Do not
+ * reintroduce "monthly", and do not replace it with "annual" either: the
+ * point is that the site commits to neither, so sales can structure the
+ * agreement per account.
+ *
+ * NOTE: the subscription agreement at /subscription-terms still says fees
+ * are billed monthly in advance, because that is what current clients are
+ * actually on. If the standard deal becomes annual, that clause and the
+ * Stripe payment links have to move together with it.
  *
  * For sales reference, the last published ladder was Core $1,850 (up to 3
  * roles), Growth $2,850 (up to 10), custom above that. The Stripe Payment
@@ -19,12 +30,12 @@ export const PRICING_MODEL = [
     body: "The only thing that sets your price is how many searches we run at the same time. Not headcount, not hires, not salaries.",
   },
   {
-    title: "One flat monthly price",
+    title: "One flat price",
     body: "Hire two people or twelve inside your allowance. The price doesn't move, and there's nothing to true up at the end of the year.",
   },
   {
     title: "No placement fees",
-    body: "No percentages of salary, no per-hire charges, no fee when someone accepts. The monthly price is the whole price.",
+    body: "No percentages of salary, no per-hire charges, no fee when someone accepts. The price we agree is the whole price.",
   },
 ] as const;
 

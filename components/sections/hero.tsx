@@ -43,8 +43,8 @@ export function Hero() {
 
             <p className="mt-6 max-w-[54ch] animate-at-fade text-[18px] leading-[1.6] text-secondary text-pretty [animation-delay:160ms]">
               One platform and a dedicated recruiter that find, screen, and
-              schedule candidates across every role you have open. Flat monthly
-              price, no placement fees.
+              schedule candidates across every role you have open. Flat price, no
+              placement fees.
             </p>
 
             <div className="mt-9 flex animate-at-fade flex-col gap-3 sm:flex-row [animation-delay:240ms]">

@@ -91,7 +91,7 @@ const VO_CUES: { at: number; text: string }[] = [
   },
   { at: 45.0, text: "No links, no chasing. No nine days." },
   { at: 48.4, text: "Do that for all eleven roles. The price doesn't move." },
-  { at: 51.6, text: "One flat monthly fee, not twenty percent per hire." },
+  { at: 51.6, text: "One flat fee, not twenty percent per hire." },
   { at: 55.6, text: "The future of recruiting isn't AI versus people. It's both." },
 ];
 
@@ -1107,7 +1107,7 @@ function S7({ t }: { t: number }) {
               >
                 one flat
                 <br />
-                monthly price
+                price
               </p>
               <div
                 style={{

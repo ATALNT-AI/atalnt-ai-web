@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Why don't you publish prices?",
-    a: "Because the right number depends on how many roles you run at once and what kind of roles they are. You'll get an exact monthly price in writing on the first call, and it stays flat from there. No percentages, no per-hire math.",
+    a: "Because the right number depends on how many roles you run at once and what kind of roles they are. You'll get your exact price in writing on the first call, and it stays flat from there. No percentages, no per-hire math.",
   },
   {
     q: "How is this different from hiring the recruiter we posted for?",
@@ -41,7 +41,7 @@ const FAQ = [
   },
   {
     q: "What happens when we do hire an in-house recruiter?",
-    a: "Nothing changes on our side. Most clients keep the subscription and their recruiter runs intake and closes, while we carry the sourcing and screening volume. If you'd rather stop, give us fifteen days' notice after the ninety-day initial commitment and it ends with that billing month.",
+    a: "Nothing changes on our side. Most clients keep the subscription and their recruiter runs intake and closes, while we carry the sourcing and screening volume. If you'd rather stop, give us fifteen days' notice after the ninety-day initial commitment and it ends with that billing period.",
   },
   {
     q: "Who actually does the work?",
@@ -69,7 +69,7 @@ const FAQ = [
   },
   {
     q: "Can the scope change later?",
-    a: "Yes. Add or drop active roles and the price adjusts at the next billing month. Most clients scale up during heavy quarters and back down after.",
+    a: "Yes. Add or drop active roles and we will adjust the price from the next billing period. Most clients scale up during heavy quarters and back down after.",
   },
 ];
 
@@ -85,7 +85,7 @@ export default function PricingPage() {
                 align="center"
                 eyebrow="Pricing"
                 title="Pay for your hiring capacity, not every hire."
-                subtitle="Every plan is scoped to how many roles you run at once and quoted to your setup, with the exact monthly price in writing after one call. No placement fees. No per-hire charges."
+                subtitle="Every plan is scoped to how many roles you run at once and quoted to your setup, with your exact price in writing after one call. No placement fees. No per-hire charges."
               />
             </Reveal>
 
@@ -137,7 +137,7 @@ export default function PricingPage() {
                     Get your price
                   </Button>
                   <p className="text-[12.5px] text-muted">
-                    Twenty minutes. Exact monthly price, in writing.
+                    Twenty minutes. Your exact price, in writing.
                   </p>
                 </div>
               </div>

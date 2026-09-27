@@ -43,7 +43,7 @@ export const ANSWERS = [
   {
     n: "02",
     title: "The next hire is free at the margin.",
-    body: "One flat monthly price. Hire two people or twelve, it doesn't move.",
+    body: "One flat price. Hire two people or twelve, it doesn't move.",
     echo: "Your tenth hire costs nothing extra",
   },
   {

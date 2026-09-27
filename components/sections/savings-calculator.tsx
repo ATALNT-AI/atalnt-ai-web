@@ -328,7 +328,7 @@ export function SavingsCalculator() {
                       The other model
                     </p>
                     <p className="mt-3 font-display text-[24px] leading-[1.25] text-ink text-balance">
-                      One flat monthly price. No fee per hire.
+                      One flat price. No fee per hire.
                     </p>
                     <p className="mt-3 text-[12.5px] leading-[1.6] text-secondary">
                       Scoped to how many roles you run at once, so every hire
