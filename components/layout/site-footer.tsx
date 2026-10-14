@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Wordmark } from "@/components/ui/wordmark";
 import { SITE } from "@/lib/site";
+import { LEGAL_CONTACT, SMS_PHONE, SMS_PHONE_HREF } from "@/lib/content/legal";
 
 /** Launch footer. Only routes that exist, same rule as the nav. */
 const COLUMNS = [
@@ -83,12 +84,22 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {SITE.parent.name}. All rights
             reserved.
           </p>
-          <a
-            href="mailto:admin@atalnt.com"
-            className="inline-block py-2 transition-colors hover:text-on-dark"
-          >
-            admin@atalnt.com
-          </a>
+          {/* Legal name, phone, and email in the footer are an A2P 10DLC
+              registration requirement; they must match the privacy policy. */}
+          <div className="flex flex-col gap-1 sm:flex-row sm:gap-5">
+            <a
+              href={SMS_PHONE_HREF}
+              className="inline-block py-2 transition-colors hover:text-on-dark"
+            >
+              {SMS_PHONE}
+            </a>
+            <a
+              href={`mailto:${LEGAL_CONTACT}`}
+              className="inline-block py-2 transition-colors hover:text-on-dark"
+            >
+              {LEGAL_CONTACT}
+            </a>
+          </div>
         </div>
       </Container>
     </footer>

@@ -134,7 +134,7 @@ export const SUBSCRIPTION_TERMS: LegalSection[] = [
       "This Agreement is governed by the laws of the State of California, and disputes will be resolved exclusively in the state or federal courts located in California.",
       "Neither party may assign this Agreement without the other's consent, except to an affiliate or in connection with a merger or sale of substantially all assets. Neither party is liable for delay caused by events beyond its reasonable control.",
       'We may update this Agreement for future billing months by posting the revised version and giving you notice at least thirty days before it takes effect; continued use after the effective date is acceptance. The version you accepted, together with your order form and our Privacy Policy, is the entire agreement and supersedes prior discussions.',
-      "Questions and notices: privacy@atalnt.com, ATALNT LLC.",
+      "Questions and notices: admin@atalnt.com, +1 (704) 741-2618, ATALNT LLC.",
     ],
   },
 ];

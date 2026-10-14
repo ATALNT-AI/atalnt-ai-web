@@ -41,15 +41,15 @@ const CALENDLY_EVENT = "https://calendly.com/atalntai/30min";
 
 /**
  * Calendly's widget.js appends `embed_domain` and `embed_type` itself, so the
- * data-url only carries the display flags: the cookie banner and page details
- * are hidden because the surrounding page already says what the meeting is,
- * and the accent colours are the site's gold and ink so the widget stops
- * looking like someone else's product.
+ * data-url only carries the display flags: the cookie banner is hidden and
+ * the accent colours are the site's gold and ink. Event details stay VISIBLE:
+ * the event description carries the Privacy Policy and Terms links that A2P
+ * 10DLC registration requires on the booking page (Oct 2026).
  */
 export const BOOKING = {
   directUrl: CALENDLY_EVENT,
   embedUrl:
-    `${CALENDLY_EVENT}?hide_gdpr_banner=1&hide_event_type_details=1` +
+    `${CALENDLY_EVENT}?hide_gdpr_banner=1` +
     "&background_color=ffffff&text_color=15130e&primary_color=b5903f",
 } as const;
 

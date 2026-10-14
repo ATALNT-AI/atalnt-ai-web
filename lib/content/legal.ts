@@ -17,8 +17,32 @@ export type LegalSection = {
   blocks: (string | { sub: string; body: string } | { list: string[] })[];
 };
 
-export const LEGAL_UPDATED = "August 11, 2026";
-export const LEGAL_CONTACT = "privacy@atalnt.com";
+export const LEGAL_UPDATED = "October 14, 2026";
+export const LEGAL_CONTACT = "admin@atalnt.com";
+
+/**
+ * The number carriers see as ATALNT's messaging contact. A2P 10DLC review
+ * checks that the same number and email appear on the privacy policy, the
+ * terms, and the site footer, so all three read from here.
+ */
+export const SMS_PHONE = "+1 (704) 741-2618";
+export const SMS_PHONE_HREF = "tel:+17047412618";
+
+/**
+ * Wording supplied by the A2P registration reviewer (Oct 2026). Carriers
+ * look for this language specifically, so it is kept verbatim apart from the
+ * filled-in placeholders. Do not paraphrase it.
+ */
+const SMS_NON_SHARING =
+  "No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.";
+
+const SMS_PROGRAM_TERMS = [
+  `You can cancel the SMS service at any time. Just text "STOP" to ${SMS_PHONE}. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.`,
+  `If you are experiencing issues with the messaging program you can reply with the keyword HELP for more assistance, or you can get help directly at ${LEGAL_CONTACT} or ${SMS_PHONE}.`,
+  "Carriers are not liable for delayed or undelivered messages.",
+  "As always, message and data rates may apply for any messages sent to you from us and to us from you. You will receive between 1 and 10 messages per month. If you have any questions about your text plan or data plan, it is best to contact your wireless provider.",
+  "If you have any questions regarding privacy, please read our privacy policy: https://atalnt.ai/privacy",
+];
 
 export const PRIVACY: LegalSection[] = [
   {
@@ -89,11 +113,15 @@ export const PRIVACY: LegalSection[] = [
       },
       {
         sub: "Help",
-        body: `For help with text messaging, reply HELP to any message or contact us at ${LEGAL_CONTACT}.`,
+        body: `For help with text messaging, reply HELP to any message or contact us at ${LEGAL_CONTACT} or ${SMS_PHONE}.`,
       },
       {
         sub: "Carrier disclaimer",
         body: "Carriers are not liable for delayed or undelivered messages.",
+      },
+      {
+        sub: "Non-sharing of mobile information",
+        body: SMS_NON_SHARING,
       },
     ],
   },
@@ -155,7 +183,7 @@ export const PRIVACY: LegalSection[] = [
   {
     heading: "Contact us",
     blocks: [
-      `Questions about this policy or our data practices: ATALNT LLC, ${LEGAL_CONTACT}, atalnt.com.`,
+      `Questions about this policy or our data practices: ATALNT LLC, ${LEGAL_CONTACT}, ${SMS_PHONE}, atalnt.ai.`,
     ],
   },
 ];
@@ -212,7 +240,8 @@ export const TERMS: LegalSection[] = [
   {
     heading: "SMS terms",
     blocks: [
-      "By providing your phone number and opting in to receive text messages from ATALNT, you agree to the terms set out on our SMS Terms page, which forms part of these Terms.",
+      "By providing your phone number and opting in to receive text messages from ATALNT, you agree to the following, and to the terms set out on our SMS Terms page, which forms part of these Terms.",
+      { list: SMS_PROGRAM_TERMS },
     ],
   },
   {
@@ -262,7 +291,7 @@ export const TERMS: LegalSection[] = [
   {
     heading: "Contact us",
     blocks: [
-      `Questions about these Terms: ATALNT LLC, ${LEGAL_CONTACT}, atalnt.com.`,
+      `Questions about these Terms: ATALNT LLC, ${LEGAL_CONTACT}, ${SMS_PHONE}, atalnt.ai.`,
     ],
   },
 ];
@@ -295,12 +324,12 @@ export const SMS_TERMS: LegalSection[] = [
   {
     heading: "Opting out",
     blocks: [
-      "To opt out, reply STOP to any text message from ATALNT. You will receive a single confirmation message and will no longer receive text messages from us unless you opt in again.",
+      `To opt out, reply STOP to any text message from ATALNT, or text STOP to ${SMS_PHONE}. You will receive a single confirmation message and will no longer receive text messages from us unless you opt in again.`,
     ],
   },
   {
     heading: "Help",
-    blocks: [`For help, reply HELP or email ${LEGAL_CONTACT}.`],
+    blocks: [`For help, reply HELP, email ${LEGAL_CONTACT}, or call ${SMS_PHONE}.`],
   },
   {
     heading: "Carrier disclaimer",
