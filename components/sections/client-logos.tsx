@@ -5,8 +5,12 @@ import { Container } from "@/components/ui/container";
  * directly. Same search process for all of them, contingent pricing rather
  * than subscription. Scrolls right to left like the parent site.
  *
- * These files come from seventeen different companies in every possible
- * format, so each one gets the treatment its artwork actually needs. The
+ * Thirty companies across freight, construction, trades, restoration,
+ * manufacturing and more, ordered so no two logistics names sit side by side.
+ * The thirteen added in Nov 2026 were pre-converted to dark artwork on
+ * transparency (same format as the "(none)" group below), so they all use the
+ * default treatment and match the wall exactly. Earlier files came in every
+ * possible format, so each one gets the treatment its artwork actually needs. The
  * classification was made by measuring each file's alpha channel and mean
  * luminance, then checking the rendered result:
  *
@@ -32,22 +36,35 @@ type Client = {
 
 const CLIENTS: Client[] = [
   { src: "/clients/landstar.png", alt: "Landstar", h: 26, t: "box" },
+  { src: "/clients/ihc.png", alt: "IHC Construction Companies", h: 23 },
+  { src: "/clients/lightspeed.png", alt: "Lightspeed Restoration", h: 29 },
   { src: "/clients/bettaway.png", alt: "Bettaway", h: 34, t: "invert" },
+  { src: "/clients/mmi.png", alt: "MMI Industrial & Steel", h: 27 },
+  { src: "/clients/casella.png", alt: "Casella", h: 34 },
   { src: "/clients/armstrong.png", alt: "Armstrong Transport Group", h: 22, t: "invert" },
-  { src: "/clients/007freight.png", alt: "007 Freight", h: 38, t: "invert" },
-  { src: "/clients/servefreight.svg", alt: "Serve Freight", h: 36, t: "invert" },
-  { src: "/clients/brownlogistics.png", alt: "Brown Logistics", h: 44, t: "box" },
-  { src: "/clients/vannoy.png", alt: "Vannoy", h: 40, t: "invert" },
+  { src: "/clients/morrison.png", alt: "Morrison Construction", h: 33 },
+  { src: "/clients/tpm.png", alt: "TPM Graphics", h: 34 },
   { src: "/clients/adamselectric.png", alt: "Adams Electric", h: 30, t: "invert" },
+  { src: "/clients/007freight.png", alt: "007 Freight", h: 38, t: "invert" },
+  { src: "/clients/triton.png", alt: "Triton Construction", h: 28 },
+  { src: "/clients/kaempfharris.png", alt: "Kaempf & Harris Sheet Metal", h: 42 },
+  { src: "/clients/balfour.jpg", alt: "Balfour & Co", h: 34, t: "box" },
+  { src: "/clients/servefreight.svg", alt: "Serve Freight", h: 36, t: "invert" },
+  { src: "/clients/midstate.png", alt: "Midstate Mechanical", h: 29 },
+  { src: "/clients/kmc.png", alt: "KMC Partners", h: 34 },
   { src: "/clients/danielstire.png", alt: "Daniels Tire Service", h: 38, t: "shape" },
+  { src: "/clients/brownlogistics.png", alt: "Brown Logistics", h: 44, t: "box" },
+  { src: "/clients/sealevel.png", alt: "Sealevel Construction", h: 30 },
+  { src: "/clients/jci.png", alt: "JCI Contractors", h: 35 },
   { src: "/clients/thsnational.png", alt: "THS National", h: 26 },
-  { src: "/clients/nuagebuilders.png", alt: "NuAge Builders", h: 34, t: "box" },
-  { src: "/clients/creteunited.png", alt: "Crete United", h: 44, t: "shape" },
-  { src: "/clients/sttlogistics.webp", alt: "STT Logistics Group", h: 34, t: "invert" },
+  { src: "/clients/vannoy.png", alt: "Vannoy", h: 40, t: "invert" },
+  { src: "/clients/democompany.png", alt: "The Demo Company", h: 34 },
   { src: "/clients/watsonelec.svg", alt: "Watson Electrical", h: 26 },
+  { src: "/clients/sttlogistics.webp", alt: "STT Logistics Group", h: 34, t: "invert" },
+  { src: "/clients/creteunited.png", alt: "Crete United", h: 44, t: "shape" },
+  { src: "/clients/nuagebuilders.png", alt: "NuAge Builders", h: 34, t: "box" },
   { src: "/clients/proconmfg.png", alt: "Pro-Con Manufacturing", h: 30 },
   { src: "/clients/cadence.svg", alt: "Cadence", h: 26 },
-  { src: "/clients/balfour.jpg", alt: "Balfour & Co", h: 34, t: "box" },
 ];
 
 const TREATMENT: Record<Treatment | "default", string> = {
