@@ -33,7 +33,10 @@ export function FeaturedVideoTestimonial({ t }: { t: VideoTestimonial }) {
   }
 
   return (
-    <figure className="grid overflow-hidden rounded-hero border border-ink-line bg-ink shadow-dark lg:grid-cols-[1.5fr_1fr]">
+    <figure
+      id={t.id}
+      className="grid scroll-mt-28 overflow-hidden rounded-hero border border-ink-line bg-ink shadow-dark lg:grid-cols-[1.5fr_1fr]"
+    >
       {/* The quote column can make this row taller than 16:9, so the video
           and its poster overlay sit centred in a box of their own. */}
       <div className="flex items-center bg-ink">
@@ -105,10 +108,20 @@ export function FeaturedVideoTestimonial({ t }: { t: VideoTestimonial }) {
 
         <div>
           <figcaption className="border-t border-ink-line pt-5">
-            <p className="text-[15px] font-semibold text-on-dark">{t.author}</p>
+            <p className="text-[15px] font-semibold text-on-dark">
+              {t.author}
+              {t.credentials && (
+                <span className="font-normal text-on-dark-muted">
+                  , {t.credentials}
+                </span>
+              )}
+            </p>
             <p className="mt-0.5 text-[13px] text-on-dark-muted">
               {t.role}, {t.company}
             </p>
+            {t.about && (
+              <p className="mt-0.5 text-[13px] text-on-dark-muted">{t.about}</p>
+            )}
             {t.linkedin && (
               <a
                 href={t.linkedin}

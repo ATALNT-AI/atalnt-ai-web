@@ -15,11 +15,38 @@ import {
   type Testimonial,
 } from "@/lib/content/testimonials";
 
+const SHARE_DESCRIPTION =
+  "Nelly Schlack, HR Manager at MMI Industrial & Steel, on agencies charging 20%+ of salary, and why ATALNT AI filled her roles faster. Watch her story.";
+const SHARE_IMAGE = {
+  url: "/testimonials/mmi/nelly-share.jpg",
+  width: 1200,
+  height: 630,
+  alt: "Nelly Schlack, HR Manager at MMI Industrial & Steel: \u201cIf there\u2019s going to be a test, this is it.\u201d",
+};
+
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "What hiring teams say about working with ATALNT AI, in their own words.",
+    "Hear it straight from our clients. Watch Nelly Schlack, HR Manager at MMI Industrial & Steel, on hiring with ATALNT AI.",
   alternates: { canonical: "/testimonials" },
+  // Child metadata replaces the layout's openGraph and twitter whole, so every
+  // field is restated. This is the card people see when the link is shared.
+  openGraph: {
+    type: "website",
+    siteName: "ATALNT AI",
+    url: "https://atalnt.ai/testimonials",
+    title: "How MMI Industrial & Steel hires with ATALNT AI",
+    description: SHARE_DESCRIPTION,
+    locale: "en_US",
+    images: [SHARE_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@AtalntLLC",
+    title: "How MMI Industrial & Steel hires with ATALNT AI",
+    description: SHARE_DESCRIPTION,
+    images: [SHARE_IMAGE.url],
+  },
 };
 
 function QuoteCard({ t, dark = false }: { t: Testimonial; dark?: boolean }) {
@@ -42,11 +69,17 @@ function QuoteCard({ t, dark = false }: { t: Testimonial; dark?: boolean }) {
       >
         {t.quote}
       </blockquote>
-      <figcaption className={`mt-6 border-t pt-5 ${dark ? "border-ink-line" : "border-line-inner"}`}>
-        <p className={`text-[15px] font-semibold ${dark ? "text-on-dark" : "text-ink"}`}>
+      <figcaption
+        className={`mt-6 border-t pt-5 ${dark ? "border-ink-line" : "border-line-inner"}`}
+      >
+        <p
+          className={`text-[15px] font-semibold ${dark ? "text-on-dark" : "text-ink"}`}
+        >
           {t.author}
         </p>
-        <p className={`mt-0.5 text-[13px] ${dark ? "text-on-dark-muted" : "text-secondary"}`}>
+        <p
+          className={`mt-0.5 text-[13px] ${dark ? "text-on-dark-muted" : "text-secondary"}`}
+        >
           {t.role}, {t.company}
         </p>
         {t.linkedin && (
@@ -82,7 +115,11 @@ export default function TestimonialsPage() {
             </Reveal>
 
             {VIDEO_TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.author} delay={100 + i * 80} className="mt-14 block">
+              <Reveal
+                key={t.author}
+                delay={100 + i * 80}
+                className="mt-14 block"
+              >
                 <FeaturedVideoTestimonial t={t} />
               </Reveal>
             ))}

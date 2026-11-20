@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   applicationName: SITE.name,
   keywords: [
     "AI recruiting platform",
-    "subscription recruiting",
+    "AI recruiter",
     "recruiting without agency fees",
     "contingent search alternative",
     "AI candidate sourcing",

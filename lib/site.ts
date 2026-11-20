@@ -9,7 +9,7 @@ export const SITE = {
   tagline: "AI recruiting with a human on your side",
   url: "https://atalnt.ai",
   description:
-    "Replace contingent search fees with a subscription. Submit a role, and AI sourcing overseen by a dedicated recruiter hands you a ranked shortlist that's ready to interview.",
+    "Submit a role, and AI sourcing overseen by a dedicated recruiter hands you a ranked shortlist that's ready to interview.",
   /**
    * atalnt.com 301-redirects to this site (Cloudflare redirect rule, Aug
    * 2026), so the parent has no separate URL to link to any more. Linking it

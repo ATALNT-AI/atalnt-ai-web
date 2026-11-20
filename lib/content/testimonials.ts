@@ -26,6 +26,12 @@ export const CANDIDATE_TESTIMONIALS: Testimonial[] = [];
 export type VideoCut = { label: string; duration: string; src: string };
 
 export type VideoTestimonial = Testimonial & {
+  /** Anchor, so atalnt.ai/testimonials#<id> lands on the video. */
+  id: string;
+  /** Post-nominals shown after the name, e.g. "SHRM-SCP, SPHR". */
+  credentials?: string;
+  /** One line on what the company does, so prospects see themselves. */
+  about?: string;
   poster: string;
   /** First cut plays by default. */
   cuts: VideoCut[];
@@ -43,11 +49,23 @@ export const VIDEO_TESTIMONIALS: VideoTestimonial[] = [
     author: "Nelly Schlack",
     role: "Human Resources Manager",
     company: "MMI Industrial & Steel",
-    linkedin: "https://www.linkedin.com/in/marianella-schlack-mba-shrm-scp-sphr-18a10316b/",
+    linkedin:
+      "https://www.linkedin.com/in/marianella-schlack-mba-shrm-scp-sphr-18a10316b/",
+    id: "nelly",
+    credentials: "MBA, SHRM-SCP, SPHR",
+    about: "Full-service steel fabrication, Arizona",
     poster: "/testimonials/mmi/nelly-poster-2.jpg",
     cuts: [
-      { label: "Full story", duration: "3:26", src: "/testimonials/mmi/mmi-full-story.mp4" },
-      { label: "Highlights", duration: "1:13", src: "/testimonials/mmi/mmi-highlights.mp4" },
+      {
+        label: "Highlights",
+        duration: "1:14",
+        src: "/testimonials/mmi/mmi-highlights-v2.mp4",
+      },
+      {
+        label: "Full story",
+        duration: "3:27",
+        src: "/testimonials/mmi/mmi-full-story-v2.mp4",
+      },
     ],
   },
 ];

@@ -8,6 +8,7 @@ import { LaunchVideo } from "@/components/sections/launch-video";
 import { ProofStrip } from "@/components/sections/proof-strip";
 import { Agency } from "@/components/sections/agency";
 import { CtaBand } from "@/components/sections/cta-band";
+import { ClientStory } from "@/components/sections/client-story";
 
 /**
  * Page spine: what the platform does, what it replaces, and where candidates
@@ -30,6 +31,7 @@ export default function Home() {
         <ClientLogos />
         <Difference />
         <LaunchVideo />
+        <ClientStory />
         <ProofStrip />
         <SourcingNetwork />
         <Agency />
