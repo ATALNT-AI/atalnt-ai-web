@@ -49,6 +49,17 @@ function QuoteCard({ t, dark = false }: { t: Testimonial; dark?: boolean }) {
         <p className={`mt-0.5 text-[13px] ${dark ? "text-on-dark-muted" : "text-secondary"}`}>
           {t.role}, {t.company}
         </p>
+        {t.linkedin && (
+          <a
+            href={t.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t.author} on LinkedIn`}
+            className={`mt-2 inline-block py-1.5 text-[13px] font-semibold underline-offset-4 transition-colors hover:underline ${dark ? "text-gold-bright hover:text-on-dark" : "text-secondary hover:text-ink"}`}
+          >
+            LinkedIn &#8599;
+          </a>
+        )}
       </figcaption>
     </figure>
   );

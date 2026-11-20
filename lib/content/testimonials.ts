@@ -3,6 +3,8 @@ export type Testimonial = {
   author: string;
   role: string;
   company: string;
+  /** Public profile, so a prospect can check the person is real. */
+  linkedin?: string;
 };
 
 /**
@@ -41,6 +43,7 @@ export const VIDEO_TESTIMONIALS: VideoTestimonial[] = [
     author: "Nelly Schlack",
     role: "Human Resources Manager",
     company: "MMI Industrial & Steel",
+    linkedin: "https://www.linkedin.com/in/marianella-schlack-mba-shrm-scp-sphr-18a10316b/",
     poster: "/testimonials/mmi/nelly-poster-2.jpg",
     cuts: [
       { label: "Full story", duration: "3:26", src: "/testimonials/mmi/mmi-full-story.mp4" },

@@ -109,6 +109,17 @@ export function FeaturedVideoTestimonial({ t }: { t: VideoTestimonial }) {
             <p className="mt-0.5 text-[13px] text-on-dark-muted">
               {t.role}, {t.company}
             </p>
+            {t.linkedin && (
+              <a
+                href={t.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${t.author} on LinkedIn`}
+                className="mt-2 inline-block py-1.5 text-[13px] font-semibold text-gold-bright underline-offset-4 transition-colors hover:text-on-dark hover:underline"
+              >
+                LinkedIn &#8599;
+              </a>
+            )}
           </figcaption>
 
           {t.cuts.length > 1 && (
