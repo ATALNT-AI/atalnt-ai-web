@@ -7,9 +7,11 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/motion/reveal";
+import { FeaturedVideoTestimonial } from "@/components/sections/featured-video-testimonial";
 import {
   CLIENT_TESTIMONIALS,
   CANDIDATE_TESTIMONIALS,
+  VIDEO_TESTIMONIALS,
   type Testimonial,
 } from "@/lib/content/testimonials";
 
@@ -67,6 +69,12 @@ export default function TestimonialsPage() {
                 subtitle="Recruiting only works when the hiring team and the candidate both come away well treated. Here is what each of them says."
               />
             </Reveal>
+
+            {VIDEO_TESTIMONIALS.map((t, i) => (
+              <Reveal key={t.author} delay={100 + i * 80} className="mt-14 block">
+                <FeaturedVideoTestimonial t={t} />
+              </Reveal>
+            ))}
 
             <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {CLIENT_TESTIMONIALS.map((t, i) => (
