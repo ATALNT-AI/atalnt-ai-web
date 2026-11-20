@@ -18,7 +18,7 @@ import {
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "What hiring teams and candidates say about working with ATALNT. Real quotes from the people on both sides of the search.",
+    "What hiring teams say about working with ATALNT AI, in their own words.",
   alternates: { canonical: "/testimonials" },
 };
 
@@ -65,8 +65,8 @@ export default function TestimonialsPage() {
               <SectionHeader
                 align="center"
                 eyebrow="Testimonials"
-                title="Both sides of the search."
-                subtitle="Recruiting only works when the hiring team and the candidate both come away well treated. Here is what each of them says."
+                title="In their own words."
+                subtitle="Hear it from the HR leaders who hire with ATALNT AI."
               />
             </Reveal>
 
@@ -76,13 +76,16 @@ export default function TestimonialsPage() {
               </Reveal>
             ))}
 
-            <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {CLIENT_TESTIMONIALS.map((t, i) => (
-                <Reveal key={t.author} as="li" delay={i * 80}>
-                  <QuoteCard t={t} />
-                </Reveal>
-              ))}
-            </ul>
+            {/* Renders only once real, approved client quotes exist. */}
+            {CLIENT_TESTIMONIALS.length > 0 && (
+              <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {CLIENT_TESTIMONIALS.map((t, i) => (
+                  <Reveal key={t.author} as="li" delay={i * 80}>
+                    <QuoteCard t={t} />
+                  </Reveal>
+                ))}
+              </ul>
+            )}
           </Container>
         </Section>
 
