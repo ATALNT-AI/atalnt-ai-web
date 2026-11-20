@@ -76,8 +76,8 @@ export default function TestimonialsPage() {
               <SectionHeader
                 align="center"
                 eyebrow="Testimonials"
-                title="In their own words."
-                subtitle="Hear it from the HR leaders who hire with ATALNT AI."
+                title="Hear it straight from our clients."
+                subtitle="What changed for the HR teams who hire with ATALNT AI."
               />
             </Reveal>
 
