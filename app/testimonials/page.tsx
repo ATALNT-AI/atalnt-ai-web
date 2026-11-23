@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "ATALNT AI",
     url: "https://atalnt.ai/testimonials",
-    title: "How MMI Industrial & Steel hires with ATALNT AI",
+    title: "How MMI Industrial & Steel fixed a broken hiring process with ATALNT AI",
     description: SHARE_DESCRIPTION,
     locale: "en_US",
     images: [SHARE_IMAGE],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@AtalntLLC",
-    title: "How MMI Industrial & Steel hires with ATALNT AI",
+    title: "How MMI Industrial & Steel fixed a broken hiring process with ATALNT AI",
     description: SHARE_DESCRIPTION,
     images: [SHARE_IMAGE.url],
   },
